@@ -1,0 +1,854 @@
+<%- include _header %>
+
+<div id="my-app-container">
+    <div id="my-app-content" class="clear">
+        <%- include _navigator%>
+
+        <form action="<%= staticResourceUrl %>/developer/queryApp.jspx" id="queryForm" method="post">
+            <input name="curr_query_state" id="curr_query_state" type="hidden" value="9"/>
+            <input name="addv" id="addv" type="hidden" value=""/>
+            <input name="appId" id="appId" type="hidden" value=""/>
+
+            <div id="my-app-con">
+                <div class="frame-content">
+                    <h1>我的应用</h1>
+
+                    <div class="app-title-1" id="app-title">
+                        <ul>
+                            <li id="s0"><a href="javascript:changeItem('0')" class="span-2-active">等待提交</a></li>
+                            <li id="s1"><a href="javascript:changeItem('1')" class="span-3">待测试</a></li>
+                            <li id="s4"><a href="javascript:changeItem('4')" class="span-4">通过测试</a></li>
+                            <li id="s7"><a href="javascript:changeItem('7')" class="span-1">未通过测试</a></li>
+                            <li id="s5"><a href="javascript:changeItem('5')" class="span-2">在售中</a></li>
+                            <li id="s6"><a href="javascript:changeItem('6')" class="span-1">已下架</a></li>
+                            <li id="s9" class="app-li-1"><a href="javascript:changeItem('9')" class="span-3">冻结中</a>
+                            </li>
+                        </ul>
+                        <div id="app-title-bg" class="app-title-bg-1"></div>
+                    </div>
+                    <div id="app-form-search">
+                        <table>
+                            <tr>
+                                <td><label for="app-form-search-input">应用名称：</label></td>
+                                <td><input type="text" name="queryAppName" id="queryAppName" value=""
+                                           class="input-class"/>
+                                    &nbsp;&nbsp;&nbsp;</td>
+                                <td><input type="button" value="查询" onclick="querySubmit();" id="app-form-search-btn"
+                                           class="btn-class"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p class="app-notice">
+
+
+                        如果您上传的应用没有提交是无法正式上架的，请您确认后提交测试，测试通过后即可上架！
+
+                    </p>
+
+
+                    <table class="app-table-class app-table-class-2">
+                        <thead>
+                        <tr>
+
+                            <th width="11%">状态</th>
+                            <th width="12%">应用名称</th>
+                            <th width="10%">应用APPID</th>
+                            <th width="12%">上传时间</th>
+                            <th width="9%">版本名称</th>
+                            <th width="9%">所属类别</th>
+                            <th width="12%">支持屏幕尺寸</th>
+                            <th width="8%">适用芯片</th>
+
+                            <th width="9%">大小</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+
+                            <td align="center">
+
+                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2014-01-22092824-_1390354104319_3636.png"
+                                     width="45" height="45" alt=""
+                                     onerror="im_(this,'/developer')"/>
+
+
+                                <br/><span>
+
+
+
+
+
+
+
+
+
+
+
+    <span class="status">冻结中</span>
+
+
+
+</span>
+                            </td>
+                            <td><a href="javascript:ckappinfo(10214413)" class="f14">
+                                人人
+                            </a></td>
+                            <td>10211016</td>
+                            <td>2014-01-22
+                                <br/>09:28:18
+                            </td>
+                            <td>7.2.1</td>
+                            <td>飞行.射击</td>
+                            <td>
+                                小屏幕<br/>
+
+                                正常屏幕<br/>
+
+                                大屏幕<br/>
+
+                                超屏幕<br/>
+
+                            </td>
+                            <td>
+                                ARM<br/>
+
+                                Intel<br/>
+
+                            </td>
+
+                            <td>16.76M</td>
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td align="center">
+
+                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-11-14053744-_1384421864613_8362.png"
+                                     width="45" height="45" alt=""
+                                     onerror="im_(this,'/developer')"/>
+
+
+                                <br/><span>
+
+
+
+
+
+
+
+
+
+
+
+    <span class="status">冻结中</span>
+
+
+
+</span>
+                            </td>
+                            <td><a href="javascript:ckappinfo(10213897)" class="f14">
+                                人人603
+                            </a></td>
+                            <td>10211016</td>
+                            <td>2013-11-14
+                                <br/>17:37:38
+                            </td>
+                            <td>6.0.3</td>
+                            <td>飞行.射击</td>
+                            <td>
+                                小屏幕<br/>
+
+                                正常屏幕<br/>
+
+                                大屏幕<br/>
+
+                                超屏幕<br/>
+
+                            </td>
+                            <td>
+                                ARM<br/>
+
+                                Intel<br/>
+
+                            </td>
+
+                            <td>14.26M</td>
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td align="center">
+
+                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-11-07021529-_1383804929206_8832.png"
+                                     width="45" height="45" alt=""
+                                     onerror="im_(this,'/developer')"/>
+
+
+                                <br/><span>
+
+
+
+
+
+
+
+
+
+
+
+    <span class="status">冻结中</span>
+
+
+
+</span>
+                            </td>
+                            <td><a href="javascript:ckappinfo(10213836)" class="f14">
+                                乐商店mini-205
+                            </a></td>
+                            <td>10213728</td>
+                            <td>2013-11-07
+                                <br/>14:15:24
+                            </td>
+                            <td>1.0.3g.1106(debug)-1311071358-test-vc205</td>
+                            <td>网游</td>
+                            <td>
+                                小屏幕<br/>
+
+                                正常屏幕<br/>
+
+                                大屏幕<br/>
+
+                                超屏幕<br/>
+
+                            </td>
+                            <td>
+                                ARM<br/>
+
+                                Intel<br/>
+
+                            </td>
+
+                            <td>200KB</td>
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td align="center">
+
+                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-11-06122714-_1383712034726_9307.png"
+                                     width="45" height="45" alt=""
+                                     onerror="im_(this,'/developer')"/>
+
+
+                                <br/><span>
+
+
+
+
+
+
+
+
+
+
+
+    <span class="status">冻结中</span>
+
+
+
+</span>
+                            </td>
+                            <td><a href="javascript:ckappinfo(10213807)" class="f14">
+                                乐商店-204
+                            </a></td>
+                            <td>10213728</td>
+                            <td>2013-11-06
+                                <br/>12:27:10
+                            </td>
+                            <td>1.0.3g.1018-1311061050-test-vc204</td>
+                            <td>网游</td>
+                            <td>
+                                小屏幕<br/>
+
+                                正常屏幕<br/>
+
+                                大屏幕<br/>
+
+                                超屏幕<br/>
+
+                            </td>
+                            <td>
+                                Intel<br/>
+
+                            </td>
+
+                            <td>199KB</td>
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td align="center">
+
+                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-11-04031605-_1383549365443_5011.png"
+                                     width="45" height="45" alt=""
+                                     onerror="im_(this,'/developer')"/>
+
+
+                                <br/><span>
+
+
+
+
+
+
+
+
+
+
+
+    <span class="status">冻结中</span>
+
+
+
+</span>
+                            </td>
+                            <td><a href="javascript:ckappinfo(10213782)" class="f14">
+                                乐商店-203
+                            </a></td>
+                            <td>10213728</td>
+                            <td>2013-11-04
+                                <br/>15:16:01
+                            </td>
+                            <td>storemini-1311041516-test-vc203</td>
+                            <td>网游</td>
+                            <td>
+                                小屏幕<br/>
+
+                                正常屏幕<br/>
+
+                                大屏幕<br/>
+
+                                超屏幕<br/>
+
+                            </td>
+                            <td>
+                                Intel<br/>
+
+                            </td>
+
+                            <td>198KB</td>
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td align="center">
+
+                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-11-01025026-_1383288626922_5701.png"
+                                     width="45" height="45" alt=""
+                                     onerror="im_(this,'/developer')"/>
+
+
+                                <br/><span>
+
+
+
+
+
+
+
+
+
+
+
+    <span class="status">冻结中</span>
+
+
+
+</span>
+                            </td>
+                            <td><a href="javascript:ckappinfo(10213767)" class="f14">
+                                乐商店-2002
+                            </a></td>
+                            <td>10213728</td>
+                            <td>2013-11-01
+                                <br/>14:50:26
+                            </td>
+                            <td>storemini-1311011452-test-vc202</td>
+                            <td>网游</td>
+                            <td>
+                                小屏幕<br/>
+
+                                正常屏幕<br/>
+
+                                大屏幕<br/>
+
+                                超屏幕<br/>
+
+                            </td>
+                            <td>
+                                Intel<br/>
+
+                            </td>
+
+                            <td>198KB</td>
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td align="center">
+
+                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-10-31105726-_1383188246289_6128.png"
+                                     width="45" height="45" alt=""
+                                     onerror="im_(this,'/developer')"/>
+
+
+                                <br/><span>
+
+
+
+
+
+
+
+
+
+
+
+    <span class="status">冻结中</span>
+
+
+
+</span>
+                            </td>
+                            <td><a href="javascript:ckappinfo(10213760)" class="f14">
+                                人人601
+                            </a></td>
+                            <td>10211016</td>
+                            <td>2013-10-31
+                                <br/>10:57:21
+                            </td>
+                            <td>6.0.1</td>
+                            <td>飞行.射击</td>
+                            <td>
+                                小屏幕<br/>
+
+                                正常屏幕<br/>
+
+                                大屏幕<br/>
+
+                                超屏幕<br/>
+
+                            </td>
+                            <td>
+                                Intel<br/>
+
+                                ARM<br/>
+
+                            </td>
+
+                            <td>14.19M</td>
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td align="center">
+
+                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-10-21041001-_1382343001300_4090.png"
+                                     width="45" height="45" alt=""
+                                     onerror="im_(this,'/developer')"/>
+
+
+                                <br/><span>
+
+
+
+
+
+
+
+
+
+
+
+    <span class="status">冻结中</span>
+
+
+
+</span>
+                            </td>
+                            <td><a href="javascript:ckappinfo(10213732)" class="f14">
+                                乐商店min201
+                            </a></td>
+                            <td>10213728</td>
+                            <td>2013-10-21
+                                <br/>16:09:56
+                            </td>
+                            <td>1.0.3g-1310211417-test-vc201</td>
+                            <td>网游</td>
+                            <td>
+                                小屏幕<br/>
+
+                                正常屏幕<br/>
+
+                                大屏幕<br/>
+
+                                超屏幕<br/>
+
+                            </td>
+                            <td>
+                                ARM<br/>
+
+                                Intel<br/>
+
+                            </td>
+
+                            <td>184KB</td>
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td align="center">
+
+                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-10-21033952-_1382341192544_9467.png"
+                                     width="45" height="45" alt=""
+                                     onerror="im_(this,'/developer')"/>
+
+
+                                <br/><span>
+
+
+
+
+
+
+
+
+
+
+
+    <span class="status">冻结中</span>
+
+
+
+</span>
+                            </td>
+                            <td><a href="javascript:ckappinfo(10213728)" class="f14">
+                                乐商店
+                            </a></td>
+                            <td>10213728</td>
+                            <td>2013-10-21
+                                <br/>15:39:52
+                            </td>
+                            <td>1.0.3g-1310211417-test-vc201</td>
+                            <td>网游</td>
+                            <td>
+                                小屏幕<br/>
+
+                                正常屏幕<br/>
+
+                                大屏幕<br/>
+
+                                超屏幕<br/>
+
+                            </td>
+                            <td>
+                                ARM<br/>
+
+                                Intel<br/>
+
+                            </td>
+
+                            <td>184KB</td>
+
+
+                        </tr>
+
+                        <tr>
+
+                            <td align="center">
+
+                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-07-07030516-_1373180716038_9849.png"
+                                     width="45" height="45" alt=""
+                                     onerror="im_(this,'/developer')"/>
+
+
+                                <br/><span>
+
+
+
+
+
+
+
+
+
+
+
+    <span class="status">冻结中</span>
+
+
+
+</span>
+                            </td>
+                            <td><a href="javascript:ckappinfo(10211780)" class="f14">
+                                人人595
+                            </a></td>
+                            <td>10211016</td>
+                            <td>2013-07-15
+                                <br/>20:54:05
+                            </td>
+                            <td>5.9.5</td>
+                            <td>飞行.射击</td>
+                            <td>
+                                小屏幕<br/>
+
+                                正常屏幕<br/>
+
+                                大屏幕<br/>
+
+                                超屏幕<br/>
+
+                            </td>
+                            <td>
+                                Intel<br/>
+
+                                ARM<br/>
+
+                            </td>
+
+                            <td>7.51M</td>
+
+
+                        </tr>
+
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td colspan="11">
+		           	<span class="table-text">
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="<%= staticResourceUrl %>/developer/js/dis_page.js"></script>
+
+<input type="hidden" name="pageNo" id="pageNo" value="1"/>
+<input type="hidden" name="fromPage" id="fromPage" value="0"/>
+<div id="horse_po0" class="fanye">1/2
+    <a class="horse_a_paging" href="javascript:jumpPage(1)">首页</a>
+    <span id="show_chk_page"></span>
+    <a class="horse_a_paging" href="javascript:jumpPage(2)">末页</a>
+
+
+</div>
+</span>
+
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div id="poplogn1" class="jqmWindow" style="z-index:99999;">
+    <div class="con" style="display:block">
+        <table width="320" border="0" cellpadding="0" cellspacing="0"
+               bgcolor="#FFFFFF">
+            <tr>
+                <td colspan="2">
+                    <a href="javascript:;" class="close"><img
+                            src="<%= staticResourceUrl %>/developer/images/xiugaijiage.gif" alt="修改价格"
+                            width="320" height="34"/>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td height="20" colspan="2">
+                    <div id="ts" style="color: red" align="center"></div>
+                </td>
+            </tr>
+            <tr id="priceInput">
+                <td width="90" height="26" style="padding-left: 30px">
+                    定价：
+                </td>
+                <td width="233">
+                    <input name="appPrices" id="appPrices" type="text" class="input" size="10"/>&nbsp;&nbsp;<span
+                        class="gray">价格须为整数</span>
+                    <input name="appids" id="appids" type="hidden" value=""/>
+                </td>
+            </tr>
+            <tr>
+                <td width="90" height="26" style="padding-left: 30px">
+                    说明：
+                </td>
+                <td width="233">
+                    <textarea name="pricesnote" id="pricesnote"
+                              style="width: 170px;resize:none;border:1px solid #999999"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td height="50" colspan="2" align="center">
+                    <img src="images/tijiao.gif" alt="提交" width="71" height="19" onclick="gradedt();"/>
+                    <img src="images/quxiao.gif" alt="取消" width="71" height="19"
+                         onclick="javascript:hidePopwindow('poplogn1');"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="bottom"></div>
+</div>
+
+<div id="poplogn2" class="jqmWindow" style="z-index:99999;">
+    <div class="con" style="display:block">
+        <table width="320" border="0" cellpadding="0" cellspacing="0"
+               bgcolor="#FFFFFF">
+            <tr>
+                <td colspan="2">
+                    <a href="javascript:;" class="close"><img
+                            src="<%= staticResourceUrl %>/developer/images/xiugaizhifu.gif" alt="修改支付方式"
+                            width="320" height="34"/>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div id="tss" style="color: red" align="center"></div>
+                </td>
+                <td>
+                    <input name="appLcaid" id="appLcaid" type="hidden" value=""/>
+                    <input name="initAppPrices" id="initAppPrices" type="hidden" value=""/>
+                </td>
+            </tr>
+            <tr id="isMesg1">
+                <td width="90" height="26" style="padding-left: 25px">
+                    支持短信支付：
+                </td>
+                <td><input id="yes1" name="support" type="radio"/>是&nbsp;&nbsp;
+                    <input id="no1" name="support" type="radio"/>否
+                </td>
+            </tr>
+            <tr>
+                <td width="90" height="26" style="padding-left: 25px">
+                    短信支付规则：
+                </td>
+                <td>结算金额=实际收到的短信款项*55%*分成比例</td>
+            </tr>
+            <tr>
+                <td height="50" colspan="2" align="center">
+                    <img src="images/tijiao.gif" alt="提交" width="71" height="19" onclick="gradedt2();"/>
+                    <img src="images/quxiao.gif" alt="取消" width="71" height="19"
+                         onclick="javascript:hidePopwindow('poplogn2');"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="bottom"></div>
+</div>
+
+<div id="poplogn3" class="ckWindow jqmWindow" style="z-index:99999; width:734px;margin-left:-269px;">
+    <div class="pop_bar">
+        <div class="bar">
+            <h2>测试未通过原因</h2>
+
+            <div class="fright"><a onclick="javascript:hidePopwindow('poplogn3');" href="javascript:;">Close </a></div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="pop_content">
+        <div class="form_main">
+            <table width="100%" class="table_two" border="1">
+                <tbody>
+                <tr id="flowResultList">
+                    <td><span class="black">检测项</span></td>
+                    <td><span class="black">结果</span></td>
+                    <td><span class="black">原因</span></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="ckButton"><input type="button" id="button" value="确定"
+                                         onclick="javascript:hidePopwindow('poplogn3');"/></div>
+        </div>
+    </div>
+</div>
+
+<div id="poplogn4" class="ckWindow jqmWindow" style="z-index:99999; width:505px;">
+    <div class="pop_bar">
+        <div class="bar">
+            <h2>申请下架</h2>
+
+            <div class="fright"><a onclick="javascript:hidePopwindow('poplogn4');" href="javascript:;">Close </a></div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+    <form id="applyFrom" name="applyFrom">
+        <div class="pop_content">
+            <div class="form_main1">
+                <div class="xjH1">下架原因</div>
+                <span id="applyInfo" class="red"></span>
+                <textarea class="xjTex" name="applyRemark" id="applyRemark"></textarea>
+                <input name="applyLcaid" type="hidden" id="applyLcaid"/>
+
+                <div>
+                    <p>
+                        <label>
+                            <input type="radio" name="applyType" value="0" id="defaultRadio_1"/>
+                            下架应用当前版本</label>
+                        <label>
+                            <input type="radio" name="applyType" value="1" id="defaultRadio_2"/>
+                            下架应用所有版本</label>
+                        <br/>
+                    </p>
+                </div>
+                <div class="ckButton"><input type="button" value="确定" onclick="javascript:applyUndercarriage();"/>
+                    <input onclick="javascript:hidePopwindow('poplogn4');" type="button" value="取消"/></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="errorPop" class="ckWindow jqmWindow" style="z-index:99999; width:505px;padding:0;margin-top: 155px;">
+    <div style="clear:both"></div>
+    <div class="pop_content">
+        <div class="form_main1">
+            <div id="errorMes"></div>
+            <div class="ckButton"><input type="button" onclick="javascript:hidePopwindow('errorPop');" value="确定"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include _footer %>
+

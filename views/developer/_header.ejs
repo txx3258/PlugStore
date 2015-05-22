@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>我的应用管理</title>
+
+    <link rel="stylesheet" type="text/css" href="<%= staticResourceUrl %>/developer/css/jqModal.css"/>
+    <link rel="stylesheet" type="text/css" href="<%= staticResourceUrl %>/developer/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="<%= staticResourceUrl %>/developer/css/frame.css"/>
+    <link rel="stylesheet" type="text/css" href="<%= staticResourceUrl %>/developer/css/page.css"/>
+    <link href="<%= staticResourceUrl %>/developer/css/style.css" rel="stylesheet" type="text/css"/>
+    <script src="<%= staticResourceUrl %>/developer/js/pv_count.js" language="javascript" type="text/javascript"></script>
+    <link href="<%= staticResourceUrl %>/developer/css/index_style.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+<div class="idx_headerBox">
+    <div class="idx_centerPanel">
+        <div class="idx_logo">
+            <ul>
+                <li class="my_logo"><img style="padding-top: 10px" width="45" height="45" src="<%= staticResourceUrl %>/developer/img/logo.png"/>></li>
+                <li><a href="<%= staticResourceUrl %>/developer/index.jsp">插件商店市场</a></li>
+            </ul>
+        </div>
+        <div class="idx_mainMenu">
+            <ul>
+                <li><a href="<%= staticResourceUrl %>/developer/index.jsp">首页</a></li>
+                <li><a href="<%= staticResourceUrl %>/developer/queryApp.jspx?curr_query_state=5">管理</a></li>
+                <li><a href="<%= staticResourceUrl %>/developer/help/sdk.jsp">开发文档</a></li>
+                <li><a href="http://bbs.lenovo.comhttp://127.0.0.1:8880/PlugStore/developer/" target="_blank">论坛</a>
+                </li>
+                <li><a href="<%= staticResourceUrl %>/developer/help/help_register.jsp">帮助</a></li>
+                <li><a href="http://app.lenovo.com" target="_blank">官网</a></li>
+            </ul>
+        </div>
+
+        <div class="idx_loginMenu">
+
+
+            <a href="<%= staticResourceUrl %>/developer/queryApp.jspx?curr_query_state=5">christy78</a>
+            <em></em>
+            <a href="javascript:exit();">退出</a>
+
+        </div>
+    </div>
+</div>
+<input type="hidden" id="topFlag" value='null'/>
+
+<div id="msgDiv" style="height: 20px;background-color: #eee;text-align: center;">
+    <span id="msgSpan" style="color: red;font-size: 12px;display: none;">为避免可能存在的浏览器兼容问题，建议您使用Firefox或Chrome浏览器</span>
+</div>
