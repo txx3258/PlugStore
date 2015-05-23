@@ -6,14 +6,36 @@ var router = express.Router();
 var constants=require('../service/common/constants');
 
 router.get('/', function(req, res, next) {
-    res.render('admin/login', { title: '玄魂的测试代码',staticResourceUrl: constants.staticResourceHost});
+    res.render('admin/login', { title: '玄魂的测试代码',
+        staticResourceUrl: constants.staticResourceHost,
+        message:"",
+        error:false
+    });
 });
 
 router.get('/login', function(req, res, next) {
-    res.render('admin/login', { title: '玄魂的测试代码',staticResourceUrl: constants.staticResourceHost});
+    res.render('admin/login', { title: '玄魂的测试代码',
+        staticResourceUrl: constants.staticResourceHost,
+        message:"",
+        error:false
+    });
 });
 router.post('/manage', function(req, res, next) {
-    res.render('admin/manage', { title: '玄魂的测试代码',staticResourceUrl: constants.staticResourceHost});
+    var userName=req.body.userName;
+    var userPwd=req.body.userPwd;
+
+    if (userName=="admin@163.com"&&userPwd=="admin"){
+        res.render('admin/manage', { title: '玄魂的测试代码',
+            staticResourceUrl: constants.staticResourceHost
+        }) ;
+    }else{
+        res.render('admin/login', { title: '玄魂的测试代码',
+            staticResourceUrl: constants.staticResourceHost,
+            message:"用户名或密码错误！",
+            error:true
+        });
+    }
+
 });
 router.get('/manage', function(req, res, next) {
     res.render('admin/manage', { title: '玄魂的测试代码',staticResourceUrl: constants.staticResourceHost});

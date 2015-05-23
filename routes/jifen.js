@@ -7,7 +7,7 @@ var router = express.Router();
 /* 增加积分 */
 router.post('/incruserjf', function(req, res, next) {
     //参数检验
-    checkParms(req.body);
+  //  checkParms(req.body);
 
 
 });

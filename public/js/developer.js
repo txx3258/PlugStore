@@ -20,7 +20,23 @@
         $("#upload_plug_file").hide();
     });
 
-    $("#upload_file_event").change(function(){
-        alert($("#upload_file_event").get(0).files[0].name)
-    })
+    $("#upload_file_event").click(function(){
+        alert("post");
+        document.forms[0].submit();
+        var interval= setInterval(function(){
+            var body=document.getElementById("hidden_frame").contentWindow.document.body;
+
+            console.log(body);
+            if(body&&body.indexOf("成功")!=-1){
+                clearInterval(interval);
+                $("uploadProcess").hide();
+                $("#programeListTd").html(body.replace(/<body>/g,''));
+            }
+
+        },500);
+
+
+    });
+
+
 })();

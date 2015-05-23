@@ -2,29 +2,36 @@
             <div id="sub-nav">
                 <h1 class="show">应用管理</h1>
                 <ul class="show-class">
-                    <li><a href="<%= staticResourceUrl %>/developer/queryApp.jspx?curr_query_state=5"
-                           class="active">我的应用</a></li>
-                    <!-- <li><a href="<%= staticResourceUrl %>/developer/queryApp.jspx?curr_query_state=5" class="">更新应用</a></li> -->
-                    <li><a href="<%= staticResourceUrl %>/developer/upload_step1.jspx?isNew=true"
-                           class="">上传新应用</a></li>
+                    <li>
+                        <a href="/developer/manage"
+                           class="<% if(mClass=="manage"){%> active <%}%>">
+                            我的应用
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/developer/upload"
+                           class="<% if(mClass=="upload") { %> active <%}%>">
+                            上传新应用
+                        </a>
+                    </li>
 
                 </ul>
                 <h1 class="show" style="border-top-width: 1px;">数据查询</h1>
                 <ul class="show-class">
 
-                    <li><a href="<%= staticResourceUrl %>/developer/queryCpdFirst.jspx" class="">CPD查询</a></li>
+                    <li><a href="/" class="">CPD查询</a></li>
 
-                    <li><a href="<%= staticResourceUrl %>/developer/showDownloadCount.jspx" class="">下载量查询</a>
+                    <li><a href="/" class="">下载量查询</a>
                     </li>
-                    <li><a href="<%= staticResourceUrl %>/developer/queryAppListFirst.jspx" class="">销售查询</a>
+                    <li><a href="/" class="">销售查询</a>
                     </li>
-                    <li><a href="<%= staticResourceUrl %>/developer/uninstallQuery.jspx" class="">卸载量查询</a></li>
+                    <li><a href="/" class="">卸载量查询</a></li>
 
 
                 </ul>
                 <h1 class="show" style="border-top-width: 1px;">帐户信息</h1>
                 <ul class="show-class">
-                    <li><a href="<%= staticResourceUrl %>/developer/view_devCooperate.jspx" class="">帐户设置</a>
+                    <li><a href="" class="">帐户设置</a>
                     </li>
 
                 </ul>
@@ -64,9 +71,9 @@
                 -->
                 <h1 class="show" style="border-top-width: 1px;">系统消息</h1>
                 <ul class="show-class">
-                    <li style="position: relative;"><a href="<%= staticResourceUrl %>/developer/getMessage.jspx"
+                    <li style="position: relative;"><a href=""
                                                        class="">消息</a><span class="round">●</span></li>
-                    <li style="position: relative;"><a href="<%= staticResourceUrl %>/developer/getNotices.jspx"
+                    <li style="position: relative;"><a href=""
                                                        class="">提醒</a><span class="round">●</span></li>
                 </ul>
             </div>
