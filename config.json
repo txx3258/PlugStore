@@ -1,8 +1,8 @@
 {
-    "staticResourceHost":"http://119.29.19.116/assets",
+    "staticResourceHost":"http://119.29.16.116/assets",
     "mysql":{
         "connectionLimit":"10",
-        "host":"192.168.11.93:3306",
+        "host":"119.29.16.116:3306",
         "user":"",
         "password":"",
         "database":""
