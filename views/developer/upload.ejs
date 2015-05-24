@@ -27,7 +27,7 @@
         			<span style="margin-left:0px;" class="iconuploadbox">
         				<form id="fileFrom" name="fileFrom" action="/developer/uploadFile" method="post"
                               enctype="multipart/form-data" target="hidden_frame">
-                            <input  type="file" name="uploadFile">
+                            <input id="uploadFile" type="file" name="uploadFile">
                             <button>选择文件</button>
                             <iframe name="hidden_frame" id="hidden_frame" style="display: none"></iframe>
                         </form>
@@ -44,8 +44,8 @@
                     <table width="750" align="center" class="table-class-3">
                         <tbody><tr>
                             <td width="20%" class="textr">&nbsp;</td>
-                            <td>
-                                <img id="uploadProcess" src="<%= staticResourceUrl %>/developer/images/loading.gif">
+                            <td id="uploadProcess" style="display: none">
+                                <img  src="<%= staticResourceUrl %>/developer/images/loading.gif" >
                             </td>
                         </tr>
                         <tr id="debugInfos">
@@ -55,40 +55,11 @@
 
                             </td>
                         </tr>
-
-                        <tr class="packageAttr" style="display: none;">
-                            <td class="textr">安装标识：</td>
-                            <td>
-                                <input id="packageName" name="appEntity.packageName" class="form_text" type="text" value="" size="40">
-
-                            </td>
-                        </tr>
-                        <tr class="packageAttr" style="display: none;">
-                            <td class="textr">版本号：</td>
-                            <td>
-                                <input id="appVersioncode" name="appEntity.appVersioncode" class="form_text" type="text" value="" size="40">
-
-                            </td>
-                        </tr>
-                        <tr class="packageAttr" style="display: none;">
-                            <td class="textr">版本名称：</td>
-                            <td>
-                                <input id="version" name="appEntity.version" class="form_text" type="text" value="" size="40">
-
-                            </td>
-                        </tr>
-                        <tr class="packageAttr" style="display: none;">
-                            <td class="textr">openGL版本：</td>
-                            <td>
-                                <input id="openGlVersion" name="appInfoEntity.openGlVersion" class="form_text" type="text" value="" size="40">
-                                <input id="openGlVersionOrigin" name="appInfoEntity.openGlVersionOrigin" class="form_text" type="text" value="" size="40">
-                            </td>
-                        </tr>
                         <tr>
                             <td>&nbsp;</td>
                             <td>
-                                <input type="button" style="background:#ccc;" class="input-class-1 input-class-2 btn-class none" value="下一步" onclick="javascript:void(0);" id="btn_none">
-                                <input type="button" id="upload_file_event" class="input-class-1 input-class-2 btn-class" value="提交" >
+
+                                <input type="button" id="upload_file_next" class="input-class-1 input-class-2 btn-class" value="下一步"  style="display: none">
                             </td>
                         </tr>
 
@@ -101,22 +72,14 @@
                 <form id="form" action="finish.jspx" method="post">
                     <table class="table-class-3" align="center" width="700">
                         <tbody><tr id="screenSize">
-                            <td width="140" class="td-2"><em>*</em>支持的屏幕尺寸&nbsp;：</td>
+                            <td width="140" class="td-2"><em>*</em>支持的宿主软件&nbsp;：</td>
                             <td>
-
-                                <label id="1">小屏幕</label>
-
-                                <label id="2">正常屏幕</label>
-
-                                <label id="3">大屏幕</label>
-
-                                <label id="4">超屏幕</label>
-
+                                <input id="appEntity.appName" name="appEntity.appName" class="input-class" type="text" value="" size="40">
 
                             </td>
                         </tr>
                         <tr>
-                            <td class="td-2"><em>*</em>应用名称&nbsp;：</td>
+                            <td class="td-2"><em>*</em>插件名称&nbsp;：</td>
                             <td>
                                 <input id="appEntity.appName" name="appEntity.appName" class="input-class" type="text" value="" size="40">
 
@@ -135,7 +98,7 @@
                                     <ul class="icon_list" id="finalIcon">
 
                                         <input class="iconinput" type="file" name="iconFile" id="iconFile" onchange="uploadApp.uploadImage(this,4)" hidefocus="true">
-                                        <img src="images/add1.png" width="64" height="64" alt="点击图标">
+                                        <img src="<%= staticResourceUrl %>/developer/images/add1.png" width="64" height="64" alt="点击图标">
                                         <div class="gray" style="float:left; margin-left:10px; line-height:30px;width: 380px;">格式png，大小&lt;=500K，图标尺寸256*256，为不影响展示，游戏类图标建议控制在50K以内</div>
 
 
@@ -148,29 +111,24 @@
                                     <ul class="icon_list" id="finalHdicon">
 
                                         <input class="iconinput" type="file" name="hdiconFile" id="hdiconFile" onchange="uploadApp.uploadImage(this,5)" hidefocus="true">
-                                        <img src="images/add1.png" width="64" height="64" alt="点击图标">
+                                        <img src="<%= staticResourceUrl %>/developer/images/add1.png" width="64" height="64" alt="点击图标">
                                         <div class="gray" style="float:left; margin-left:10px; line-height:64px;">请上传高清优质图标，格式png，大小&lt;=500K</div>
 
                                     </ul></div>
                             </td>
                         </tr>
                         <tr>
-                            <td class="td-2"><em>*</em>支持的芯片类型&nbsp;：</td>
+                            <td class="td-2"><em>*</em>支持的操作位&nbsp;：</td>
                             <td>
 
                                 <input type="radio" name="chipType" id="chipType" value="Intel">
-                                <label for="chip">Intel</label>　
+                                <label for="chip">32位</label>　
 
                                 <input type="radio" name="chipType" id="chipType" value="ARM">
-                                <label for="chip">ARM</label>　
+                                <label for="chip">64位</label>　
 
                                 <input checked="" type="radio" name="chipType" id="chipType" value="两者都兼容">
                                 <label for="chip">两者都兼容</label>　
-
-                                <a class="info2" href="javascript:void(0);" style="font-size: 18px;margin-left: -20px;">
-                                    <img src="/developer/images/help/ico_help.png">
-                                    <span>Intel和ARM为两种不同的芯片架构，请在上传前测试该游戏/应用是否兼容这两种芯片。若不兼容某种芯片，请不要勾选。</span>
-                                </a>
 
                             </td>
                         </tr>
@@ -245,30 +203,6 @@
                             </td>
                         </tr>
 
-                        <tr id="feeShow" class="">
-                            <td class="td-2"><em>*</em>是否道具收费&nbsp;：</td>
-                            <td>
-
-
-
-                                <input id="feeType1" name="appEntity.feeType" value="1" type="radio"><label for="">是</label>
-                                <input id="feeType0" name="appEntity.feeType" value="0" type="radio"><label for="">否</label>
-
-
-                            </td>
-                        </tr>
-                        <tr id="advertShow" class="">
-                            <td class="td-2"><em>*</em>是否有广告&nbsp;：</td>
-                            <td>
-
-
-
-                                <input id="appEntity.advertType" name="appEntity.advertType" value="1" type="radio"><label for="">是</label>
-                                <input id="appEntity.advertType" name="appEntity.advertType" value="0" type="radio"><label for="">否</label>
-
-
-                            </td>
-                        </tr>
 
                         <tr id="authorizationShow" class="none">
                             <td valign="top" style="padding-top:15px;" class="td-2">版权证明&nbsp;：</td>

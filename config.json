@@ -1,10 +1,11 @@
 {
-    "staticResourceHost":"http://119.29.16.116/assets",
+    "staticResourceHost":"http://127.0.0.1:8080/",
     "mysql":{
         "connectionLimit":"10",
         "host":"119.29.16.116:3306",
         "user":"",
         "password":"",
         "database":""
-    }
+    },
+    "developerUploadPlugPath":"/Users/soft_tangxiaoxian/Desktop/PlugStore/PlugStore/upload/"
 }

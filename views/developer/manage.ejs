@@ -14,17 +14,17 @@
                     <h1>我的应用</h1>
 
                     <div class="app-title-1" id="app-title">
-                        <ul>
-                            <li id="s0"><a href="javascript:changeItem('0')" class="span-2-active">等待提交</a></li>
-                            <li id="s1"><a href="javascript:changeItem('1')" class="span-3">待测试</a></li>
-                            <li id="s4"><a href="javascript:changeItem('4')" class="span-4">通过测试</a></li>
-                            <li id="s7"><a href="javascript:changeItem('7')" class="span-1">未通过测试</a></li>
-                            <li id="s5"><a href="javascript:changeItem('5')" class="span-2">在售中</a></li>
-                            <li id="s6"><a href="javascript:changeItem('6')" class="span-1">已下架</a></li>
-                            <li id="s9" class="app-li-1"><a href="javascript:changeItem('9')" class="span-3">冻结中</a>
+                        <ul id="app-title-taps">
+                            <li><a id="tap_s0" href="#" class="span-2-active">等待提交</a></li>
+                            <li ><a id="tap_s1" href="#" class="span-3">待测试</a></li>
+                            <li ><a id="tap_s2" href="#" class="span-4">通过测试</a></li>
+                            <li ><a id="tap_s3" href="#" class="span-1">未通过测试</a></li>
+                            <li ><a id="tap_s4" href="#" class="span-2">在售中</a></li>
+                            <li ><a id="tap_s5" href="#" class="span-1">已下架</a></li>
+                            <li class="app-li-1"><a id="tap_s6"  href="#" class="span-3">冻结中</a>
                             </li>
                         </ul>
-                        <div id="app-title-bg" class="app-title-bg-1"></div>
+                        <div id="app-title-bg" class="app-title-bg-1" style="left:440px"></div>
                     </div>
                     <div id="app-form-search">
                         <table>
@@ -827,4 +827,4 @@
 </div>
 
 <%- include _footer %>
-
+<script src="/js/developer.js"></script>
