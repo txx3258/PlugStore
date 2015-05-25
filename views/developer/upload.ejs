@@ -74,7 +74,15 @@
                         <tbody><tr id="screenSize">
                             <td width="140" class="td-2"><em>*</em>支持的宿主软件&nbsp;：</td>
                             <td>
-                                <input id="appEntity.appName" name="appEntity.appName" class="input-class" type="text" value="" size="40">
+
+                                <select>
+                                    <option>Autodesk AutoCAD</option>
+                                    <option>Autodesk AutoCAD</option>
+                                    <option>Autodesk AutoCAD</option>
+                                    <option>Autodesk AutoCAD</option>
+
+
+                                </select>
 
                             </td>
                         </tr>
@@ -99,7 +107,7 @@
 
                                         <input class="iconinput" type="file" name="iconFile" id="iconFile" onchange="uploadApp.uploadImage(this,4)" hidefocus="true">
                                         <img src="<%= staticResourceUrl %>/developer/images/add1.png" width="64" height="64" alt="点击图标">
-                                        <div class="gray" style="float:left; margin-left:10px; line-height:30px;width: 380px;">格式png，大小&lt;=500K，图标尺寸256*256，为不影响展示，游戏类图标建议控制在50K以内</div>
+                                        <div class="gray" style="float:left; margin-left:10px; line-height:30px;width: 380px;">格式png，大小&lt;=500K，图标尺寸256*256，为不影响展示，图标建议控制在50K以内</div>
 
 
                                     </ul></div>
@@ -159,20 +167,7 @@
 
                             </td>
                         </tr>
-                        <tr id="apptagsShow">
-                            <td class="td-2" style="vertical-align: top; line-height: 22px;"><em>*</em>应用标签&nbsp;：</td>
-                            <td id="apptagsContent">
-                                请选择应用类别
 
-                                <table width="100%" style="vertical-align: top;">
-                                    <tbody><tr></tr>
-                                    </tbody></table>
-
-
-                                <!-- 					<div id="apptags" style="margin-right: 80px" >Select...</div> -->
-
-                            </td>
-                        </tr>
                         <tr id="networkShow" class="none">
                             <td class="td-2"><em>*</em>联网标识&nbsp;：</td>
                             <td>
@@ -256,21 +251,12 @@
 
                             </td>
                         </tr>
-                        <tr>
-                            <td class="td-2" valign="top">
 
-                                新版本特性&nbsp;：<br>
-                                (1000字以内)</td>
-                            <td>
-                                <textarea id="newCharText" name="appEntity.newCharacter" onkeyup="uploadApp.countChar(this)" class="textarea-class" onchange="this.value=this.value.trim();uploadApp.countChar(this)"></textarea>
-                                <p>最大长度1000个字符，已经输入<span id="newCharCount">0</span>个字符,剩余<span id="newCharCountLeft">1000</span>个字符 </p>
-                            </td>
-                        </tr>
                         <tr>
                             <td class="td-2" valign="top">一句话描述&nbsp;：</td>
                             <td>
                                 <textarea id="humanDescText" name="appEntity.humanDesc" class="textarea-class textarea-class-1" size="60"></textarea>
-                                <p>(会在手机端列表中显示，请控制在12-20个字，包括标点符号)</p>
+                                <p>(会在列表中显示，请控制在12-20个字，包括标点符号)</p>
 
                             </td>
                         </tr>
@@ -346,27 +332,4 @@
 
 <%- include _footer %>
 <script type="text/javascript" src="../js/developer.js"></script>
-
-
-
-<!--
-/*----------------对话框相关strat-------------*/
-var obj = null;
-function showLoading() {
-    var text = '<center><img src="/developer/images/loading.gif"><br/><font color="#778899">&nbsp;&nbsp;操作正在执行，请稍后...</font></center>';
-    obj = $.prompt(text, {
-        //prefix:'cleanblue',
-        buttons:[]
-    });
-}
-
-function hideLoading() {
-    if (obj) {
-        $.prompt.close();
-        obj = null;
-    }
-}
-/*-----------------对话框相关end--------------*/
-
-//-->
 

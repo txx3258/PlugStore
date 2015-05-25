@@ -39,5 +39,33 @@ router.post('/manage', function(req, res, next) {
 
 });
 
+router.get('/comment', function(req, res, next) {
+    res.render('admin/comment', { title: '评论管理',
+        staticResourceUrl: constants.staticResourceHost,
+        mClass:"comment"
+    });
+});
+
+
+router.get('/flower', function(req, res, next) {
+    res.render('admin/flower', { title: '流程审批',
+        staticResourceUrl: constants.staticResourceHost,
+        mClass:"flower"
+    });
+});
+
+router.get('/list', function(req, res, next) {
+    res.render('admin/list', { title: '榜单管理',
+        staticResourceUrl: constants.staticResourceHost,
+        mClass:"list"
+    });
+});
+
+router.get('/layout', function(req, res, next) {
+    res.render('admin/layout', { title: '布局管理',
+        staticResourceUrl: constants.staticResourceHost,
+        mClass:"layout"
+    });
+});
 
 module.exports = router;
