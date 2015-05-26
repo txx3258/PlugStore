@@ -20,6 +20,13 @@ router.get('/login', function(req, res, next) {
             staticResourceUrl: constants.staticResourceHost});
     }
 });
+
+router.post('/manage', function(req, res, next) {
+    res.render('developer/manage', { title: '开发者管理',
+        staticResourceUrl: constants.staticResourceHost,
+        mClass:"manage"
+    });
+});
 router.get('/manage', function(req, res, next) {
     res.render('developer/manage', { title: '开发者管理',
         staticResourceUrl: constants.staticResourceHost,

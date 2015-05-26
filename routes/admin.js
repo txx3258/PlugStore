@@ -27,7 +27,8 @@ router.post('/manage', function(req, res, next) {
 
     if (userName=="admin@163.com"&&userPwd=="admin"){
         res.render('admin/manage', { title: '后台管理',
-            staticResourceUrl: constants.staticResourceHost
+            staticResourceUrl: constants.staticResourceHost,
+            mClass:"comment"
         }) ;
     }else{
         res.render('admin/login', { title: '玄魂的测试代码',
