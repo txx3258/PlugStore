@@ -40,6 +40,13 @@ router.post('/manage', function(req, res, next) {
 
 });
 
+router.get('/manage', function(req, res, next) {
+    res.render('admin/manage', { title: '后台管理',
+        staticResourceUrl: constants.staticResourceHost,
+        mClass:"manage"
+    });
+});
+
 router.get('/comment', function(req, res, next) {
     res.render('admin/comment', { title: '评论管理',
         staticResourceUrl: constants.staticResourceHost,
