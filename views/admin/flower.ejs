@@ -1,23 +1,73 @@
 <%- include _header %>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">统计管理 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#Stat_Nar">统计导航</a></li>
-                <li><a href="#User_Vistor">用户访问量</a></li>
+<style type="text/css">
+    #queryTable{}
+    #queryTable tr{height:60px}
+    #queryTable tr td{width:120px}
+    .wd200{width:200px}
+
+</style>
 
 
-                <li><a href="#Plug_Down">插件下载数</a></li>
-                <li><a href="#New_Plug">新增插件数</a></li>
+<div id="row" class="row">
+    <div class="col-sm-10">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"> 查询</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-signin">
+                    <table id="queryTable">
+                        <tr>
+                            <td><label>宿主名称：</label></td>
+                            <td><select class="form-control .wd200"><option>XP</option> <option>Windows</option></select></td>
+                            <td></td>
+                            <td><label>插件名称：</label></td>
+                            <td><input type="email" id="inputEmail" class="form-control wd200" required autofocus></td>
+                        </tr>
+                        <tr>
+                            <td><label>开发者：</label></td>
+                            <td><input type="email" id="inputEmail" class="form-control wd200"  required autofocus></td>
+                            <td></td>
+                            <td><label>创建时间：</label></td>
+                            <td><input type="email" id="inputEmail" class="form-control wd200" required autofocus></td>
+                        </tr>
 
-                <li><a href="#Develop_Num">开发者数量</a></li>
-                <li><a href="#Update_Item">插件更新项</a></li>
-                <li><a href="#Drop_Item">插件卸载项</a></li>
-            </ul>
+                        <tr>
+                            <td><label>插件状态：</label></td>
+                            <td><input type="email" id="inputEmail" class="form-control wd200"  required autofocus></td>
+                            <td></td>
+                            <td><label>插件类别：</label></td>
+                            <td><input type="email" id="inputEmail" class="form-control wd200"  required autofocus></td>
+                        </tr>
 
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="btn btn-lg btn-primary btn-block" type="button">查询</button>
+                            <td>
+                        </tr>
+
+                    </table>
+
+
+
+                </form>
+
+
+            </div>
         </div>
-流程审批
-</div></div>
+    </div>
+</div>
 
-<%- include _header %>
+
+
+<%- include _footer %>
+
+<script type="text/javascript">
+
+    $('#row').center();
+
+</script>
