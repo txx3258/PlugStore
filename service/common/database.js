@@ -43,9 +43,7 @@ var mysql_pool=(function(){
                 }
 
                 async.each(handlers.sql, function (sql, callback) {
-                    console.log(sql);
                     connection.query(sql, function (err, result) {
-                        console.log(err+":"+result);
                         callback(err)
                     });
                 }, function (err,result) {
@@ -82,7 +80,7 @@ var mysql_pool=(function(){
             return instance;
         },
         query:function(handlers){
-            return this.connect().query(sql);
+            return this.connect().query(handlers);
         },
         queryArrays:function(handlers){
             return this.connect().queryArrays(handlers);
