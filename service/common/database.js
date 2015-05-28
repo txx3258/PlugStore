@@ -3,8 +3,18 @@
  */
 //单例模式处理
 var mysql=require('mysql');
+var config=require("./constants").mysql;
+var async=require("async");
 
-var pool=(function(){
+var mysql_pool=(function(){
+    var option_mysql={
+        connectionLimit :config.connectionLimit,
+        host     : config.host,
+        user     : config.user,
+        password : config.password,
+        database : config.database
+    }
+
     function mysql(args) {
         this.pool = require('mysql').createPool(args);
     }
@@ -65,21 +75,22 @@ var pool=(function(){
     var instance;
 
     var _static = {
-        connect: function (args) {
+        connect: function () {
             if (instance === undefined) {
-                instance = new mysql(args);
+                instance = new mysql(option_mysql);
             }
             return instance;
+        },
+        query:function(handlers){
+            return this.connect().query(sql);
+        },
+        queryArrays:function(handlers){
+            return this.connect().queryArrays(handlers);
         }
     };
     return _static;
 })();
 
+module.exports.mysql=mysql_pool;
 
-var option_mysql={
-    connectionLimit :config["mysql"].connectionLimit,
-    host     : config["mysql"].host,
-    user     : config["mysql"].user,
-    password : config["mysql"].password,
-    database : config["mysql"].database
-}
+

@@ -3,9 +3,9 @@
     "mysql":{
         "connectionLimit":"10",
         "host":"119.29.16.116:3306",
-        "user":"",
-        "password":"",
-        "database":""
+        "user":"root",
+        "password":"12345",
+        "database":"auto_desk_appstore"
     },
     "developerUploadPlugPath":"/data/appstore/plug/"
 }
