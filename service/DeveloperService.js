@@ -10,8 +10,10 @@ var constants=require('./common/constants');
 var fs = require('fs');
 
 function DeveloperService(){
-    this.form=undefined;
 
+    this.form=undefined;
+    this.bytesReceived=undefined;
+    this.bytesExpected=undefined;
 }
 
 DeveloperService.prototype.uploadPlugInfo=function(req,res){
@@ -90,8 +92,8 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
     this.form.parse(req, function(err, fields, files) {
         if (err) {
+            res.send('again');
             this.form=undefined;
-            res.send();
             return;
         }
         var fileName=req.query.fileName;
@@ -104,9 +106,9 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
         fs.rename(icon.path, iconPath,function(err){
             fs.rename(upload.path, filePath,function(err){
-                this.form=undefined;
                 console.log(filePath+err);
                 res.send(icon.name+"和"+upload.name+":success");
+                this.form=undefined;
 
             });
         });
@@ -120,11 +122,15 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
     });
 }
 
+
 DeveloperService.prototype.queryUploadProgress=function(req,res){
     if (this.form!=undefined){
+
         this.form.on('progress', function(bytesReceived, bytesExpected) {
-            res.send(bytesReceived+":"+bytesExpected);
+            this.bytesReceived=bytesReceived;
+            this.bytesExpected=bytesExpected;
         });
+        res.send(this.bytesReceived+":"+this.bytesExpected);
     }else{
         res.send('上传完成!');
     }
