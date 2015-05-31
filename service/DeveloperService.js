@@ -126,7 +126,6 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
     });
     this.form.on('progress', function(bytesReceived, bytesExpected) {
-        console.log(bytesReceived+"<==>"+bytesExpected);
         this.bytesReceived=parseInt(bytesReceived);
         this.bytesExpected=parseInt(bytesExpected);
     });
@@ -135,7 +134,9 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
 DeveloperService.prototype.queryUploadProgress=function(req,res){
     if (this.form!=undefined){
-        res.send(Math.floor((new Number(this.bytesReceived)/new Number(this.bytesExpected))*100)+"%");
+        var percent=Math.floor((this.bytesReceived/this.bytesExpected)*100);
+        console.log(percent);
+        res.send(percent+"%");
     }else{
         res.send('上传完成!');
     }
