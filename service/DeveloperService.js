@@ -90,10 +90,6 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
     //文件大小
     this.form.maxFieldsSize = constants.upload_form.maxFieldsSize;
 
-    this.form.on('progress', function(bytesReceived, bytesExpected) {
-        this.bytesReceived=bytesReceived;
-        this.bytesExpected=bytesExpected;
-    });
 
     this.form.parse(req, function(err, fields, files) {
         //if (err) {
@@ -113,7 +109,7 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
             fs.rename(upload.path, filePath,function(err){
                 console.log(filePath+err);
                 res.send(icon.name+"和"+upload.name+":success");
-                this.form=undefined;
+                //this.form=undefined;
 
                 this.bytesReceived=1;
                 this.bytesExpected=1;
@@ -127,6 +123,11 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
             return path+name+type+fileType;
         };
+
+    });
+    this.form.on('progress', function(bytesReceived, bytesExpected) {
+        this.bytesReceived=bytesReceived;
+        this.bytesExpected=bytesExpected;
     });
 }
 

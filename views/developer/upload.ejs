@@ -407,6 +407,11 @@
                     alert('很抱歉，系统维护中，请稍后在试……');
                     return;
                 }
+                if(body.indexOf("finished")!=-1||body.indexOf("100%")!=-1){
+                    clearInterval(interval);
+                    return;
+                }
+
 
                 if (body.indexOf("again")!=-1){
                     clearInterval(interval);
