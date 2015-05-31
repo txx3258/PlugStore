@@ -74,10 +74,10 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
 
 
 DeveloperService.prototype.uploadPlugFile=function(req,res){
-    if (this.form!=undefined){
-        res.send("again");
-        return;
-    }
+    //if (this.form!=undefined){
+    //    res.send("again");
+    //    return;
+    //}
 
     //创建上传表单
     this.form = new formidable.IncomingForm();
@@ -126,6 +126,7 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
     });
     this.form.on('progress', function(bytesReceived, bytesExpected) {
+        console.log(bytesReceived+"<==>"+bytesExpected);
         this.bytesReceived=parseInt(bytesReceived);
         this.bytesExpected=parseInt(bytesExpected);
     });
