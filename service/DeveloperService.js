@@ -74,27 +74,28 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
 
 
 DeveloperService.prototype.uploadPlugFile=function(req,res){
-    //if (this.form!=undefined){
-    //    res.send("again");
-    //    return;
-    //}
+    var oThis=this;
+    if (oThis.form!=undefined){
+        res.send("again");
+        return;
+    }
 
     //创建上传表单
-    this.form = new formidable.IncomingForm();
+    oThis.form = new formidable.IncomingForm();
     //设置编辑
-    this.form.encoding = constants.upload_form.encoding;
+    oThis.form.encoding = constants.upload_form.encoding;
     //设置上传目录
-    this.form.uploadDir = constants.upload_form.uploadDir;
+    oThis.form.uploadDir = constants.upload_form.uploadDir;
     //保留后缀
-    this.form.keepExtensions = constants.upload_form.keepExtensions;
+    oThis.form.keepExtensions = constants.upload_form.keepExtensions;
     //文件大小
-    this.form.maxFieldsSize = constants.upload_form.maxFieldsSize;
+    oThis.form.maxFieldsSize = constants.upload_form.maxFieldsSize;
 
 
-    this.form.parse(req, function(err, fields, files) {
+    oThis.form.parse(req, function(err, fields, files) {
         if (err) {
             res.send('again');
-            this.form=undefined;
+            oThis.form=undefined;
             return;
         }
         var fileName=req.query.fileName;
@@ -107,12 +108,11 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
         fs.rename(icon.path, iconPath,function(err){
             fs.rename(upload.path, filePath,function(err){
-                console.log(filePath+err);
                 res.send(icon.name+"和"+upload.name+":success");
-                this.form=undefined;
+                oThis.form=undefined;
 
-                this.bytesReceived=1;
-                this.bytesExpected=1;
+                oThis.bytesReceived=1;
+                oThis.bytesExpected=1;
 
             });
         });
@@ -126,8 +126,8 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
     });
     this.form.on('progress', function(bytesReceived, bytesExpected) {
-        this.bytesReceived=parseInt(bytesReceived);
-        this.bytesExpected=parseInt(bytesExpected);
+        oThis.bytesReceived=parseInt(bytesReceived);
+        oThis.bytesExpected=parseInt(bytesExpected);
     });
 }
 
