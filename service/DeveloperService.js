@@ -74,10 +74,10 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
 
 
 DeveloperService.prototype.uploadPlugFile=function(req,res){
-    //if (this.form!=undefined){
-    //    res.send("again");
-    //    return;
-    //}
+    if (this.form!=undefined){
+        res.send("again");
+        return;
+    }
 
     //创建上传表单
     this.form = new formidable.IncomingForm();
@@ -92,11 +92,11 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
 
     this.form.parse(req, function(err, fields, files) {
-        //if (err) {
-        //    res.send('again');
-        //    this.form=undefined;
-        //    return;
-        //}
+        if (err) {
+            res.send('again');
+            this.form=undefined;
+            return;
+        }
         var fileName=req.query.fileName;
 
         var upload=files["uploadFile"];
@@ -109,7 +109,7 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
             fs.rename(upload.path, filePath,function(err){
                 console.log(filePath+err);
                 res.send(icon.name+"和"+upload.name+":success");
-                //this.form=undefined;
+                this.form=undefined;
 
                 this.bytesReceived=1;
                 this.bytesExpected=1;
@@ -126,8 +126,8 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
     });
     this.form.on('progress', function(bytesReceived, bytesExpected) {
-        this.bytesReceived=bytesReceived;
-        this.bytesExpected=bytesExpected;
+        this.bytesReceived=parseInt(bytesReceived);
+        this.bytesExpected=parseInt(bytesExpected);
     });
 }
 
