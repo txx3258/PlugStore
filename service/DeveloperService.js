@@ -74,10 +74,10 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
 
 
 DeveloperService.prototype.uploadPlugFile=function(req,res){
-    if (this.form!=undefined){
-        res.send("again");
-        return;
-    }
+    //if (this.form!=undefined){
+    //    res.send("again");
+    //    return;
+    //}
 
     //创建上传表单
     this.form = new formidable.IncomingForm();
@@ -91,11 +91,11 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
     this.form.maxFieldsSize = constants.upload_form.maxFieldsSize;
 
     this.form.parse(req, function(err, fields, files) {
-        if (err) {
-            res.send('again');
-            this.form=undefined;
-            return;
-        }
+        //if (err) {
+        //    res.send('again');
+        //    this.form=undefined;
+        //    return;
+        //}
         var fileName=req.query.fileName;
 
         var upload=files["uploadFile"];
