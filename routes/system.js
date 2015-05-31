@@ -4,7 +4,7 @@
 var express = require('express');
 var router = express.Router();
 
-var systemService=require('../service/systemService').SystemService;
+var systemService=require('../service/SystemService').SystemService;
 
 router.get('/hostAppName', function(req, res, next) {
     systemService.fetchAppHost(req,res);
