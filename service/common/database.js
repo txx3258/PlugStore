@@ -2,7 +2,6 @@
  * Created by tangxx3 on 2015/5/14.
  */
 //单例模式处理
-var mysql=require('mysql');
 var config=require("./constants").mysql;
 var async=require("async");
 
@@ -12,11 +11,16 @@ var mysql_pool=(function(){
         host     : config.host,
         user     : config.user,
         password : config.password,
-        database : config.database
+        database : config.database,
+        insecureAuth:config.insecureAuth
     }
 
     function mysql(args) {
-        this.pool = require('mysql').createPool(args);
+        try{
+            this.pool = require('mysql').createPool(args);
+        }catch (e){
+            console.log('mysql is error.\n'+e);
+        }
     }
 
     mysql.prototype.query = function (handlers) {
@@ -28,6 +32,12 @@ var mysql_pool=(function(){
 
         this.pool.getConnection(function(err, connection) {
             connection.query(handlers.sql,function(err, rows) {
+                if (err){
+                    handlers.handler(false, handlers.callback);
+                    console.log('sql exe error!');
+                    return;
+                }
+
                 handlers.handler(rows,handlers.callback);
                 connection.release();
             });

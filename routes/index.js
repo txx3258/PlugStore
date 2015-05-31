@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var mysql=require('../service/common/database');
+var mysql=require('../service/common/database').mysql;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var handlers={
-    sql:'',
+    sql:'select * from pre_gamekey_game',
     handler:showUser,
     callback:res
   };

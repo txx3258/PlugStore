@@ -2,10 +2,6 @@
  * Created by tangxx3 on 2015/5/12.
  */
 (function($,window){
-    //$('#login_admin').click(function(){
-    //    var url="/manage";
-    //    $.my_ajax_html(url,"#commentsList");
-    //});
 
     var mgsBoxInterval=setInterval(function(){
        var msgBoxHt=parseInt($('#msgBox').css('bottom'));
@@ -50,5 +46,26 @@
 
     });
 
+    $("#queryBoxClose").click(function(){
+        $("#bannerBar").hide();
+    });
+
+    $("#list_tab li a").click(function(){
+        var href=$(this).attr('href');
+        if(href.length>2){
+            $(this).parent().parent().children().children().children().removeClass('list_tab');
+            $(this).children().addClass('list_tab');
+
+            if(href=="list_type"){
+                $("#list_type").show();
+                $("#list_select").hide();
+            }else{
+                $("#list_type").hide();
+                $("#list_select").show();
+            }
+
+            return false;
+        }
+    });
 })($,window);
 

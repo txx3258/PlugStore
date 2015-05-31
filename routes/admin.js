@@ -1,44 +1,39 @@
 /**
  * Created by tangxx3 on 2015/5/12.
  */
-var express = require('express');
-var router = express.Router();
-var constants=require('../service/common/constants');
+var express = require('express'),
+    router = express.Router(),
+    constants=require('../service/common/constants'),
+    adminService=require('../service/AdminService').AdminService,
+    render=require('../service/render/Admin');
 
+
+/***********************************登录管理***********************************************/
 router.get('/', function(req, res, next) {
-    res.render('admin/login', { title: '后台管理登录',
-        staticResourceUrl: constants.staticResourceHost,
-        message:"",
-        error:false
-    });
+    render.login(res);
 });
+
+
 
 router.get('/login', function(req, res, next) {
-    res.render('admin/login', { title: '后台管理登录',
-        staticResourceUrl: constants.staticResourceHost,
-        message:"",
-        error:false
-    });
+    render.login(res);
 });
 
+
+
 router.post('/manage', function(req, res, next) {
-    var userName=req.body.userName;
+    var registerName=req.body.registerName;
     var userPwd=req.body.userPwd;
 
-    if (userName=="admin@163.com"&&userPwd=="admin"){
-        res.render('admin/manage', { title: '后台管理',
-            staticResourceUrl: constants.staticResourceHost,
-            mClass:"comment"
-        }) ;
+    if (registerName.length>=4&&userPwd.length>=4){
+        adminService.checkUser(req,res);
     }else{
-        res.render('admin/login', { title: '玄魂的测试代码',
-            staticResourceUrl: constants.staticResourceHost,
-            message:"用户名或密码错误！",
-            error:true
-        });
+        render.loginFail(res);
     }
 
 });
+
+/***********************************统计管理***********************************************/
 
 router.get('/manage', function(req, res, next) {
     res.render('admin/manage', { title: '后台管理',
@@ -47,6 +42,8 @@ router.get('/manage', function(req, res, next) {
     });
 });
 
+/***********************************评论管理***********************************************/
+
 router.get('/comment', function(req, res, next) {
     res.render('admin/comment', { title: '评论管理',
         staticResourceUrl: constants.staticResourceHost,
@@ -54,11 +51,23 @@ router.get('/comment', function(req, res, next) {
     });
 });
 
+/***********************************流程管理***********************************************/
 
 router.get('/flower', function(req, res, next) {
     res.render('admin/flower', { title: '流程审批',
         staticResourceUrl: constants.staticResourceHost,
         mClass:"flower"
+    });
+});
+
+
+
+/***********************************榜单管理***********************************************/
+
+router.get('/list', function(req, res, next) {
+    res.render('admin/list', { title: '榜单管理',
+        staticResourceUrl: constants.staticResourceHost,
+        mClass:"list"
     });
 });
 
@@ -68,6 +77,8 @@ router.get('/list', function(req, res, next) {
         mClass:"list"
     });
 });
+
+/***********************************布局管理***********************************************/
 
 router.get('/layout', function(req, res, next) {
     res.render('admin/layout', { title: '布局管理',

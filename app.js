@@ -1,4 +1,7 @@
 var express = require('express');
+var ROOT_PATH=require('./service/common/singleton').ROOT_PATH;
+console.log(ROOT_PATH.getInstance(__dirname).getPath());
+
 var path = require('path');
 //var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -6,17 +9,19 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
-var jifen=require('./routes/jifen');
 var admin=require('./routes/admin');
-var developer=require('./routes/developer')
+var developer=require('./routes/developer');
+var system=require('./routes/system');
 var middleware=require('./service/common/middleware');
+
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -29,16 +34,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 //app.use(express.multipart())
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname,'upload')));
+
 
 
 app.use('/', index);
-app.use('/users', users);
-
-//参数验证
-app.use('/jifen', jifen);
-
-
+app.use('/system', system);
 //参数验证
 app.use('/admin', admin);
 app.use('/developer', developer);

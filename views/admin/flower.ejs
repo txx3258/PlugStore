@@ -1,25 +1,39 @@
 <%- include _header %>
 <style type="text/css">
     #queryTable{}
-    #queryTable tr{height:60px}
-    #queryTable tr td{width:120px}
+    #queryTable tr{height:48px}
+    #queryTable tr td{width:150px}
     .wd200{width:200px}
+    #row{width: 960px;clear: both;margin: auto}
+    .ml_50{margin-left: 50px}
+    .ml_10{margin-left: 10px}
+    .mt_10{margin-top: 10px}
+
+    #flower_table{margin-left: 10px}
+    #flower_table  tr{
+        height: 40px;
+    }
 
 </style>
 
 
 <div id="row" class="row">
-    <div class="col-sm-10">
-        <div class="panel panel-default">
+
+    <div class="panel panel-default mt_10">
             <div class="panel-heading">
                 <h3 class="panel-title"> 查询</h3>
             </div>
             <div class="panel-body">
                 <form class="form-signin">
-                    <table id="queryTable">
+                    <table id="queryTable" class="ml_50">
                         <tr>
                             <td><label>宿主名称：</label></td>
-                            <td><select class="form-control .wd200"><option>XP</option> <option>Windows</option></select></td>
+                            <td><select class="form-control wd200">
+                                    <option></option>
+                                    <option>XP</option>
+                                    <option>Windows</option>
+                                </select>
+                            </td>
                             <td></td>
                             <td><label>插件名称：</label></td>
                             <td><input type="email" id="inputEmail" class="form-control wd200" required autofocus></td>
@@ -28,13 +42,25 @@
                             <td><label>开发者：</label></td>
                             <td><input type="email" id="inputEmail" class="form-control wd200"  required autofocus></td>
                             <td></td>
-                            <td><label>创建时间：</label></td>
+                            <td><label>用户名称：</label></td>
                             <td><input type="email" id="inputEmail" class="form-control wd200" required autofocus></td>
                         </tr>
 
                         <tr>
-                            <td><label>插件状态：</label></td>
-                            <td><input type="email" id="inputEmail" class="form-control wd200"  required autofocus></td>
+                            <td><label>所属状态：</label></td>
+                            <td>
+                                <select class="form-control wd200">
+                                    <option></option>
+                                    <option>已确认</option>
+                                    <option>已下架</option>
+                                    <option>已冻结</option>
+                                    <option>申请</option>
+                                    <option>待测试</option>
+                                    <option>通过测试</option>
+                                    <option>未测试</option>
+                                </select>
+
+                            </td>
                             <td></td>
                             <td><label>插件类别：</label></td>
                             <td><input type="email" id="inputEmail" class="form-control wd200"  required autofocus></td>
@@ -59,15 +85,181 @@
 
             </div>
         </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Header</th>
+                <th>Header</th>
+                <th>Header</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1,001</td>
+                <td>Lorem</td>
+                <td>ipsum</td>
+                <td>dolor</td>
+                <td>sit</td>
+            </tr>
+            <tr>
+                <td>1,002</td>
+                <td>amet</td>
+                <td>consectetur</td>
+                <td>adipiscing</td>
+                <td>elit</td>
+            </tr>
+            <tr>
+                <td>1,003</td>
+                <td>Integer</td>
+                <td>nec</td>
+                <td>odio</td>
+                <td>Praesent</td>
+            </tr>
+            <tr>
+                <td>1,003</td>
+                <td>libero</td>
+                <td>Sed</td>
+                <td>cursus</td>
+                <td>ante</td>
+            </tr>
+            <tr>
+                <td>1,004</td>
+                <td>dapibus</td>
+                <td>diam</td>
+                <td>Sed</td>
+                <td>nisi</td>
+            </tr>
+            <tr>
+                <td>1,005</td>
+                <td>Nulla</td>
+                <td>quis</td>
+                <td>sem</td>
+                <td>at</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>nibh</td>
+                <td>elementum</td>
+                <td>imperdiet</td>
+                <td>Duis</td>
+            </tr>
+            <tr>
+                <td>1,007</td>
+                <td>sagittis</td>
+                <td>ipsum</td>
+                <td>Praesent</td>
+                <td>mauris</td>
+            </tr>
+            <tr>
+                <td>1,008</td>
+                <td>Fusce</td>
+                <td>nec</td>
+                <td>tellus</td>
+                <td>sed</td>
+            </tr>
+            <tr>
+                <td>1,009</td>
+                <td>augue</td>
+                <td>semper</td>
+                <td>porta</td>
+                <td>Mauris</td>
+            </tr>
+            <tr>
+                <td>1,010</td>
+                <td>massa</td>
+                <td>Vestibulum</td>
+                <td>lacinia</td>
+                <td>arcu</td>
+            </tr>
+            <tr>
+                <td>1,011</td>
+                <td>eget</td>
+                <td>nulla</td>
+                <td>Class</td>
+                <td>aptent</td>
+            </tr>
+            <tr>
+                <td>1,012</td>
+                <td>taciti</td>
+                <td>sociosqu</td>
+                <td>ad</td>
+                <td>litora</td>
+            </tr>
+            <tr>
+                <td>1,013</td>
+                <td>torquent</td>
+                <td>per</td>
+                <td>conubia</td>
+                <td>nostra</td>
+            </tr>
+            <tr id="Plug_Down">
+                <td>1,014</td>
+                <td>per</td>
+                <td>inceptos</td>
+                <td>himenaeos</td>
+                <td>Curabitur</td>
+            </tr>
+            <tr>
+                <td>1,015</td>
+                <td>sodales</td>
+                <td>ligula</td>
+                <td>in</td>
+                <td>libero</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div id="bannerBar" class="panel panel-primary" style="width:500px;height:350px;z-index:999;display: none;">
+    <div id="banner" class="panel-heading" style="cursor: move;clear: both;height: 40px; ">
+        <h3 class="panel-title" style="float: left">流程审批</h3>
+        <span id="queryBoxClose" class="badge" style="float: right;cursor:pointer">&times;</span>
+    </div>
+    <div class="panel-body">
+        <table id="flower_table">
+            <tr>
+                <td> <input type="radio" name="flower" value="确认" checked="checked"/></td>
+                <td><span class="ml_10">确认</span></td>
+            </tr>
+            <tr>
+                <td> <input type="radio" name="flower" value="下架" /></td>
+                <td><span class="ml_10">下架</span></td>
+            </tr>
+            <tr>
+                <td> <input type="radio" name="flower" value="下架" /></td>
+                <td><span class="ml_10">冻结</span></td>
+            </tr>
+            <tr>
+                <td> <input type="radio" name="flower" value="下架" /></td>
+                <td><span class="ml_10">测试中</span></td>
+            </tr>
+            <tr>
+                <td> <input type="radio" name="flower" value="下架" /></td>
+                <td><span class="ml_10">通过</span></td>
+            </tr>
+            <tr>
+                <td> <input type="radio" name="flower" value="下架" /></td>
+                <td><span class="ml_10">未通过</span></td>
+            </tr>
+
+
+        </table>
+
+        <button class="btn btn-lg btn-primary btn-block" type="button">确定</button>
+
     </div>
 </div>
-
 
 
 <%- include _footer %>
 
 <script type="text/javascript">
 
-    $('#row').center();
+    //$('#row').center();
 
 </script>

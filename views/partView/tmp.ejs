@@ -1,0 +1,276 @@
+<%- include _header %>
+
+<div id="my-app-container">
+<div id="my-app-content" class="clear">
+<%- include _navigator%>
+
+<div id="my-app-con">
+<!--上传应用-->
+<div class="frame-content">
+    <h1>上传应用</h1>
+    <p class="text-index-1">填写应用信息，提供展示图片，上传应用程序，您的应用销售之路从此处开始。</p>
+    <div class="app-title-2" id="app-title">
+        <ul>
+            <li class="active new-active app-li-1" id="upload_tap_1"><a>第<em>1</em>步：填写插件信息</a></li>
+            <li id="upload_tap_2"><a>第<em>2</em>步：上传插件信息 </a></li>
+        </ul>
+        <div id="app-title-bg" class="app-title-bg-2" style="left:0px;"></div>
+
+    </div>
+</div>
+
+<div id="upload_plug_info">
+    <p class="text-index-1">第1步：填写插件信息<span class="color-1">（*为必填项）</span></p>
+    <form id="form" action="" method="post">
+        <table class="table-class-3" align="center" width="700">
+            <tbody>
+            <tr id="screenSize">
+                <td width="140" class="td-2"><em>*</em>支持的宿主软件&nbsp;：</td>
+                <td>
+
+                    <select id="hostapp_id" name="hostapp_id">
+                        <option data="1;2;3;4;" value="121"> 121</option>
+                        <option data="2;2;3;4;" value="131">131 </option>
+                        <option data="4;2;3;4;" value="141">141</option>
+                        <option data="5;2;3;4;" value="151"> 151 </option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr id="screenSize">
+                <td width="140" class="td-2"><em>*</em>支持的宿主版本&nbsp;：</td>
+                <td id="appHostVersion">
+                    (请先选支持的宿主软件）
+
+
+                </td>
+            </tr>
+
+            <tr id="appTypeShow">
+                <td width="140" class="td-2"><em>*</em>应用类别&nbsp;：</td>
+                <td>
+                    <select name="apptype_id">
+                        <option value="">Autodesk AutoCAD</option>
+                        <option>Autodesk AutoCAD</option>
+                        <option>Autodesk AutoCAD</option>
+                        <option>Autodesk AutoCAD</option>
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-2"><em>*</em>插件名称&nbsp;：</td>
+                <td>
+                    <input  name="appname" class="input-class" type="text" value="" size="40">
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-2"><em>*</em>英文名称&nbsp;：</td>
+                <td>
+                    <input  name="appEnName" class="input-class" type="text" value="" size="100">
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-2"><em>*</em>插件标示UID&nbsp;：</td>
+                <td>
+                    <input  name="uid" class="input-class" type="text" value="" size="40">
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-2"><em>*</em>显示版本号&nbsp;：</td>
+                <td>
+                    <input name="app_version" class="input-class" type="text" value="" size="100">
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-2"><em>*</em>数字版本号&nbsp;：</td>
+                <td>
+                    <input name="app_versioncode" class="input-class" type="text" value="" size="100">
+
+                </td>
+            </tr>
+            <tr>
+                <td class="td-2" style="line-height: 69px;"><em>*</em>上传图标&nbsp;：</td>
+                <td class="td-3"><div class="icondiv">
+                        <ul class="icon_list" id="finalIcon">
+
+                            <input class="iconinput" type="file" name="icon_addr" hidefocus="true">
+                            <img src="<%= staticResourceUrl %>/developer/images/add1.png" width="64" height="64" alt="点击图标">
+                            <div class="gray" style="float:left; margin-left:10px; line-height:30px;width: 380px;">格式png，大小&lt;=500K，图标尺寸256*256，为不影响展示，图标建议控制在50K以内</div>
+
+
+                        </ul></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="td-2"><em>*</em>&nbsp;是否付费：</td>
+                <td>
+
+                    <input type="radio" name="is_pay" id="chipType" value="1" checked="checked">
+                    <label for="chip">是</label>　
+
+                    <input type="radio" name="is_pay" id="chipType" value="0">
+                    <label for="chip">否</label>　
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-2"><em>*</em>价格&nbsp;：</td>
+                <td>
+                    <input name="app_price" class="input-class" type="text" value="" size="100">
+                    <span>元&nbsp;(价格必须为正整数)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-2"><em>*</em>发布时间&nbsp;：</td>
+                <td>
+                    <input name="app_publishdate" class="input-class" type="text" value="" size="100">　
+                    <span>时间&nbsp;(yyyy-mm-dd)</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-2" valign="top">一句话描述&nbsp;：</td>
+                <td>
+                    <textarea name="app_info" class="textarea-class textarea-class-1" size="60"></textarea>
+                    <p>(会在列表中显示，请控制在12-20个字，包括标点符号)</p>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-2" valign="top"><em>*</em>简介&nbsp;：<br>
+                    (1000字以内)</td>
+                <td>
+                    <textarea  name="app_abstract"  class="textarea-class" ></textarea>
+                    <p>最大长度1000个字符，已经输入<span id="spanWordCount">0</span>个字符,剩余<span id="spanWordCountLeft">1000</span>个字符 </p>
+                    注意段落有致，不建议使用特殊字符，语句通顺无错别字，例如：&lt;/br&gt;等
+
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td class="td-2"><em>*</em>显示开发者名称&nbsp;：</td>
+                <td>
+                    <input  class="input-class" type="text" value="ceshi" size="40" maxlength="10">
+                    <input  type="hidden" value="121" />
+
+                </td>
+            </tr>
+
+            <tr style="height: 50px">
+
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button"  value="提交申请" class="input-class-1 input-class-2 btn-class">
+
+                    <input type="button" value="下一步" class="input-class-1 btn-class"></td>
+            </tr>
+            </tbody></table>
+        <input id="supportMesg" name="appEntity.smssupport" class="form_text" type="hidden" value="" size="5">
+        <input id="saveType" type="hidden" name="saveType" value="0">
+
+        <input id="oldLcaId" type="hidden" name="oldLcaId" value="-1">
+    </form>
+    <p>温馨小提示：</p>
+    <p style="text-indent:2em;">1.提交测试成功后会自动返回到应用管理页，您可以在待测试列表中找到该应用，待测试是指应用已经开始进行审核了</p>
+    <p style="text-indent:2em;">2.保存后您可以在等待提交列表找到该应用，亲，等待提交不等于应用在待审核了，需要提交测试才会进入审核状态</p>
+
+</div>
+
+
+<div id="upload_plug_file" style="display: none">
+    <p class="text-index-1">第2步：上传插件文件<span class="red">（*为必填项）</span></p>
+    <table width="750" align="center" class="table-class-3">
+        <tbody><tr>
+            <td class="td-2" style="width:20%;"><em>*</em> 插件文件：</td>
+            <td style="position:relative;">
+        			<span style="margin-left:0px;" class="iconuploadbox">
+        				<form id="fileFrom" name="fileFrom" action="/developer/uploadFile" method="post"
+                              enctype="multipart/form-data" target="hidden_frame">
+                            <input id="uploadFile" type="file" name="uploadFile">
+                            <button>选择文件</button>
+                            <iframe name="hidden_frame" id="hidden_frame" style="display: none"></iframe>
+                        </form>
+                    </span>
+                <span class="gray">上传文件大小&lt;=1G</span>
+                <div class="uploadTip none">
+                    <b class="smallCorner"></b>
+                    <div id="packageError" class="uploadMes"></div>
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+
+    <table width="750" align="center" class="table-class-3">
+        <tbody><tr>
+            <td width="20%" class="textr">&nbsp;</td>
+            <td id="uploadProcess" style="display: none">
+                <img  src="<%= staticResourceUrl %>/developer/images/loading.gif" >
+            </td>
+        </tr>
+        <tr id="debugInfos">
+            <td class="td-2">上传信息：</td>
+            <td id="programeListTd">
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+
+                <input type="button" id="upload_file_next" class="input-class-1 input-class-2 btn-class" value="下一步"  style="display: none">
+            </td>
+        </tr>
+
+        </tbody></table>
+</div>
+
+
+
+
+</div>
+
+
+</div>
+</div>
+
+<%- include _footer %>
+<script type="text/javascript" src="../js/developer.js"></script>
+
+<script type="text/javascript">
+    (function($){
+//        var url_hostAppName="/system/hostAppName";
+//        $.my_ajax_html(url_hostAppName,'#hostapp_id');
+
+
+        $("#hostapp_id").change(function(){
+            var versions=$(this).find("option:selected").attr('data').split(";");
+
+            var result=[];
+            for(var i=0;i<versions.length-1;i++){
+                result.push('<input name="support_version" type="checkbox" value="'+versions[i]+'"/> <label for="chip">'+versions[i]+'"</label>');
+            }
+            $("#appHostVersion").html(result.join(''));
+            // alert($(this).val());
+        });
+    })($)
+</script>

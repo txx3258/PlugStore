@@ -2,10 +2,24 @@
     "staticResourceHost":"http://119.29.16.116/assets",
     "mysql":{
         "connectionLimit":"10",
-        "host":"119.29.16.116:3306",
+        "host":"119.29.16.116",
         "user":"root",
-        "password":"12345",
-        "database":"auto_desk_appstore"
+        "password":"root",
+        "database":"auto_desk_appstore",
+        "insecureAuth":true
     },
-    "developerUploadPlugPath":"/data/appstore/plug/"
+    "developerUploadPlugPath":"/data/appstore/plug/",
+    "PART_VIEW":"/views/partView/",
+    "icon_form": {
+        "encoding": "utf-8",
+        "uploadDir": "/Users/soft_tangxiaoxian/Desktop/PlugStore/",
+        "keepExtensions": true,
+        "maxFieldsSize": 5000
+    },
+    "upload_form": {
+        "encoding": "utf-8",
+        "uploadDir": "/Users/soft_tangxiaoxian/Desktop/PlugStore/",
+        "keepExtensions": true,
+        "maxFieldsSize": 5000
+    }
 }

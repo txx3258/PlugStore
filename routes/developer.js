@@ -4,7 +4,8 @@
 var express = require('express');
 var router = express.Router();
 var constants=require('../service/common/constants');
-var formidable=require('formidable');
+var developerService=require('../service/DeveloperService').DeveloperService;
+
 var fs=require('fs');
 router.get('/login', function(req, res, next) {
     var userName=req.query.userName;
@@ -34,6 +35,11 @@ router.get('/manage', function(req, res, next) {
     });
 });
 
+router.post('/uploadPlugInfo', function(req, res, next) {
+
+    developerService.uploadPlugInfo(req,res);
+});
+
 
 router.get('/upload', function(req, res, next) {
     res.render('developer/upload', { title: '插件上传',
@@ -44,18 +50,12 @@ router.get('/upload', function(req, res, next) {
 
 
 router.post('/uploadFile',function(req,res,next){
-    var form=new formidable.IncomingForm();
+    developerService.uploadPlugFile(req,res);
+});
 
-    //console.log("文件默认属性：");
-    form.parse(req,function(err,fields,files){
+router.get('/queryUploadProcess', function(req, res, next) {
+    developerService.queryUploadProgress(req,res);
+});
 
-        //fs.rename();
-        var message=(files!=null?files.uploadFile.name:"")+":success";
-
-        console.log(message);
-        res.send(message);
-    });
-
-})
 
 module.exports = router;

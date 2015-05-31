@@ -1,23 +1,20 @@
 <%- include _header %>
+
+<style>
+    .list_tab{color: coral}
+</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">统计管理 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#Stat_Nar">统计导航</a></li>
-                <li><a href="#User_Vistor">用户访问量</a></li>
-
-
-                <li><a href="#Plug_Down">插件下载数</a></li>
-                <li><a href="#New_Plug">新增插件数</a></li>
-
-                <li><a href="#Develop_Num">开发者数量</a></li>
-                <li><a href="#Update_Item">插件更新项</a></li>
-                <li><a href="#Drop_Item">插件卸载项</a></li>
+            <ul id="list_tab" class="nav nav-sidebar">
+                <li class="active"><a href="#">设置管理 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#Stat_Nar"><span>分类管理</span></a></li>
+                <li><a href="#User_Vistor"><span>广告管理</span></a></li>
+                <li><a href="#Plug_Down"><span>宿主软件</span></a></li>
             </ul>
 
         </div>
 页面布局
 </div></div>
 
-<%- include _header %>
+<%- include _footer %>

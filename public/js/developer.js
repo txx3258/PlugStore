@@ -4,23 +4,23 @@
 (function(){
     var upLoadFileSuccessFlg=0;
 
-    $("#upload_tap_1").click(function(){
-        $(this).parent().children().removeClass('active new-active app-li-1');
-        $(this).addClass('active new-active app-li-1');
-        $("#app-title-bg").css('left','0');
-
-        $("#upload_plug_file").show();
-        $("#upload_plug_info").hide();
-    })
-
-    $("#upload_tap_2").click(function(){
-        $(this).parent().children().removeClass('active new-active app-li-1');
-        $(this).addClass('active new-active app-li-1');
-        $("#app-title-bg").css('left','378px');
-
-        $("#upload_plug_info").show();
-        $("#upload_plug_file").hide();
-    });
+    //$("#upload_tap_1").click(function(){
+    //    $(this).parent().children().removeClass('active new-active app-li-1');
+    //    $(this).addClass('active new-active app-li-1');
+    //    $("#app-title-bg").css('left','0');
+    //
+    //    $("#upload_plug_info").show();
+    //    $("#upload_plug_file").hide();
+    //})
+    //
+    //$("#upload_tap_2").click(function(){
+    //    $(this).parent().children().removeClass('active new-active app-li-1');
+    //    $(this).addClass('active new-active app-li-1');
+    //    $("#app-title-bg").css('left','378px');
+    //
+    //    $("#upload_plug_file").show();
+    //    $("#upload_plug_info").hide();
+    //});
     $("#upload_file_next").click(function(){
             $("#upload_tap_2").parent().children().removeClass('active new-active app-li-1');
             $("#upload_tap_2").addClass('active new-active app-li-1');
@@ -30,22 +30,22 @@
             $("#upload_plug_file").hide();
     });
 
-    $("#uploadFile").change(function(){
-        $("#uploadProcess").show();
-        document.forms[0].submit();
-        var interval= setInterval(function(){
-            var body=$(document.getElementById("hidden_frame").contentWindow.document.body).text();
 
-            console.log(body);
-            console.log(body.toString().indexOf("success"));
-            if(body.toString().indexOf("success")!=-1){
-                clearInterval(interval);
-                $("#uploadProcess").hide();
-                $("#programeListTd").html(body.replace(/<body>/g,'')+",文件已上传成功！");
-                $("#upload_file_next").show();
-            }
+    //$("#uploadPlugInfoSubmit").click(function(){
+    //    $("#recordSubmit").val('1');
+    //});
 
-        },1000);
+    $("#uploadPlugInfoNext").click(function(){
+        if ($("#recordSubmit").val()!='0'){
+            alert('请先提交信息后，在上传插件文件');
+        }else{
+            $("#upload_tap_2").parent().children().removeClass('active new-active app-li-1');
+            $("#upload_tap_2").addClass('active new-active app-li-1');
+            $("#app-title-bg").css('left','378px');
+
+            $("#upload_plug_file").show();
+            $("#upload_plug_info").hide();
+        }
     });
 
     $("#app-title-taps li a").click(function(){
