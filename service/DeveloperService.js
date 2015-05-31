@@ -134,8 +134,9 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
 DeveloperService.prototype.queryUploadProgress=function(req,res){
     if (this.form!=undefined){
+        console.log(this.bytesReceived+''+this.bytesExpected);
         var percent=Math.floor((this.bytesReceived/this.bytesExpected)*100);
-        console.log(percent);
+
         res.send(percent+"%");
     }else{
         res.send('上传完成!');
