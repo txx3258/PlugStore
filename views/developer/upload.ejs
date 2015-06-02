@@ -325,12 +325,12 @@
                 return false;
             }
 
-            if ($(form.attr("hostapp_id")).find("option:selected").val().length<1){
+            if ($(form.attr("hostapp_id")).find("option:selected").val()=='-1'){
                 error_msg='请选择宿主软件';
                 return false;
             }
 
-            if ($(form.attr("apptype_id")).find("option:selected").val().length<1){
+            if ($(form.attr("apptype_id")).find("option:selected").val()=='-1'){
                 error_msg='请选择支持宿主版本';
                 return false;
             }
@@ -370,7 +370,8 @@
                 return false;
             }
 
-            if ($(form.attr("app_price")).val().length<3){
+            var price_reg=/^(\d+)$|^(\d+\.\d+)$/;
+            if (price_reg.test($(form.attr("app_price")).val())){
                 error_msg='插件价格不正确';
                 return false;
             }
@@ -433,7 +434,7 @@
                 }
 
                 count+=1;
-                if (count==120){
+                if (count==300){
                     clearInterval(interval);
                     alert("本次提交时间延迟，请稍后重试！");
                     return;

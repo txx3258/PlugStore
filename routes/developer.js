@@ -48,6 +48,13 @@ router.get('/upload', function(req, res, next) {
     });
 });
 
+router.get('/register', function(req, res, next) {
+    res.render('developer/register', { title: '插件上传',
+        staticResourceUrl: constants.staticResourceHost,
+        mClass:"upload"
+    });
+});
+
 
 router.post('/uploadFile',function(req,res,next){
     developerService.uploadPlugFile(req,res);

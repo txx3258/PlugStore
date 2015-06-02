@@ -48,18 +48,7 @@
         }
     });
 
-    $("#app-title-taps li a").click(function(){
 
-        var index=parseInt($(this).attr("id").substring(5));
-
-        if(index!=6){
-            $("#app-title-bg").css('left',index*110);
-        }else{
-            $("#app-title-bg").css('left',index*110-10);
-        }
-
-        return false;
-    });
 
 
 })();

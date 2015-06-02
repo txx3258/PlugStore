@@ -5,9 +5,6 @@
         <%- include _navigator%>
 
         <form action="<%= staticResourceUrl %>/developer/queryApp.jspx" name="queryForm" method="post">
-            <input name="curr_query_state" id="curr_query_state" type="hidden" value="9"/>
-            <input name="addv" id="addv" type="hidden" value=""/>
-            <input name="appId" id="appId" type="hidden" value=""/>
 
             <div id="my-app-con">
                 <div class="frame-content">
@@ -15,12 +12,12 @@
 
                     <div class="app-title-1" id="app-title">
                         <ul id="app-title-taps">
-                            <li><a id="tap_s0" href="#" class="span-2-active">等待提交</a></li>
-                            <li ><a id="tap_s1" href="#" class="span-3">待测试</a></li>
-                            <li ><a id="tap_s2" href="#" class="span-4">通过测试</a></li>
-                            <li ><a id="tap_s3" href="#" class="span-1">未通过测试</a></li>
-                            <li ><a id="tap_s4" href="#" class="span-2">在售中</a></li>
-                            <li ><a id="tap_s5" href="#" class="span-1">已下架</a></li>
+                            <li><a id="tap_s0" href="#0" class="span-2-active">等待提交</a></li>
+                            <li ><a id="tap_s1" href="#1" class="span-3">待测试</a></li>
+                            <li ><a id="tap_s2" href="#3" class="span-4">通过测试</a></li>
+                            <li ><a id="tap_s3" href="#4" class="span-1">未通过测试</a></li>
+                            <li ><a id="tap_s4" href="#5" class="span-2">在售中</a></li>
+                            <li ><a id="tap_s5" href="#6" class="span-1">已下架</a></li>
                             <li class="app-li-1"><a id="tap_s6"  href="#" class="span-3">冻结中</a>
                             </li>
                         </ul>
@@ -29,23 +26,21 @@
                     <div id="app-form-search">
                         <table>
                             <tr>
-                                <td><label for="app-form-search-input">应用名称：</label></td>
+                                <td><label for="app-form-search-input">插件名称：</label></td>
                                 <td><input type="text" name="queryAppName" id="queryAppName" value=""
                                            class="input-class"/>
                                     &nbsp;&nbsp;&nbsp;</td>
-                                <td><input type="button" value="查询" onclick="querySubmit();" id="app-form-search-btn"
+                                <td><input type="button" value="查询"  id="app-form-search-btn"
                                            class="btn-class"/></td>
                             </tr>
                         </table>
                     </div>
                     <p class="app-notice">
-
-
                         如果您上传的应用没有提交是无法正式上架的，请您确认后提交测试，测试通过后即可上架！
 
                     </p>
-
-
+                    <div id="bim_app_container">
+                    <!--
                     <table class="app-table-class app-table-class-2">
                         <thead>
                         <tr>
@@ -650,7 +645,9 @@
                         </tr>
                         </tfoot>
                     </table>
+                    -->
 
+                    </div>
 
                 </div>
             </div>
@@ -828,3 +825,48 @@
 
 <%- include _footer %>
 <script src="/js/developer.js"></script>
+
+<script type="text/javascript">
+    (function($){
+        $("#app-title-taps li a").click(function(){
+
+            var index=parseInt($(this).attr("id").substring(5));
+
+            if(index!=6){
+                $("#app-title-bg").css('left',index*110);
+            }else{
+                $("#app-title-bg").css('left',index*110-10);
+            }
+
+            var status=$(this).attr("href").substring(1);
+
+            load_app_list(status);
+
+            return false;
+        });
+
+        function load_app_list(status){
+            var url_dev_list="/system/devAppList?status="+status;
+            $.my_ajax_html(url_dev_list,'#bim_app_container');
+        }
+
+        load_app_list('1');
+
+        $('#app-form-search-btn').click(function(){
+            var appname=$("#queryAppName").val();
+
+            if (appname==""){
+                alert("请输入查询的字符串……");
+                return;
+            }
+
+            var queryAppListForDev="/system/queryAppListForDev?appname="+appname;
+
+            $.my_ajax_html(queryAppListForDev,'#bim_app_container');
+        });
+
+
+    })($);
+
+
+</script>

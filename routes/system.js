@@ -14,5 +14,16 @@ router.get('/appType', function(req, res, next) {
     systemService.fetchAppType(req,res);
 });
 
+router.get('/devAppList', function(req, res, next) {
+    systemService.fetchAppListForDev(req,res);
+});
+
+router.get('/queryAppListForDev', function(req, res, next) {
+    systemService.queryAppListForDev(req,res);
+});
+
+router.get('/register', function(req, res, next) {
+    systemService.queryAppListForDev(req,res);
+});
 
 module.exports = router;

@@ -13,9 +13,13 @@
 
     "bimApp_Select":"select * from bim_app",
     "bimApp_Insert":"insert into bim_app(appname,appEnName,uid,app_info,app_abstract,app_size,is_pay,app_price,app_publishdate,app_versioncode,app_version,support_version,app_status,available,developer_id,hostapp_id,apptype_id) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}')",
-    "bimApp_Delete":"update bim_app set available='0' where id='{0}'"
+    "bimApp_Delete":"update bim_app set available='0' where id='{0}'",
+
+    "develop_applist_select":"select a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,b.name as appTypeName,c.hostAppName from bim_app as a right join  bim_apptype_info  b on a.apptype_id=b.id right join bim_app_host c on a.hostapp_id=c.id where a.app_status='{0}'",
+    "query_dev_applist_select":"select a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,b.name as appTypeName,c.hostAppName from bim_app as a right join  bim_apptype_info  b on a.apptype_id=b.id right join bim_app_host c on a.hostapp_id=c.id where a.appname like '%{0}%'"
 
 }
+
 
 
 
