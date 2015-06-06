@@ -16,7 +16,14 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/login', function(req, res, next) {
-    render.login(res);
+    var code =req.query.code,
+        message='';
+
+    if(code=='NOT_PASS'){
+        message='用户名或密码错误！'
+    }
+
+    render.login(res,message);
   //  res.send('hello');
 });
 

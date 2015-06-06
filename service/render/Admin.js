@@ -3,11 +3,10 @@
  */
 var constants=require('../common/constants');
 
-function login(res){
+function login(res,message){
     res.render('admin/login', { title: '后台管理登录',
         staticResourceUrl: constants.staticResourceHost,
-        message:"",
-        error:false
+        message:message
     });
 }
 
