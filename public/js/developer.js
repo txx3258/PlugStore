@@ -36,7 +36,7 @@
     //});
 
     $("#uploadPlugInfoNext").click(function(){
-        if ($("#recordSubmit").val()!='0'){
+        if ($("#recordSubmit").val()=='0'){
             alert('请先提交信息后，在上传插件文件');
         }else{
             $("#upload_tap_2").parent().children().removeClass('active new-active app-li-1');

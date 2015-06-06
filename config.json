@@ -21,5 +21,19 @@
         "uploadDir": "/Users/soft_tangxiaoxian/Desktop/PlugStore/",
         "keepExtensions": true,
         "maxFieldsSize": 5000
+    },
+    "session":{
+        "secret":"qwqwqw",
+        "cookie":{"maxAge":600000},
+        "resave":false,
+        "saveUninitialized":true
+    },
+    "security":{
+        "secret":"bim_by_txx3258",
+        "arg1":"aes-256-cbc",
+        "arg2":"hex",
+        "arg3":"utf8"
     }
+
+
 }

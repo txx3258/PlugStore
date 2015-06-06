@@ -1,5 +1,5 @@
 {
-    "checkUser":"select count(*) as count from bim_app_user where registerName='{0}' and password='{1}'",
+    "checkUser":"select count(*) as count,type from bim_app_user where registerName='{0}' and password='{1}'",
 
     "hostAppName_Select":"select * from bim_app_host",
     "hostAppName_Insert":"select * from ",

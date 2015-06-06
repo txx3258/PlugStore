@@ -4,10 +4,11 @@
 var mysql = require('./common/database').mysql;
 var sql = require('./sql/Admin');
 var utils = require('./common/utils');
-var render = require('./render/Admin');
+var render = require('./render/system');
 var constants=require('./common/constants');
 var ejs=require("ejs");
 var fs=require("fs");
+var security=require('./SecurityService').SecurityService;
 
 function SystemService() {
 
@@ -142,7 +143,41 @@ SystemService.prototype.queryAppListForDev = function (req, res) {
 
 }
 
+SystemService.prototype.checkLogin=function(req,res){
+    var url=req.body.redirect;
+    var backup=req.body.backup;
+    try {
+        var registerName = req.body.registerName;
+        var password = req.body.password;
 
+        registerName = registerName.replace(/~|@|#|^|&|\(|\)|and|or|'|"|=/g, '');
+        password = password.replace(/~|@|#|^|&|\(|\)|and|or|'|"|=/g, '');
+
+        var _sql = utils.format(sql.checkUser, registerName, password);
+
+    } catch (e) {
+        res.redirect(backup);
+        return;
+    }
+
+    var handlers = {
+        sql: _sql,
+        callback: res,
+        handler: checkUser
+    }
+
+    mysql.query(handlers);
+
+    function checkUser(result, res) {
+        if (result && result[0]['count'] == 1) {
+            req.session.secret=security.sign(result[0].type);
+            
+            res.redirect(url);
+        } else {
+            res.redirect(backup);
+        }
+    }
+}
 
 
 module.exports.SystemService = new SystemService;

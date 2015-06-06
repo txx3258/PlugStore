@@ -11,3 +11,4 @@ module.exports.mysql=config.mysql;
 module.exports.PART_VIEW=ROOT_PATH.getInstance().getPath()+config.PART_VIEW;
 module.exports.icon_form=config.icon_form;
 module.exports.upload_form=config.upload_form;
+module.exports.security=config.security;

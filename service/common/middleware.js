@@ -2,7 +2,29 @@
  * Created by tangxx3 on 2015/5/5.
  */
 var utils = require('./utils');
-var constants = require('./constants')
+var constants = require('./constants');
+var security=require('../SecurityService').SecurityService;
+
+function validateLogin(req,res,next){
+
+    if (req.url.indexOf('/login')!=-1||req.url.indexOf('/register')!=-1){
+        return next();
+    }
+
+    var role=security.unsign(req.session.secret);
+
+
+    if (role&&role>=1){
+        return next();
+    }else if (req.url.indexOf('/developer')==0){
+        return res.redirect('/developer/login');
+    }else if (req.url.indexOf('/admin')==0){
+        return res.redirect('/admin/login');
+    }else{
+        return res.send("wrong url");
+    }
+}
+
 function validateParam(req, res, next) {
     var params = req.body;
 
@@ -84,3 +106,4 @@ module.exports.handleNotURL = handleNotURL;
 module.exports.handleResult = handleResult;
 module.exports.handleError = handleError;
 module.exports.validateParam = validateParam;
+module.exports.validateLogin=validateLogin;

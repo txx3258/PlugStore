@@ -1,0 +1,82 @@
+<%- include _header %>
+<div id="my-app-container">
+    <div id="my-app-content" class="clear">
+        <div style="margin: 10px 0 0 15px;float: left">
+            <h1 style="font-size: 16px;color: red">开发者须知</h1>
+
+        </div>
+        <style>
+            #register_table{margin: 40px 0 0 80px;line-height: 40px;font-size: 14px;}
+            .wd_100{width: 100px}
+            .wd_200{width: 200px}
+        </style>
+        <div id="my-app-con" style="float: right">
+            <div class="frame-content">
+                <h1>开发者登录</h1>
+                <form name="loginForm" action="/system/checkLogin" method="post">
+                <table class="table-class-3" align="center" width="700" style="margin-top:100px;">
+                    <tbody>
+
+                    <tr>
+                        <td class="td-2"><em>*</em>注册账号&nbsp;：</td>
+                        <td>
+                            <input name="registerName" class="input-class" type="text" value="" size="40">
+
+                            <% if(message.length>5) { %>  <span style="color: orangered"><%= message%></span> <%}%>
+                        </td>
+                    </tr>
+
+                    <tr style="height: 30px">
+
+                    </tr>
+                    <tr>
+                        <td class="td-2"><em>*</em>登录密码&nbsp;：</td>
+                        <td>
+                            <input name="password" class="input-class" type="password" value="" size="100">
+
+                        </td>
+                    </tr>
+
+                    <tr style="height: 50px">
+                        <td></td> <td></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td-2">
+
+                        </td>
+                        <td>
+                            <input id="dLogin" type="submit" value="登录" class="input-class-1 input-class-2 btn-class disabled">
+
+                            <input id="dRegister" type="button" value="注册" class="input-class-1 btn-class">
+
+                            <input type="hidden" name="redirect" value="/developer/upload">
+                            <input type="hidden" name="backup" value="/developer/login?code=NOT_PASS">
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<%- include _footer %>
+
+<script type="text/javascript">
+    (function($){
+        $("#dLogin").click(function(){
+
+        });
+
+        $("#dRegister").click(function(){
+            window.location.href="/developer/register"
+        });
+    })($);
+
+
+</script>

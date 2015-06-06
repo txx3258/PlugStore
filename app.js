@@ -7,13 +7,15 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session=require("express-session");
 
 var index = require('./routes/index');
 var admin=require('./routes/admin');
+var api=require('./routes/api');
 var developer=require('./routes/developer');
 var system=require('./routes/system');
 var middleware=require('./service/common/middleware');
-
+var config=require('./config.json');
 
 var app = express();
 
@@ -32,17 +34,18 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-//app.use(express.multipart())
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
 app.use('/', index);
-app.use('/system', system);
-//参数验证
-app.use('/admin', admin);
-app.use('/developer', developer);
 
+//参数验证
+//设置session
+app.use(session(config["session"]));
+app.use('/system', system);
+app.use(middleware.validateLogin);
+app.use('/developer', developer);
+app.use('/admin', admin);
 //handle final result
 app.use(middleware.handleResult);
 
