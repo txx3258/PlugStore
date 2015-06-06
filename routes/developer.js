@@ -7,16 +7,13 @@ var constants=require('../service/common/constants');
 var developerService=require('../service/DeveloperService').DeveloperService;
 
 
-router.post('/manage', function(req, res, next) {
-    res.render('developer/manage', { title: '开发者管理',
-        staticResourceUrl: constants.staticResourceHost,
-        mClass:"manage"
-    });
-});
 router.get('/manage', function(req, res, next) {
+    var registerName=req.session?req.session.registerName:'';
+
     res.render('developer/manage', { title: '开发者管理',
         staticResourceUrl: constants.staticResourceHost,
-        mClass:"manage"
+        mClass:"manage",
+        registerName:registerName
     });
 });
 
@@ -27,21 +24,29 @@ router.post('/uploadPlugInfo', function(req, res, next) {
 
 
 router.get('/upload', function(req, res, next) {
+    var registerName=req.session?req.session.registerName:'';
+
     res.render('developer/upload', { title: '插件上传',
         staticResourceUrl: constants.staticResourceHost,
-        mClass:"upload"
+        mClass:"upload",
+        registerName:registerName
     });
 });
 
 router.get('/register', function(req, res, next) {
+    var registerName=req.session?req.session.registerName:'';
+
     res.render('developer/register', { title: '插件上传',
         staticResourceUrl: constants.staticResourceHost,
-        mClass:"upload"
+        mClass:"upload",
+        registerName:registerName
     });
 });
 
 
 router.get('/login', function(req, res, next) {
+    var registerName=req.session?req.session.registerName:'';
+
     var code=req.query.code,
         message='';
     if (code=='NOT_PASS'){
@@ -50,9 +55,22 @@ router.get('/login', function(req, res, next) {
 
     res.render('developer/login', { title: '插件上传',
         staticResourceUrl: constants.staticResourceHost,
-        message:message
+        message:message,
+        registerName:registerName
     });
 });
+
+
+
+router.get('/logout', function(req, res, next) {
+    if (req.session){
+        req.session=undefined;
+    }
+
+    res.redirect(constants.INDEX);
+});
+
+
 
 router.post('/checkLogin', function(req, res, next) {
     res.render('developer/login', { title: '插件上传',
@@ -65,6 +83,7 @@ router.post('/checkLogin', function(req, res, next) {
 router.post('/uploadFile',function(req,res,next){
     developerService.uploadPlugFile(req,res);
 });
+
 
 router.get('/queryUploadProcess', function(req, res, next) {
     developerService.queryUploadProgress(req,res);

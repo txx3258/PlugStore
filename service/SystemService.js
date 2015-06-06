@@ -171,6 +171,7 @@ SystemService.prototype.checkLogin=function(req,res){
     function checkUser(result, res) {
         if (result && result[0]['count'] == 1) {
             req.session.secret=security.sign(result[0].type);
+            req.session.registerName=result[0].registerName;
             
             res.redirect(url);
         } else {
@@ -179,5 +180,41 @@ SystemService.prototype.checkLogin=function(req,res){
     }
 }
 
+SystemService.prototype.putDeveloperBaseInfo=function(req,res){
+    var body=req.body;
+
+    var registerName=body.registerName,
+        password=body.password,
+        name=body.name,
+        email=body.email,
+        qq=body.qq,
+        wechat=body.wechat,
+        phone=body.phone,
+        certificate_type=body.certificate_type,
+        certificate_no=body.certificate_no,
+        remark=body.remark,
+        nickname=body.nickname;
+
+    var _sql = utils.format(sql.developer_register_Insert,registerName,password,name,email,qq
+        ,wechat,phone,certificate_type,certificate_no,remark,nickname,utils.convertDate(new Date()),'1','0');
+
+    var handlers = {
+        sql: _sql,
+        callback: res,
+        handler: developerBaseInfo
+    };
+
+    mysql.query(handlers);
+
+    function developerBaseInfo(result, res) {
+        if (result && result.affectedRows==1) {
+            console.log('success');
+        } else {
+            console.log('fail');
+        }
+        res.redirect(constants.INDEX);
+    }
+
+}
 
 module.exports.SystemService = new SystemService;

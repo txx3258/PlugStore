@@ -73,6 +73,16 @@ insert into bim_app(appname,appEnName,uid,app_info,app_abstract,app_size,is_pay,
 
 
 
+alter table bim_app_user add column remark varchar(1000);
+alter table bim_app_user add column certificate_type varchar(20);
+alter table bim_app_user add column certificate_no varchar(50);
+
+alter table bim_app_user add column nickname varchar(20);
+
+alter table bim_app_user add column qq varchar(15);
+
+alter table bim_app_user add column wechat varchar(30);
+
 
 insert into bim_app(appname,appEnName,uid,app_info,app_abstract,app_size,is_pay,app_price,app_publishdate,app_versioncode,app_version,support_version,app_status,available,developer_id,hostapp_id,apptype_id)
 

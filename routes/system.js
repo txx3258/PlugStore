@@ -30,4 +30,9 @@ router.post('/checkLogin', function(req, res, next) {
     systemService.checkLogin(req,res);
 });
 
+router.post('/putDevBaseInfo',function(req,res,next){
+    systemService.putDeveloperBaseInfo(req,res);
+});
+
+
 module.exports = router;

@@ -17,14 +17,14 @@
                     <p class="app-notice">
                         如果您提交开发者申请，管理人员最迟在三天之内对提交的材料就行审核，如有不便……
                     </p>
-
+                   <form name="develop_register" action="/system/putDevBaseInfo" method="post">
                     <table class="table-class-3" align="center" width="700" style="margin-top: 20px;">
                         <tbody>
 
                         <tr>
                             <td class="td-2"><em>*</em>注册账号&nbsp;：</td>
                             <td>
-                                <input name="appname" class="input-class" type="text" value="" size="40">
+                                <input name="registerName" class="input-class" type="text" value="" size="40">
 
                             </td>
                         </tr>
@@ -32,7 +32,7 @@
                         <tr>
                             <td class="td-2"><em>*</em>用户密码&nbsp;：</td>
                             <td>
-                                <input name="appEnName" class="input-class" type="text" value="" size="100">
+                                <input name="password" class="input-class" type="password" value="" size="20">
 
                             </td>
                         </tr>
@@ -40,7 +40,7 @@
                         <tr>
                             <td class="td-2"><em>*</em>确认密码&nbsp;：</td>
                             <td>
-                                <input name="uid" class="input-class" type="text" value="" size="40">
+                                <input name="rePassword" class="input-class" type="password" value="" size="20">
 
                             </td>
                         </tr>
@@ -48,7 +48,7 @@
                         <tr>
                             <td class="td-2"><em>*</em>姓名&nbsp;：</td>
                             <td>
-                                <input name="app_version" class="input-class" type="text" value="" size="100">
+                                <input name="name" class="input-class" type="text" value="" size="5">
 
                             </td>
                         </tr>
@@ -56,14 +56,22 @@
                         <tr>
                             <td class="td-2"><em>*</em>邮箱&nbsp;：</td>
                             <td>
-                                <input name="app_versioncode" class="input-class" type="text" value="" size="100">
+                                <input name="email" class="input-class" type="text" value="" size="100">
 
                             </td>
                         </tr>
                         <tr>
                             <td class="td-2">qq&nbsp;：</td>
                             <td>
-                                <input name="app_versioncode" class="input-class" type="text" value="" size="100">
+                                <input name="qq" class="input-class" type="text" value="" size="100">
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="td-2">微信&nbsp;：</td>
+                            <td>
+                                <input name="wechat" class="input-class" type="text" value="" size="100">
 
                             </td>
                         </tr>
@@ -71,16 +79,18 @@
                         <tr>
                             <td class="td-2">电话&nbsp;：</td>
                             <td>
-                                <input name="app_versioncode" class="input-class" type="text" value="" size="100">
+                                <input name="phone" class="input-class" type="text" value="" size="20">
 
                             </td>
                         </tr>
 
 
                         <tr>
-                            <td class="td-2">公司&nbsp;：</td>
+                            <td class="td-2">证件类型&nbsp;：</td>
                             <td>
-                                <input name="app_versioncode" class="input-class" type="text" value="" size="100">
+                                <select name="certificate_type">
+                                    <option value="0">身份证</option>
+                                </select>
 
                             </td>
                         </tr>
@@ -88,18 +98,17 @@
                         <tr>
                             <td class="td-2">有效证件&nbsp;：</td>
                             <td>
-                                <input name="app_versioncode" class="input-class" type="text" value="" size="100">
+                                <input name="certificate_no" class="input-class" type="text" value="" size="100">
 
                             </td>
                         </tr>
-
 
 
                         <tr>
                             <td class="td-2" valign="top">开发者简介&nbsp;：<br>
                                 (1000字以内)</td>
                             <td>
-                                <textarea name="app_abstract" class="textarea-class"></textarea>
+                                <textarea name="remark" class="textarea-class"></textarea>
                                 <p>最大长度1000个字符，已经输入<span id="spanWordCount">0</span>个字符,剩余<span id="spanWordCountLeft">1000</span>个字符 </p>
                                 注意段落有致，不建议使用特殊字符，语句通顺无错别字，例如：&lt;/br&gt;等
 
@@ -111,7 +120,7 @@
                         <tr>
                             <td class="td-2"><em>*</em>显示开发者名称&nbsp;：</td>
                             <td>
-                                <input class="input-class" name="developer_id" type="text" value="" size="40" maxlength="10">
+                                <input class="input-class" name="nickname" type="text" value="" size="40" maxlength="10">
                                 <input type="hidden" value="121">
 
                             </td>
@@ -130,6 +139,7 @@
 
                         </tbody>
                     </table>
+                   </form>
                 </div>
                 
             </div>
@@ -140,8 +150,37 @@
 
 <script type="text/javascript">
     $('#uploadPlugInfoSubmit').click(function(){
-        alert('信息提交，请耐心等待管理员审核！');
-        window.location.href="http://119.29.16.116/assets/index.html";
+       var form= document.forms["develop_register"];
+       if (!/\w{5,20}/.test(form["registerName"].value)){
+            alert('注册号为5到20位字符串！');
+           return;
+       }
+
+        if (form["password"].value!=form["rePassword"].value||!/\w{5,20}/.test(form["registerName"].value)){
+            alert('密码前后不一致或长度不为5到20位字符');
+            return;
+        }
+
+        if (form["name"].value.length<2){
+            alert('姓名不能为空！');
+            return;
+        }
+
+        if (!/@/.test(form["email"].value)){
+            alert('邮箱格式不正确！');
+            return;
+        }
+
+        if (form["nickname"].value.length<2){
+            alert('显示开发者名称不正确！');
+            return;
+        }
+
+        var flag=confirm('是否提交信息？提交后请耐心等待管理员审核！');
+        if (flag){
+            form.submit();
+        }
+
     });
 
 </script>

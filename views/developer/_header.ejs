@@ -36,11 +36,11 @@
         </div>
 
         <div class="idx_loginMenu">
-
-
-            <a href="/">christy78</a>
-            <em></em>
-            <a href="/developer/register">注册</a>
+            <% if (registerName) { %>
+                <a href="#">欢迎您,<%= registerName %></a><em></em><a href="/developer/logout">退出</a>
+            <% } else { %>
+                <a href="/developer/register">注册</a><em></em><a href="/developer/login">登录</a>
+            <% } %>
 
         </div>
     </div>

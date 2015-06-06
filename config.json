@@ -33,7 +33,8 @@
         "arg1":"aes-256-cbc",
         "arg2":"hex",
         "arg3":"utf8"
-    }
+    },
+    "INDEX":"http://119.29.16.116/assets/index.html"
 
 
 }
