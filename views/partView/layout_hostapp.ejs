@@ -1,0 +1,51 @@
+<div class="col-sm-15 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="tableDemo" style="width: 890px">
+        <table id="sprintlist_table" cellspacing="0" cellpadding="10" data-table="dnd" class="indtd" style="white-space: nowrap;">
+            <thead id="sprintlist_header">
+            <tr style="cursor: move;font-size:14px">
+                <th class="end_date" style="width:20px">序号</th>
+                <th class="end_date" style="width:200px">宿主软件</th>
+                <th class="name" style="width: 200px">包名</th>
+                <th class="start_date" style="width: 200px">支持的版本</th>
+                <th class="actions">操作</th>
+            </tr>
+            </thead>
+            <tbody style="font-size:14px">
+            <%var i=1 ;hostApps.forEach(function(hostApp){ %>
+                <tr id="<%= hostApp.id %>" table="bim_app_host" col_id="id">
+                <td><%= i++%></td>
+                <td><%= hostApp.hostAppName %></td>
+                <td><%= hostApp.hostPackageName %></td>
+                <td><%= hostApp.own_version %></td>
+                <td class="small_buttons">
+                    <div>
+                        <button  hostAppName="<%= hostApp.hostAppNameFull %>" hostPackageName="<%= hostApp.hostPackageNameFull %>"  own_version="<%= hostApp.own_versionFull %>"  class="list_edit">编辑</button>
+                        <button class="list_delete">删除</button>
+                    </div>
+                </td>
+                </tr>
+            <% }) %>
+
+            <tr class="group_heading nodrag">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr >
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="small_buttons">
+                    <div>
+                        <button data="hostApp" class="list_add">添加</button>
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

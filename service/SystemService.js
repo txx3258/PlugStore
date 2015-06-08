@@ -171,7 +171,6 @@ SystemService.prototype.checkLogin=function(req,res){
     function checkUser(result, res) {
         if (result && result[0]['count'] == 1) {
             req.session.secret=security.sign(result[0].type);
-            req.session.registerName=result[0].registerName;
             
             res.redirect(url);
         } else {
@@ -216,5 +215,33 @@ SystemService.prototype.putDeveloperBaseInfo=function(req,res){
     }
 
 }
+
+SystemService.prototype.deleteTable=function(req,res){
+    var id=req.query.id,
+        table=req.query.table,
+        col_id=req.query.col_id;
+
+    var _sql = utils.format(sql.delete_table,table,col_id,id);
+
+    var handlers = {
+        sql: _sql,
+        callback: res,
+        handler: delTable
+    };
+
+    mysql.query(handlers);
+
+    function delTable(result, res) {
+        if (result && result.affectedRows==1) {
+            console.log('success');
+        } else {
+            console.log('fail');
+        }
+        res.send('');
+    }
+
+}
+
+
 
 module.exports.SystemService = new SystemService;

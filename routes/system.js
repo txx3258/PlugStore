@@ -34,5 +34,11 @@ router.post('/putDevBaseInfo',function(req,res,next){
     systemService.putDeveloperBaseInfo(req,res);
 });
 
+router.post('/delete_table',function(req,res,next){
+    systemService.putDeveloperBaseInfo(req,res);
+});
+
+
+
 
 module.exports = router;

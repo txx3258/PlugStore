@@ -28,19 +28,6 @@ router.get('/login', function(req, res, next) {
 });
 
 
-
-router.post('/manage', function(req, res, next) {
-    var registerName=req.body.registerName;
-    var userPwd=req.body.userPwd;
-
-    if (registerName.length>=4&&userPwd.length>=4){
-        adminService.checkUser(req,res);
-    }else{
-        render.loginFail(res);
-    }
-
-});
-
 /***********************************统计管理***********************************************/
 
 router.get('/manage', function(req, res, next) {
@@ -68,6 +55,17 @@ router.get('/flower', function(req, res, next) {
     });
 });
 
+router.get('/flower_developer', function(req, res, next) {
+
+    adminService.fetchDevUsers(req,res);
+});
+
+router.get('/flower_app', function(req, res, next) {
+
+    adminService.fetchFlowerApp(req,res);
+});
+
+
 
 
 /***********************************榜单管理***********************************************/
@@ -93,6 +91,11 @@ router.get('/layout', function(req, res, next) {
         staticResourceUrl: constants.staticResourceHost,
         mClass:"layout"
     });
+});
+
+router.get('/layout_hostapp', function(req, res, next) {
+
+    adminService.fetchHostApp(req,res);
 });
 
 module.exports = router;
