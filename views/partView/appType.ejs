@@ -1,4 +1,7 @@
-<option  value="-1">请选择</option>
+
 <% apptypes.forEach(function(apptype){ %>
-    <option  value="<%= apptype.id %>"><%= apptype.name %></option>
+<input name="apptype_id" type="checkbox" value="<%= apptype.id %>"/> <label for="version"><%= apptype.name %></label>
 <% })%>
+
+
+

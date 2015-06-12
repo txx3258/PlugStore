@@ -27,9 +27,11 @@
     <div class="col-sm-3 col-md-2 sidebar">
         <ul id="list_tab" class="nav nav-sidebar">
             <li class="active"><a href="#">设置管理 <span class="sr-only">(current)</span></a></li>
-            <li><a href="#Stat_Nar"><span>分类管理</span></a></li>
+            <li><a href="#hostApp"><span class="list_tab">宿主软件</span></a></li>
+            <li><a href="#appTypeRoot"><span>宿主级分类</span></a></li>
+            <li><a href="#appTypeSub"><span>专业分类</span></a></li>
             <li><a href="#User_Vistor"><span>广告管理</span></a></li>
-            <li><a href="#Plug_Down"><span>宿主软件</span></a></li>
+
         </ul>
 
     </div>
@@ -43,31 +45,32 @@
 
 </div>
 
-<div id="bannerBar" class="panel panel-primary" style="width:700px;height:300px;z-index:9999;display: none;">
+<div id="bannerBar" class="panel panel-primary" style="z-index:9999; display: none;">
     <div id="banner" class="panel-heading" style="cursor: move;clear: both;height: 40px; ">
         <h3 class="panel-title" style="float: left"></h3>
         <span id="queryBoxClose" class="badge" style="float: right;cursor:pointer">&times;</span>
     </div>
     <div id="panel-body" class="panel-body" data="">
 
+
     </div>
 </div>
 
 <div id="EventListen" style="display: none"></div>
 
-<div id="add_host_app" style="display: none" width="700" height="300">
-    <form id="add_host_app" class="form-signin">
-        <table id="queryTable" class="ml_50" >
+<div id="add_host_app" style="display: none" width="600px" height="300px" type="">
+    <form id="replace_host_app_form" class="form-signin">
+        <table id="queryTable" >
             <tr>
                 <td>宿主名称：</td>
-                <td><input id="text_hostApp" type="text"  class="form-control wd200" ></td>
+                <td><input id="text_hostApp" name="hostAppName" type="text"  class="form-control wd200" ><input id="text_id" name="id" type="hidden"/></td>
                 <td></td>
                 <td>宿主包名：</td>
-                <td><input id="text_hostApp_name" type="text"  class="form-control wd200"></td>
+                <td><input id="text_hostApp_name" name="hostPackageName" type="text"  class="form-control wd200"></td>
             </tr>
             <tr>
                 <td>支持的版本</td>
-                <td><input id="text_hostApp_version" type="text"  class="form-control wd200"></td>
+                <td><input id="text_hostApp_version" type="text" name="own_version" class="form-control wd200"></td>
                 <td></td>
                 <td>用分割符区分版本</td>
                 <td>(比如：12;14;15;)</td>
@@ -81,7 +84,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td><button class="btn btn-lg btn-primary btn-block" type="button">添加</button></td>
+                <td><button class="btn btn-lg btn-primary btn-block" type="button">确定</button></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -93,6 +96,40 @@
     </form>
 </form>
 </div>
+
+<div id="add_app_type_root" style="display:none" width="500px" height="300px" type="">
+    <form id="replace_app_type_root_form" class="form-signin">
+        <table id="queryTable" >
+            <tr>
+                <td>code：</td>
+                <td><input id="text_code" name="code" type="text"  class="form-control wd200" ><input id="type_root_id" name="id" type="hidden"/></td>
+
+            </tr>
+            <tr>
+                <td>名称：</td>
+                <td><input id="text_name" type="text" name="name" class="form-control wd200"></td>
+            </tr>
+            <tr class="ht_80">
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-lg btn-primary btn-block" type="button">确定</button>
+
+
+                </td>
+                <td></td>
+
+            </tr>
+
+        </table>
+    </form>
+    </form>
+</div>
+
+
 <%- include _footer %>
 
 <script type="text/javascript">
@@ -102,6 +139,11 @@
             $.my_ajax_html(url,'#list_select');
         }
         fetchHostApp();
+
+        function fetchAppTypeRoot(){
+            var url="/admin/app_type_root";
+            $.my_ajax_html(url,'#list_select');
+        }
 
         $("#list_select").delegate(".list_delete","click",function(){
             var flag=confirm('请您确认是否真的要删除!');
@@ -115,58 +157,111 @@
                 $.my_ajax_html(url,"");
 
                 alert('该操作已执行,如果已存在数据表的级联关系,系统默认不会删除！');
-                fetchHostApp();
+                var data=$("#panel-body").attr("data");
+                if (data=='add_host_app'){
+                    fetchHostApp();
+                }else if(data=='add_app_type_root'){
+                    fetchAppTypeRoot();
+                }
+
             }
         });
 
         $("#list_select").delegate(".list_edit","click",function(){
-            var width=$("#add_host_app").attr('width');
-            var height=$("#add_host_app").attr('height');
+            var divID=$(this).attr('divID'),
+                    name=$(this).attr("title");
+            var width=$("#"+divID).attr('width');
+            var height=$("#"+divID).attr('height');
 
-            addBannerBar(width,height,"hostApp","#add_host_app",'编辑宿主软件');
+            addBannerBar(width,height,divID,name,"edit");
 
-            $("#text_hostApp").val($(this).attr("hostAppName"));
-            $("#text_hostApp_name").val($(this).attr("hostPackageName"));
-            $("#text_hostApp_version").val($(this).attr("own_version"));
+            var data=$("#panel-body").attr("data");
+
+            if (data=="add_host_app"){
+                $("#text_hostApp").val($(this).attr("hostAppName"));
+                $("#text_hostApp_name").val($(this).attr("hostPackageName"));
+                $("#text_hostApp_version").val($(this).attr("own_version"));
+                $("#text_id").val($(this).attr("id"));
+            }else if(data=="add_app_type_root"){
+                $("#text_code").val($(this).attr("code"));
+                $("#text_name").val($(this).attr("name"));
+                $("#type_root_id").val($(this).attr("id"));
+            }
+
         });
+
 
 
         $("#list_select").delegate(".list_add","click",function(){
-            var width=$("#add_host_app").attr('width');
-            var height=$("#add_host_app").attr('height');
+            var divId=$(this).attr("divID");
+            var name=$(this).attr("title");
 
-            addBannerBar(width,height,"hostApp","#add_host_app",'添加宿主软件');
+            var width=$('#'+divId).attr('width');
+            var height=$('#'+divId).attr('height');
+
+            addBannerBar(width,height,divId,name,"add");
         });
 
-        function addBannerBar(width,height,urlType,divTarget,topic){
+        function addBannerBar(width,height,divTarget,topic,type){
             $("#bannerBar").attr('width',width);
             $("#bannerBar").attr('height',height);
+            $("#bannerBar").attr('type',type);
 
-            $("#panel-body").attr("data",urlType);
-            $("#panel-body").html($(divTarget).html());
+            $("#panel-body").attr("data",divTarget);
+
+            var html=$('#'+divTarget).html().replace(/replace_.*?_form/,divTarget+'_form');
+            $("#panel-body").html(html);
 
             $("#banner h3").text(topic);
             $("#bannerBar").show();
+            $("#bannerBar").center();
         }
-
-
-
-
 
         $("#panel-body").delegate("button","click",function(){
             var url=undefined;
-            if ($("#panel-body").attr("data")=='hostApp'){
-                url='/admin/add_host_app?'+$("#add_host_app").serialize();
+            var type=$("#bannerBar").attr('type');
+            if (type=='add'||type=='edit'){
+                var data=$("#panel-body").attr("data"),
+                        form=$("#"+data+"_form").serialize();
+
+                if (data=='add_host_app'){
+                    url='/admin/'+type+'_host_app?'+form
+                    $.my_ajax_alert(url,"/admin/layout_hostapp",'#list_select');
+                }else if(data=='add_app_type_root'){
+                    url='/admin/'+type+'_app_type_root?'+form;
+                    $.my_ajax_alert(url,"/admin/app_type_root",'#list_select');
+                }
+
             }
-            
-            $.my_ajax_html(url,"#EventListen");
         });
 
+        $("#list_tab li a").click(function(){
+                var href=$(this).attr('href');
+                if(href.length>2){
+                    $(this).parent().parent().children().children().children().removeClass('list_tab');
+                    $(this).children().addClass('list_tab');
 
-        $("#EventListen").bind('DOMNodeInserted',function(e){
-           alert($(this).html());
-        });
+                    if(href=="list_type"){
+                        $("#list_type").show();
+                        $("#list_select").hide();
+                    }else{
+                        $("#list_type").hide();
+                        $("#list_select").show();
+                    }
+
+                    if (href=="#hostApp"){
+                        fetchHostApp();
+                    }else if (href=="#appTypeRoot"){
+                        fetchAppTypeRoot();
+                    }
+
+                    return false;
+                }
+            });
 
     })($);
 
 </script>
+<!--$("#EventListen").bind('DOMNodeInserted',function(e){-->
+<!--alert($(this).html());-->
+<!--});-->

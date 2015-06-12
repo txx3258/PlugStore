@@ -1,0 +1,51 @@
+<table id="sprintlist_table" cellspacing="0" cellpadding="10" data-table="dnd" data-ondragstart="$(table).parent().find('.result').text('data-ondragstart');" data-ondrop="inline_sprintlist_ondrop(table, row);" data-serializeregexp="^.*sprints$|[^\_]*$" data-ondragclass="sprintlist-drag" data-ondragstyle="" data-ondropstyle="" data-scrollamount="100" data-sensitivity="1" data-hierarchylevel="2" data-indentartifact="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-autowidthadjust="1" data-autocleanrelations="1" data-jsonpretifyseparator="    " data-serializeparamname="sprintlist" data-draghandle="" class="indtd" style="white-space: nowrap;">
+<thead id="sprintlist_header">
+<tr style="cursor: move;font-size:14px">
+    <th class="end_date" style="width: 50px">序号</th>
+    <th class="name">图标</th>
+    <th class="name" >插件名称</th>
+    <th class="start_date">包名</th>
+    <th class="end_date">宿主软件</th>
+    <th class="end_date">支持的版本</th>
+    <th class="name" >UID</th>
+    <th class="name" >价格</th>
+    <th class="name" >大小</th>
+    <th class="actions">发布时间</th>
+    <th class="name" >操作</th>
+</tr>
+</thead>
+<tbody style="font-size:14px">
+<tr id="present_sprints" class="group_heading nodrag">
+    <td colspan="10"></td>
+    <td class="small_buttons">
+        <div><button title="添加精选榜单" divID="add_list_app_div" class="list_add">添加</button></div>
+    </td>
+</tr>
+
+<%var i=1 ;apps.forEach(function(app){ %>
+<tr>
+    <td><%= i %> <input type="hidden" name="order" value="<%= i++ %>"/>  </td>
+    <td>
+        <img width="45px" height="45px" src="<%= app.iconAdress %> "/>
+    </td>
+    <td><%= app.appname %></td>
+    <td><%= app.appEnName %></td>
+    <td><%= app.hostAppName %></td>
+    <td><%= app.support_version %></td>
+    <td><%= app.uid %>  <input type="hidden" name="order" value="<%= app.uid %> "/></td>
+    <td><%= app.app_price %></td>
+    <td><%= app.app_size %></td>
+    <td><%= app.app_publishdate %></td>
+    <td class="small_buttons">
+        <div><button table="bim_list" id="<%= app.id %>" class="list_delete">删除</button></div>
+    </td>
+</tr>
+<% })%>
+<tr>
+    <td class="small_buttons">
+        <div><button  class="list_edit">发布</button></div>
+    </td>
+    <td colspan="10"></td>
+</tr>
+</tbody>
+</table>

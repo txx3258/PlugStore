@@ -50,22 +50,22 @@
         $("#bannerBar").hide();
     });
 
-    $("#list_tab li a").click(function(){
-        var href=$(this).attr('href');
-        if(href.length>2){
-            $(this).parent().parent().children().children().children().removeClass('list_tab');
-            $(this).children().addClass('list_tab');
-
-            if(href=="list_type"){
-                $("#list_type").show();
-                $("#list_select").hide();
-            }else{
-                $("#list_type").hide();
-                $("#list_select").show();
-            }
-
-            return false;
-        }
-    });
+    //$("#list_tab li a").click(function(){
+    //    var href=$(this).attr('href');
+    //    if(href.length>2){
+    //        $(this).parent().parent().children().children().children().removeClass('list_tab');
+    //        $(this).children().addClass('list_tab');
+    //
+    //        if(href=="list_type"){
+    //            $("#list_type").show();
+    //            $("#list_select").hide();
+    //        }else{
+    //            $("#list_type").hide();
+    //            $("#list_select").show();
+    //        }
+    //
+    //        return false;
+    //    }
+    //});
 })($,window);
 

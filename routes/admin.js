@@ -62,7 +62,7 @@ router.get('/flower_developer', function(req, res, next) {
 
 router.get('/flower_app', function(req, res, next) {
 
-    adminService.fetchFlowerApp(req,res);
+    adminService.fetchListApp(req,res);
 });
 
 
@@ -97,5 +97,49 @@ router.get('/layout_hostapp', function(req, res, next) {
 
     adminService.fetchHostApp(req,res);
 });
+
+
+router.get('/app_type_root', function(req, res, next) {
+
+    adminService.fetchAppTypeRoot(req,res);
+});
+
+router.get('/add_app_type_root', function(req, res, next) {
+
+    adminService.addAppTypeRoot(req,res);
+});
+
+router.get('/edit_app_type_root', function(req, res, next) {
+
+    adminService.editAppTypeRoot(req,res);
+});
+
+
+router.get('/add_host_app', function(req, res, next) {
+
+    adminService.addHostApp(req,res);
+});
+
+router.get('/edit_host_app', function(req, res, next) {
+
+    adminService.editHostApp(req,res);
+});
+
+
+router.get('/choose_list_app', function(req, res, next) {
+
+    adminService.fetchChooseListApp(req,res);
+});
+
+router.get('/choose_list_app_add', function(req, res, next) {
+
+    adminService.fetchListApp(req,res);
+});
+
+router.get('/add_list_app', function(req, res, next) {
+
+    adminService.addListApp(req,res);
+});
+
 
 module.exports = router;

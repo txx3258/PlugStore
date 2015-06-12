@@ -3,12 +3,16 @@
     "checkUser":"select count(*) as count,type,registerName from bim_app_user where registerName='{0}' and password='{1}'",
 
     "hostAppName_Select":"select * from bim_app_host",
-    "hostAppName_Insert":"select * from ",
-    "hostAppName_Update":"select * from ",
-    "hostAppName_Delete":"select * from ",
+    "hostAppName_Insert":"insert into bim_app_host(hostAppName,hostPackageName,own_version) values('{0}','{1}','{2}')",
+    "hostAppName_Update":"update bim_app_host set hostAppName='{0}',hostPackageName='{1}',own_version='{2}' where id='{3}'",
+
+    "appTypeRoot_Select":"select * from bim_apptype_info where parentID=-1",
+    "appTypeRoot_Insert":"insert into bim_apptype_info(code,name,parentID) values('{0}','{1}','{2}')",
+    "appTypeRoot_Update":"update bim_apptype_info set code='{0}',name='{1}' where id='{2}'",
+
 
     "appTypeInfo_Select":"select * from bim_apptype_info",
-    "appTypeInfo_Insert":"insert bim_apptype_info(name,code,parentId,available,is_default,remark) values('{0}','{1},'{2},'{3},'{4},'{5}','{6},'{7}')",
+    "appTypeInfo_Insert":"insert bim_apptype_info(name,code,parentId,available,is_default,remark) values('{0}','{1}','{2}','{3}','{4},'{5}','{6},'{7}')",
     "appTypeInfo_Update":"update bim_apptype_info set name='{0}',code='{1}',remark='{3}' where id='{4}'",
     "appTypeInfo_Delete":"update bim_apptype_info set available='0'",
 
@@ -22,7 +26,11 @@
     "developer_register_Insert":"insert into bim_app_user(registerName,password,name,email,qq,wechat,phone,certificate_type,certificate_no,remark,nickname,registerDate,type,state) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}')",
     "bimUser_Select":"select * from bim_app_user where type='{0}' and state='{1}'",
 
-    "flower_app_Select":"select a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,b.name as appTypeName,c.hostAppName,d.name from bim_app as a left join  bim_apptype_info  b on a.apptype_id=b.id left join bim_app_host c on a.hostapp_id=c.id left join bim_app_user d on d.user_id=a.developer_id  where a.app_status='{0}'"
+    "list_app_Select":"select a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,b.name as appTypeName,c.hostAppName,d.name from bim_app as a left join  bim_apptype_info  b on a.apptype_id=b.id left join bim_app_host c on a.hostapp_id=c.id left join bim_app_user d on d.user_id=a.developer_id  where a.app_status='{0}'",
+
+    "list_choose_Select":"select * from bim_list as a,bim_app as b where a.uid=b.uid and a.type='{0}' ",
+    "list_app_Insert":"insert into bim_list(uid,type,available,order_num) values('{0}','{1}','{2}','{3}') "
+
 }
 
 

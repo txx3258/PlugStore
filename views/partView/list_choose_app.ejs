@@ -1,0 +1,39 @@
+<form id="uid_forms">
+<table id="list_choose_app_view" class="table table-bordered">
+    <thead>
+    <tr>
+        <th>选择</th>
+        <th>插件名称</th>
+        <th>包名</th>
+        <th>宿主软件</th>
+        <th>支持的版本</th>
+        <th>所属类别</th>
+        <th>价格</th>
+        <th>大小</th>
+        <th>发布时间</th>
+        <th>开发者</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% var i=1;apps.forEach(function(app){ %>
+    <tr>
+        <td><input type="checkbox" value="<%= app.uid %>" name="uid"></td>
+        <td><%= app.appname %></td>
+        <td><%= app.appEnName %></td>
+        <td><%= app.hostAppName %></td>
+        <td><%= app.support_version %></td>
+        <td><%= app.appTypeName %></td>
+        <td><%= app.app_price %></td>
+        <td><%= app.app_size %></td>
+        <td><%= app.app_publishdate %></td>
+        <td><%= app.name %></td>
+    </tr>
+    <% }) %>
+
+    <tr>
+
+        <td colspan="10"><button style="width: 80px;height: 40px" class="btn btn-lg btn-primary btn-block" type="button">确定</button></td>
+    </tr>
+    </tbody>
+</table>
+</form>

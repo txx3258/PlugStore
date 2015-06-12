@@ -16,7 +16,6 @@ function DeveloperService(){
     this.bytesExpected=undefined;
 }
 
-
 DeveloperService.prototype.uploadPlugInfo=function(req,res){
     var body=req.body;
     var appname=body.appname,
@@ -71,8 +70,6 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
 
     //this.uploadPlugIcon(req,res);
 }
-
-
 
 DeveloperService.prototype.uploadPlugFile=function(req,res){
     var oThis=this;
@@ -132,7 +129,6 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
     });
 }
 
-
 DeveloperService.prototype.queryUploadProgress=function(req,res){
     if (this.form!=undefined){
         console.log(this.bytesReceived+''+this.bytesExpected);
@@ -143,9 +139,6 @@ DeveloperService.prototype.queryUploadProgress=function(req,res){
         res.send('上传完成!');
     }
 }
-
-
-
 
 module.exports.DeveloperService = new DeveloperService;
 

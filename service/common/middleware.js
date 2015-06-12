@@ -13,7 +13,6 @@ function validateLogin(req,res,next){
 
     var role=9;//security.unsign(req.session.secret);
 
-
     if (role&&role>=1){
         return next();
     }else if (req.url.indexOf('/developer')==0){

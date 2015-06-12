@@ -34,8 +34,8 @@ router.post('/putDevBaseInfo',function(req,res,next){
     systemService.putDeveloperBaseInfo(req,res);
 });
 
-router.post('/delete_table',function(req,res,next){
-    systemService.putDeveloperBaseInfo(req,res);
+router.get('/delete_table',function(req,res,next){
+    systemService.deleteTable(req,res);
 });
 
 

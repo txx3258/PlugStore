@@ -157,7 +157,7 @@
             return false;
         });
 
-        var url="/admin/flower_app";
+        var url="/admin/flower_app?type=0&ejsView=flower_app.ejs";
         $.my_ajax_html(url,'#flower_app');
         $("#flower_app").delegate("table tr","dblclick",function(){
             $("#bannerBarholder").val($(this).attr("id"));
