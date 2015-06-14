@@ -54,12 +54,6 @@
             </tr>
 
             <tr>
-                <td width="140" class="td-2"><em>*</em>专业类别&nbsp;：</td>
-                <td id="apptag_id">
-
-                </td>
-            </tr>
-            <tr>
                 <td class="td-2"><em>*</em>插件名称&nbsp;：</td>
                 <td>
                     <input  name="appname" class="input-class" type="text" value="" size="40">
@@ -294,11 +288,14 @@
         var url_hostAppName="/system/hostAppName";
         $.my_ajax_html(url_hostAppName,'#hostapp_id');
 
-        var url_apptype ="/system/appType";
-        $.my_ajax_html(url_apptype,'#apptype_id');
-
         $("#hostapp_id").change(function(){
-            var versions=$(this).find("option:selected").attr('data').split(";");
+            var data=$(this).find("option:selected");
+
+            var hostapp_id=data.attr("value");
+            var url_apptype ="/system/appType?typecode=code&hostapp_id="+hostapp_id;
+            $.my_ajax_html(url_apptype,'#apptype_id');
+
+            var versions=data.attr('data').split(";");
 
             var result=[];
             for(var i=0;i<versions.length-1;i++){
@@ -323,7 +320,7 @@
                 return false;
             }
 
-            if ($(form.attr("apptype_id")).find("option:selected").val()=='-1'){
+            if ($(form.attr("apptype_code")).find("option:selected").val()=='-1'){
                 error_msg='请选择支持宿主版本';
                 return false;
             }
@@ -441,7 +438,10 @@
                 document.forms["plug_Info_form"].submit();
                 doCheck();
                 flag_upload=true;
-                $("#fileFrom").attr("action", $("#fileFrom").attr("action")+$(form.attr("appEnName")).val());
+                var fileName=$(form.attr("appEnName")).val(),
+                        uid=$(form.attr("uid")).val()
+
+                $("#fileFrom").attr("action", $("#fileFrom").attr("action")+fileName+"&uid="+uid);
 
                 $("#recordSubmit").val('1');
             }else{

@@ -21,7 +21,7 @@
     </thead>
     <tbody>
     <% var i=1;apps.forEach(function(app){ %>
-    <tr id="<%= app.user_id %>">
+    <tr id="<%= app.appid %>" table="bim_app" col_id="appid" up_col="app_status">
         <td><%= i++ %></td>
         <td><%= app.appname %></td>
         <td><%= app.appEnName %></td>

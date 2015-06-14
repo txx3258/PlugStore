@@ -65,6 +65,10 @@ router.get('/flower_app', function(req, res, next) {
     adminService.fetchListApp(req,res);
 });
 
+router.get('/add_flower_submit', function(req, res, next) {
+
+    adminService.addFlowerSubmit(req,res);
+});
 
 
 
@@ -140,6 +144,22 @@ router.get('/add_list_app', function(req, res, next) {
 
     adminService.addListApp(req,res);
 });
+
+router.get('/publish_list_app', function(req, res, next) {
+
+    adminService.publishListApp(req,res);
+});
+
+//router.get('/layout_app_type', function(req, res, next) {
+//
+//    adminService.publishListApp(req,res);
+//});
+
+router.get('/choose_list_type', function(req, res, next) {
+
+    adminService.chooseListType(req,res);
+});
+
 
 
 module.exports = router;

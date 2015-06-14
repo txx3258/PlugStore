@@ -6,6 +6,10 @@ var router = express.Router();
 
 var systemService=require('../service/SystemService').SystemService;
 
+router.get('/hostAppType', function(req, res, next) {
+    systemService.fetchAppHost(req,res);
+});
+
 router.get('/hostAppName', function(req, res, next) {
     systemService.fetchAppHost(req,res);
 });
@@ -37,8 +41,5 @@ router.post('/putDevBaseInfo',function(req,res,next){
 router.get('/delete_table',function(req,res,next){
     systemService.deleteTable(req,res);
 });
-
-
-
 
 module.exports = router;

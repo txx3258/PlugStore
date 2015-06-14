@@ -17,7 +17,7 @@
     </thead>
     <tbody>
     <% var i=1;users.forEach(function(dev){ %>
-        <tr id="dev_<%= dev.user_id %>">
+        <tr id="<%= dev.user_id %>" table="bim_app_user" col_id="user_id" up_col="state">
             <td><%= i++ %></td>
             <td><%= dev.registerDate %></td>
             <td><%= dev.registerName %></td>

@@ -21,6 +21,9 @@
         height: 40px;
     }
 
+    #choose_hostApp_type input{float: left}
+    #choose_hostApp_type label{float: left;margin: 2px 5px 0 5px}
+
 </style>
 <div class="container-fluid">
 <div class="row">
@@ -41,8 +44,6 @@
 
 </div>
 
-
-
 </div>
 
 <div id="bannerBar" class="panel panel-primary" style="z-index:9999; display: none;">
@@ -58,7 +59,7 @@
 
 <div id="EventListen" style="display: none"></div>
 
-<div id="add_host_app" style="display: none" width="600px" height="300px" type="">
+<div id="add_host_app" style="display: none" width="600px" height="350px" type="">
     <form id="replace_host_app_form" class="form-signin">
         <table id="queryTable" >
             <tr>
@@ -75,6 +76,10 @@
                 <td>用分割符区分版本</td>
                 <td>(比如：12;14;15;)</td>
 
+            </tr>
+            <tr>
+                <td>选择类别</td>
+                <td id="choose_hostApp_type" colspan="3"></td>
             </tr>
             <tr class="ht_80">
                 <td></td>
@@ -182,6 +187,9 @@
                 $("#text_hostApp_name").val($(this).attr("hostPackageName"));
                 $("#text_hostApp_version").val($(this).attr("own_version"));
                 $("#text_id").val($(this).attr("id"));
+
+                $("#max_type_root_id").attr("maxID",$(this).attr('id'));
+                fetchAppType();
             }else if(data=="add_app_type_root"){
                 $("#text_code").val($(this).attr("code"));
                 $("#text_name").val($(this).attr("name"));
@@ -189,8 +197,6 @@
             }
 
         });
-
-
 
         $("#list_select").delegate(".list_add","click",function(){
             var divId=$(this).attr("divID");
@@ -200,7 +206,16 @@
             var height=$('#'+divId).attr('height');
 
             addBannerBar(width,height,divId,name,"add");
+
+            if (divId=='add_host_app') {
+                fetchAppType();
+            }
         });
+
+        function fetchAppType(){
+            var url="/system/appType";
+            $.my_ajax_html(url,"#choose_hostApp_type");
+        }
 
         function addBannerBar(width,height,divTarget,topic,type){
             $("#bannerBar").attr('width',width);
@@ -224,8 +239,16 @@
                 var data=$("#panel-body").attr("data"),
                         form=$("#"+data+"_form").serialize();
 
+
                 if (data=='add_host_app'){
-                    url='/admin/'+type+'_host_app?'+form
+                    if (type=='add'){
+                        var maxID=parseInt($("#max_type_root_id").attr("maxID"))+1;
+                    }else{
+                        var maxID=parseInt($("#max_type_root_id").attr("maxID"));
+                    }
+
+
+                    url='/admin/'+type+'_host_app?maxID='+maxID+'&'+form;
                     $.my_ajax_alert(url,"/admin/layout_hostapp",'#list_select');
                 }else if(data=='add_app_type_root'){
                     url='/admin/'+type+'_app_type_root?'+form;

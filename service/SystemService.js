@@ -79,9 +79,61 @@ SystemService.prototype.fetchAppHost = function (req, res) {
     }
 }
 
-SystemService.prototype.fetchAppType=function(req,res){
-    var _sql = sql.appTypeInfo_Select;
+SystemService.prototype.fetchAppHostType = function (req, res) {
+    var _sql = sql.hostAppType_Select;
 
+    var handlers = {
+        sql: _sql,
+        callback: res,
+        handler: appHost
+    }
+
+    mysql.query(handlers);
+
+    function appHost(result, res) {
+        if (result && result.length > 0) {
+            fs.readFile(constants.PART_VIEW+"hostAppType.ejs",'utf8',function(err,data){
+                if (err){
+                    res.send('hostApp.ejs error');
+                }else{
+                    var map={},rtn=[],j=0;
+                    for(var i in result){
+                        var obj=map[result[i].id];
+                        if (obj==undefined){
+                            map[result[i].id]=j;
+                            rtn[j++]=result[i];
+                        }else{
+                            rtn[obj].name+=';'+result[i].name;
+                        }
+                    }
+
+
+                    res.send(ejs.render(data.toString(),{hostApps:rtn}));
+                }
+            })
+        } else {
+            res.send('database error');
+        }
+    }
+}
+
+
+SystemService.prototype.fetchAppType=function(req,res){
+    var query=req.query,
+        hostapp_id=query.hostapp_id,
+        typecode=query.typecode;
+
+    if (hostapp_id==undefined){
+        var _sql = sql.appTypeInfo_Select;
+    }else{
+        var _sql =utils.format(sql.appHostTypeInfo_Select,hostapp_id);
+    }
+
+    if (typecode==undefined){
+        var TYPE_VIEW="appType.ejs";
+    }else{
+        var TYPE_VIEW="appTypeCode.ejs";
+    }
 
     var handlers = {
         sql: _sql,
@@ -93,7 +145,7 @@ SystemService.prototype.fetchAppType=function(req,res){
 
     function appType(result, res) {
         if (result && result.length > 0) {
-            fs.readFile(constants.PART_VIEW+"appType.ejs",'utf8',function(err,data){
+            fs.readFile(constants.PART_VIEW+TYPE_VIEW,'utf8',function(err,data){
                 if (err){
                     res.send('appType.ejs error');
                 }else{
@@ -101,7 +153,7 @@ SystemService.prototype.fetchAppType=function(req,res){
                 }
             });
         } else {
-            res.send('database error');
+            res.send('暂无类别');
         }
     }
 }

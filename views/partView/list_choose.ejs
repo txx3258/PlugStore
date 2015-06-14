@@ -1,3 +1,5 @@
+
+<form id="list_app_pubish">
 <table id="sprintlist_table" cellspacing="0" cellpadding="10" data-table="dnd" data-ondragstart="$(table).parent().find('.result').text('data-ondragstart');" data-ondrop="inline_sprintlist_ondrop(table, row);" data-serializeregexp="^.*sprints$|[^\_]*$" data-ondragclass="sprintlist-drag" data-ondragstyle="" data-ondropstyle="" data-scrollamount="100" data-sensitivity="1" data-hierarchylevel="2" data-indentartifact="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-autowidthadjust="1" data-autocleanrelations="1" data-jsonpretifyseparator="    " data-serializeparamname="sprintlist" data-draghandle="" class="indtd" style="white-space: nowrap;">
 <thead id="sprintlist_header">
 <tr style="cursor: move;font-size:14px">
@@ -18,13 +20,13 @@
 <tr id="present_sprints" class="group_heading nodrag">
     <td colspan="10"></td>
     <td class="small_buttons">
-        <div><button title="添加精选榜单" divID="add_list_app_div" class="list_add">添加</button></div>
+        <div><a title="添加精选榜单" href="#" id="add_list_app_div" class="list_add">添加</a></div>
     </td>
 </tr>
 
 <%var i=1 ;apps.forEach(function(app){ %>
-<tr>
-    <td><%= i %> <input type="hidden" name="order" value="<%= i++ %>"/>  </td>
+<tr class="toggler_row" style="cursor: move; display: table-row;">
+    <td><%= i++ %>  </td>
     <td>
         <img width="45px" height="45px" src="<%= app.iconAdress %> "/>
     </td>
@@ -32,7 +34,7 @@
     <td><%= app.appEnName %></td>
     <td><%= app.hostAppName %></td>
     <td><%= app.support_version %></td>
-    <td><%= app.uid %>  <input type="hidden" name="order" value="<%= app.uid %> "/></td>
+    <td><%= app.uid %> <input type="hidden" name="uid" value="<%= app.uid %>"/> </td>
     <td><%= app.app_price %></td>
     <td><%= app.app_size %></td>
     <td><%= app.app_publishdate %></td>
@@ -43,9 +45,10 @@
 <% })%>
 <tr>
     <td class="small_buttons">
-        <div><button  class="list_edit">发布</button></div>
+        <div><button id="publish_list_button"  class="list_edit">发布</button></div>
     </td>
     <td colspan="10"></td>
 </tr>
 </tbody>
 </table>
+</form>

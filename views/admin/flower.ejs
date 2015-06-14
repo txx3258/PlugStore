@@ -107,37 +107,42 @@
         <span id="queryBoxClose" class="badge" style="float: right;cursor:pointer">&times;</span>
     </div>
     <div class="panel-body">
+       <form id="flower_form">
         <table id="flower_table">
             <tr>
-                <td> <input type="radio" name="flower" value="确认" checked="checked"/></td>
+                <td> <input type="radio" name="flower" value="9" /></td>
                 <td><span class="ml_10">确认</span></td>
             </tr>
             <tr>
-                <td> <input type="radio" name="flower" value="下架" /></td>
-                <td><span class="ml_10">下架</span></td>
-            </tr>
-            <tr>
-                <td> <input type="radio" name="flower" value="下架" /></td>
-                <td><span class="ml_10">冻结</span></td>
-            </tr>
-            <tr>
-                <td> <input type="radio" name="flower" value="下架" /></td>
-                <td><span class="ml_10">测试中</span></td>
-            </tr>
-            <tr>
-                <td> <input type="radio" name="flower" value="下架" /></td>
+                <td> <input type="radio" name="flower" value="5" /></td>
                 <td><span class="ml_10">通过</span></td>
             </tr>
             <tr>
-                <td> <input type="radio" name="flower" value="下架" /></td>
+                <td> <input type="radio" name="flower" value="4" /></td>
+                <td><span class="ml_10">下架</span></td>
+            </tr>
+            <tr>
+                <td> <input type="radio" name="flower" value="3" /></td>
+                <td><span class="ml_10">冻结</span></td>
+            </tr>
+            <tr>
+                <td> <input type="radio" name="flower" value="2" /></td>
+                <td><span class="ml_10">测试中</span></td>
+            </tr>
+            <tr>
+                <td> <input type="radio" name="flower" value="1" /></td>
                 <td><span class="ml_10">未通过</span></td>
             </tr>
 
-
         </table>
 
-        <button style="width: 150px;margin-left: 160px"  class="btn btn-lg btn-primary btn-block" type="button">确定</button>
-        <input type="hidden" id="bannerBarholder" value="">
+        <button id="flower_submit" style="width: 150px;margin-left: 160px"  class="btn btn-lg btn-primary btn-block" type="button">确定</button>
+           <input type="hidden" name="id" id="bannerBar_id" value="">
+           <input type="hidden" name="table" id="bannerBar_table" value="">
+           <input type="hidden" name="col_id" id="bannerBar_col_id" value="">
+           <input type="hidden" name="up_col" id="bannerBar_up_col" value="">
+
+       </form>
     </div>
 </div>
 
@@ -147,26 +152,47 @@
 <script type="text/javascript">
 
     (function($){
-        var url="/admin/flower_developer";
-        $.my_ajax_html(url,'#flower_developer');
+        function load(){
+            var url="/admin/flower_developer";
+            $.my_ajax_html(url,'#flower_developer');
+
+            var url="/admin/flower_app?type=0&ejsView=flower_app.ejs";
+            $.my_ajax_html(url,'#flower_app');
+        }
+
+        load();
+
         $("#flower_developer").delegate("table tr","dblclick",function(){
-            $("#bannerBarholder").val($(this).attr("id"));
+            addTable($(this));
 
             $("#bannerBar").show();
 
             return false;
         });
 
-        var url="/admin/flower_app?type=0&ejsView=flower_app.ejs";
-        $.my_ajax_html(url,'#flower_app');
         $("#flower_app").delegate("table tr","dblclick",function(){
-            $("#bannerBarholder").val($(this).attr("id"));
+            addTable($(this));
 
             $("#bannerBar").show();
 
             return false;
         });
 
+        function addTable(oThis){
+            $("#bannerBar_id").val(oThis.attr("id"));
+            $("#bannerBar_table").val(oThis.attr("table"));
+            $("#bannerBar_col_id").val(oThis.attr("col_id"));
+            $("#bannerBar_up_col").val(oThis.attr("up_col"));
+
+        };
+
+        $("#flower_submit").click(function(){
+            var url="/admin/add_flower_submit?"+$("#flower_form").serialize();
+            $.my_ajax_html(url,"#Empty",load);
+
+            $("#bannerBar").hide();
+
+        });
 
     })($);
 

@@ -1,0 +1,45 @@
+<form id="list_app_pubish">
+
+    <table id="sprintlist_table" cellspacing="0" cellpadding="10" data-table="dnd" data-ondragstart="$(table).parent().find('.result').text('data-ondragstart');" data-ondrop="inline_sprintlist_ondrop(table, row);" data-serializeregexp="^.*sprints$|[^\_]*$" data-ondragclass="sprintlist-drag" data-ondragstyle="" data-ondropstyle="" data-scrollamount="100" data-sensitivity="1" data-hierarchylevel="2" data-indentartifact="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-autowidthadjust="1" data-autocleanrelations="1" data-jsonpretifyseparator="    " data-serializeparamname="sprintlist" data-draghandle="" class="indtd" style="white-space: nowrap;">
+        <thead id="sprintlist_header">
+        <tr style="cursor: move;font-size:14px">
+            <th>序号</th>
+            <th>所属类别</th>
+            <th>插件名称</th>
+            <th>英文名称</th>
+            <th>宿主软件</th>
+            <th>支持的版本</th>
+            <th>价格</th>
+            <th>大小</th>
+            <th>发布时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% var i=1; for(var key in apps) { var idName=key.split("@#$!")%>
+            <tr id="<%= idName[0]%>" class="group_heading nodrag">
+                <td colspan="10"> <%= idName[1] %></td>
+            </tr>
+                <%var values=apps[key];values.forEach(function(app){ %>%>
+                    <tr>
+                        <td><%= i++ %><input type="hidden" value="<%= app.uid %>@#$!<%= app.code %>" name="uid"></td>
+                        <td><%= app.appTypeName %></td>
+                         <td><%= app.appname %></td>
+                        <td><%= app.appEnName %></td>
+                        <td><%= app.hostAppName %></td>
+                        <td><%= app.support_version %></td>
+                         <td><%= app.app_price %></td>
+                        <td><%= app.app_size %></td>
+                        <td><%= app.app_publishdate %></td>
+                        <td><%= app.name %></td>
+                </tr>
+                <% }) %>
+        <% } %>
+
+        <td class="small_buttons">
+            <div><button id="publish_list_button"  class="list_edit">发布</button></div>
+        </td>
+        <td colspan="10"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>

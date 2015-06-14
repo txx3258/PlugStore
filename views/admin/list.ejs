@@ -31,7 +31,7 @@
 
 </div>
 
-<div id="bannerBar" class="panel panel-primary" style="z-index:999;display: none" menu="choose">
+<div id="bannerBar" class="panel panel-primary" style="min-width: 650px;min-width: 400px;z-index:9999;display: none" menu="choose">
     <div id="banner" class="panel-heading" style="cursor: move;clear: both;height: 40px; ">
         <h3 class="panel-title" style="float: left"></h3>
         <span id="queryBoxClose" class="badge" style="float: right;cursor:pointer">&times;</span>
@@ -41,14 +41,6 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
 <%- include _footer %>
 <!--
 <script src="<%= staticResourceUrl %>/js/jquery.tablednd.0.7.min.js"></script>  -->
@@ -56,15 +48,10 @@
 <script src="/js/jquery.tablednd.js"></script>
 <script type="text/javascript">
  (function($){
-    function inline_sprintlist_ondrop(table, row) {
-        var result = $(table).parent().find('.result'),
-                pre = $('<pre class="prettyprint">');
 
-        result.html(pre.text($.tableDnD.jsonize(true)));
-    }
-    $(document).ready(function () {
-        $("#table-1").tableDnD();
-        table_2 = $("#table-2");
+    var selectFn=function(){
+        $("#sprintlist_table").tableDnD()
+        table_2 = $("#sprintlist_table");
         table_2.find("tr:even").addClass("alt");
         table_2.tableDnD({
             onDragClass: "myDragClass",
@@ -81,11 +68,14 @@
             }
         });
 
-    });
+        function inline_sprintlist_ondrop(table, row) {
+            var result = $(table).parent().find('.result'),
+                    pre = $('<pre class="prettyprint">');
 
-        $(".list_edit").click(function(){
-            $("#bannerBar").show();
-        });
+            result.html(pre.text($.tableDnD.jsonize(true)));
+        }
+
+    }
 
         $("#queryBoxClose").click(function(){
             $("#bannerBar").hide();
@@ -93,9 +83,13 @@
 
         function fetchList(type){
             var url="/admin/choose_list_app?type="+type;
-            $.my_ajax_html(url,"#list_select_container");
+            $.my_ajax_html(url,"#list_select_container",selectFn);
         }
 
+        function fetchType(){
+            var url="/admin/choose_list_type";
+            $.my_ajax_html(url,"#list_select_container",selectFn);
+        }
 
         $("#list_tab li a").click(function(){
             var href=$(this).attr('href');
@@ -120,6 +114,7 @@
                     fetchList('2');
                     $("#bannerBar").attr("menu","top");
                 }else{
+                    fetchType();
                     $("#bannerBar").attr("menu","type");
                 }
 
@@ -147,51 +142,45 @@
                 }else if(menu=='top'){
                     fetchList('2');
                 }else if(menu=='type'){
-
+                    fetchType();
                 }
+            }
+
+            return false;
+        });
+
+     var showListAppFn=function(title){
+
+         $("#bannerBar").center();
+         $("#banner h3").text(title);
+         $("#bannerBar").show();
+         $("#bannerBar").center();
+     }
+
+        $("#list_select").delegate("#add_list_app_div","click",function(){
+            var title=undefined;
+            var type=undefined;
+            var menu=$("#bannerBar").attr("menu");
+            if (menu == 'choose') {
+                type=1;title="添加精选榜单";
+            } else if (menu == 'top') {
+                type=2;title="";title="添加排行榜单";
+            } else if (menu == 'type') {
 
             }
+
+            var url="/admin/choose_list_app_add?type="+type+"&ejsView=list_choose_app.ejs&other=unique";
+            $.my_ajax_html(url,"#panel-body",showListAppFn,title);
+
+            return false;
+
         });
 
-        $("#list_select").delegate(".list_add","click",function(){
-            var divId=$(this).attr("divID");
-            var title=$(this).attr("title");
-
-//            var width=$('#'+divId).attr('width');
-//            var height=$('#'+divId).attr('height');
-
-            var url="/admin/choose_list_app_add?type=0&ejsView=list_choose_app.ejs";
-            $.my_ajax_html(url,"#panel-body");
-
-
-            $("#bannerBar").center();
-            $("#banner h3").text(title);
-            $("#bannerBar").show();
-            $("#bannerBar").center();
-            //addBannerBar(width,height,divId,name,"add");
-        });
-
-        function addBannerBar(width,height,divTarget,topic,type){
-            $("#bannerBar").attr('width',width);
-            $("#bannerBar").attr('height',height);
-            $("#bannerBar").attr('type',type);
-
-            $("#panel-body").attr("data",divTarget);
-
-            var html=$('#'+divTarget).html().replace(/replace_.*?_form/,divTarget+'_form');
-            $("#panel-body").html(html);
-
-            $("#banner h3").text(topic);
-            $("#bannerBar").show();
-            $("#bannerBar").center();
-        }
-
-        $("#panel-body").delegate("button","click",function(){
+        $("#panel-body").delegate("#add_app_choose_submit","click",function(){
             var url=undefined;
 
             var menu=$("#bannerBar").attr("menu"),
                uid=$("#uid_forms").serialize();
-
 
             if (menu=='choose'){
                 url='/admin/add_list_app?type=1&'+uid;
@@ -203,8 +192,36 @@
                 url='/admin/add_type_app?'+uid;
                 $.my_ajax_alert(url,"/admin/app_type_root",'#list_select_container');
             }
-        });
 
+            return false;
+        });
+     $("#list_select").delegate("#publish_list_button","click",function(){
+         var flag=confirm('您确认真要发布数据？');
+         if (flag) {
+             var uids = $("#list_app_pubish").serialize();
+             var pos=uids.lastIndexOf("uid")
+             if (pos<1){
+                alert("列表条数大于2条才能发布！");
+                 return;
+             }
+
+             var menu = $("#bannerBar").attr("menu");
+             var url = "/admin/publish_list_app?type=code&" + uids;
+
+
+             if (menu == 'choose') {
+                 var fn=fetchList,arg1=1;
+             } else if (menu == 'top') {
+                 var fn=fetchList,arg1=2;
+             } else if (menu == 'type') {
+                 var fn=fetchType,arg1=undefined;
+             }
+
+             $.my_ajax_html(url, "#Empty",fn,arg1);
+         }
+
+         return false;
+     });
     })($);
 
 </script>

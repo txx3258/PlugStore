@@ -37,7 +37,7 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
         available=1,
         developer_id=body.developer_id,
         hostapp_id=body.hostapp_id,
-        apptype_id=body.apptype_id;
+        apptype_id=-1;
 
     if (body.support_version instanceof Array){
         support_version=body.support_version.join(';');
@@ -45,10 +45,24 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
         support_version=body.support_version;
     }
 
-    var _sql = utils.format(sql.bimApp_Insert,appname,appEnName,uid,app_info,app_abstract
+    var _sql=[];
+
+    var orderNum=Math.floor(Math.random(47)*50);
+    if (body.apptype_code instanceof Array){
+        apptype_code_sql=body.apptype_code.map(function(code){
+            return utils.format(sql.free_newtype_day_Insert,uid,code,orderNum,'1');
+        });
+        _sql.concat(apptype_code_sql);
+    }else{
+        apptype_code_sql=utils.format(sql.free_newtype_day_Insert,uid,body.apptype_code,orderNum,'1');
+        _sql.push(apptype_code_sql);
+    }
+
+    var _sqlBD = utils.format(sql.bimApp_Insert,appname,appEnName,uid,app_info,app_abstract
                             ,app_size,is_pay,app_price
                             ,app_publishdate,app_versioncode,app_version,support_version
                             ,app_status,available,developer_id,hostapp_id,apptype_id);
+    _sql.push(_sqlBD);
 
     var handlers = {
         sql: _sql,
@@ -56,11 +70,11 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
         handler: plugInfo
     };
 
-    mysql.query(handlers);
+    mysql.queryArrays(handlers);
 
     function plugInfo(result, res) {
         console.log(JSON.stringify(result));
-        if (result && result.affectedRows==1) {
+        if (result) {
             res.send('success');
         } else {
             res.send('failed');
@@ -97,6 +111,7 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
             return;
         }
         var fileName=req.query.fileName;
+        var uid=req.query.uid;
 
         var upload=files["uploadFile"];
         var icon=files["uploadIcon"];
@@ -107,6 +122,9 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
         fs.rename(icon.path, iconPath,function(err){
             fs.rename(upload.path, filePath,function(err){
                 res.send(icon.name+"和"+upload.name+":success");
+
+                addFileAndIcon(iconPath,filePath,fileName,uid);
+
                 oThis.form=undefined;
 
                 oThis.bytesReceived=1;
@@ -122,6 +140,19 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
             return path+name+type+fileType;
         };
 
+        function addFileAndIcon(iconPath,filePath,fileName,uid){
+            var _sql = utils.format(sql.app_icon_file_Update, iconPath, filePath,uid,fileName);
+
+            var handlers = {
+                sql: _sql,
+                callback: null,
+                handler: fileAndIcon
+            }
+
+            mysql.query(handlers);
+
+            function fileAndIcon(result, res) {}
+        }
     });
     this.form.on('progress', function(bytesReceived, bytesExpected) {
         oThis.bytesReceived=parseInt(bytesReceived);
