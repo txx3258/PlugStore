@@ -144,7 +144,7 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
         function addFileAndIcon(iconPath,filePath,fileName,uid){
             var icon=constants.developerUploadIconPath+iconPath;
-            var plug=constants.developerUploadPlugPath+fileName;
+            var plug=constants.developerUploadPlugPath+filePath;
 
             var _sql = utils.format(sql.app_icon_file_Update, icon, plug,uid,fileName);
 
