@@ -121,7 +121,7 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
         var iconPath=handleFilePath(icon,"_icon_",fileName);
 
 
-        fs.rename(icon.path, constants.upload_form.upload+DiriconPath,function(err){
+        fs.rename(icon.path, constants.upload_form.uploadDir+iconPath,function(err){
             fs.rename(upload.path, constants.icon_form.uploadDir+filePath,function(err){
                 res.send(icon.name+"和"+upload.name+":success");
 

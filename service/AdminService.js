@@ -135,7 +135,7 @@ AdminService.prototype.fetchAppTypeRoot = function (req, res) {
     mysql.query(handlers);
 
     function appTypeRoot(result, res){
-        if (result && result.length > 0) {
+        if (result) {
 
             fs.readFile(constants.PART_VIEW+"layout_apptyperoot.ejs",'utf8',function(err,data){
                 if (err){
@@ -276,7 +276,7 @@ AdminService.prototype.fetchChooseListApp = function (req, res) {
     mysql.query(handlers);
 
     function chooseListApp(result, res) {
-        if (result && result.length > 0) {
+        if (result) {
             result.forEach(function(app){
                 //调整日期
                 app.app_publishdate=utils.convertDate(app.app_publishdate);
@@ -305,7 +305,7 @@ AdminService.prototype.editHostApp = function (req, res) {
         maxID=query.maxID;
     var _sql=[];
 
-    var _sqlHostApp = utils.format(sql.hostAppName_Update,hostAppName,hostPackageName,own_version);
+    var _sqlHostApp = utils.format(sql.hostAppName_Update,hostAppName,hostPackageName,own_version,maxID);
     _sql.push(_sqlHostApp);
 
     var _sqlTypeAppDelete = utils.format(sql.appTypeList_Delete,maxID);
