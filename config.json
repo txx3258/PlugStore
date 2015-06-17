@@ -5,7 +5,7 @@
         "host":"119.29.16.116",
         "user":"root",
         "password":"root",
-        "database":"auto_desk_appstore",
+        "database":"bim_appstore",
         "insecureAuth":true
     },
     "developerUploadPlugPath":"/appstore/doc/",
