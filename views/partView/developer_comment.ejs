@@ -1,0 +1,93 @@
+<% for(var i in datalist){ var comment= datalist[i].comment,replys=datalist[i].replys%>
+
+<table class="mframe" cellspacing="0" cellpadding="0">
+    <tbody>
+    <tr>
+        <td class="lf" rowspan="2">
+            <div class="df">
+                <ul>
+                    <li class="center"><b>userID：<%= comment.userId%></b> </li>
+                    <li class="center"><b>用户名：<%= comment.userName%></b> </li>
+                    <li><b>来源：<%= comment.from%></b> </li>
+
+                </ul>
+            </div>
+        </td>
+        <td class="rw">
+            <div class="fbart">
+                <em>发表于：<%= comment.createDate%></em>  <span style="color: darkorange">评论到：</span>
+            </div>
+            <table class="mtxt" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td id="body">
+                        <%= comment.content%>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="rb" >
+            <div class="fbarb event">
+                <span style="float: left">评分为: <%= comment.grade%></span>
+
+                <a href="#" style="float: right">回复</a>
+
+            </div>
+            <div userID="@<%= comment.userId%>"  style="width: 100%;height: 100px;clear: both;display: none;">
+
+            </div>
+
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<% for(var j in replys){ var replay=replys[j]%>
+
+<table class="mframe" cellspacing="0" cellpadding="0" style="border: 0;">
+    <tbody>
+    <tr >
+        <td class="lf" rowspan="2" style="background: white;border: 1px solid white" >
+
+        </td>
+        <td class="lf" rowspan="2">
+            <div class="df">
+                <ul>
+                    <li class="center"><b>userID：<%= replay.userId%></b> </li>
+                    <li class="center"><b>用户名：<%= replay.userName%></b> </li>
+                    <li><b>来源：<%= replay.from%></b> </li>
+
+                </ul>
+            </div>
+        </td>
+        <td class="rw">
+            <div class="fbart">
+                <em>发表于：<%= replay.createDate%></em><span style="color: orangered"> 回复到：</span>
+            </div>
+            <table class="mtxt" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td id="body">
+                        <%= replay.content%>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="rb">
+            <div class="fbarb">
+
+            </div>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<% } %>
+<% } %>

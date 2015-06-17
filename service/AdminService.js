@@ -384,6 +384,7 @@ AdminService.prototype.publishListApp=function(req, res){
     var uids=req.query.uid,
         type=req.query.type;
 
+
     var order=1;
 
     if (type!='code'){

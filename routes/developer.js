@@ -33,6 +33,26 @@ router.get('/upload', function(req, res, next) {
     });
 });
 
+
+router.get('/comment', function(req, res, next) {
+    var registerName=req.session?req.session.registerName:'';
+
+    res.render('developer/comment', { title: '我的评论',
+        staticResourceUrl: constants.staticResourceHost,
+        mClass:"upload",
+        registerName:registerName
+    });
+});
+
+router.get('/commentList', function(req, res, next) {
+    developerService.fetchCommentList(req,res);
+});
+
+
+
+
+
+
 router.get('/register', function(req, res, next) {
     var registerName=req.session?req.session.registerName:'';
 

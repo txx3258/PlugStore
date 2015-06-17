@@ -34,7 +34,7 @@
         "arg2":"hex",
         "arg3":"utf8"
     },
-    "INDEX":"http://119.29.16.116/assets/index.html"
-
-
+    "INDEX":"http://119.29.16.116/assets/index.html",
+    "COMMENT_API":"http://119.29.16.116/EmpowerADS/",
+    "ACCOUNT_API":"http://119.29.16.116/EmpowerADS/"
 }

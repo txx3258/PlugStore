@@ -206,7 +206,7 @@
              }
 
              var menu = $("#bannerBar").attr("menu");
-             var url = "/admin/publish_list_app?type=code&" + uids;
+             var url = "/admin/publish_list_app?" + uids;
 
 
              if (menu == 'choose') {
@@ -215,6 +215,7 @@
                  var fn=fetchList,arg1=2;
              } else if (menu == 'type') {
                  var fn=fetchType,arg1=undefined;
+                 url = "/admin/publish_list_app?type=code&" + uids
              }
 
              $.my_ajax_html(url, "#Empty",fn,arg1);

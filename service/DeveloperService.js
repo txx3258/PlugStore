@@ -8,6 +8,8 @@ var render = require('./render/Admin');
 var formidable = require('formidable');
 var constants=require('./common/constants');
 var fs = require('fs');
+var HTTP=require('./common/singleton').HTTP;
+var ejs=require("ejs");
 
 function DeveloperService(){
 
@@ -168,6 +170,39 @@ DeveloperService.prototype.queryUploadProgress=function(req,res){
         res.send(percent+"%");
     }else{
         res.send('上传完成!');
+    }
+}
+
+DeveloperService.prototype.fetchCommentList=function(req,res){
+
+    var params={
+        url:"http://119.29.16.116/EmpowerADS/api/commentlist?bizIdentity=12&si=1&c=20",
+        method:'GET'
+    }
+
+    HTTP.request(params,handleComment,res);
+
+    function handleComment(res,result){
+        if (arguments.length==1){
+            res.send('暂无评论');
+            return;
+        }
+
+        var json=JSON.parse(result);
+        var success=json.success;
+        var dataList=json.data.datalist;
+
+        if (success&&dataList.length>1){
+            fs.readFile(constants.PART_VIEW+"developer_comment.ejs",'utf8',function(err,data){
+                if (err){
+                    res.send('');
+                }else{
+                    res.send(ejs.render(data.toString(),{datalist:dataList}));
+                }
+            })
+        }else{
+            res.send('暂无评论');
+        }
     }
 }
 

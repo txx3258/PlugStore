@@ -11,7 +11,7 @@ var session=require("express-session");
 
 var index = require('./routes/index');
 var admin=require('./routes/admin');
-var api=require('./routes/api');
+var account=require('./routes/account');
 var developer=require('./routes/developer');
 var system=require('./routes/system');
 var middleware=require('./service/common/middleware');
@@ -41,6 +41,8 @@ app.use('/', index);
 
 //参数验证
 //设置session
+
+
 app.use(session(config["session"]));
 app.use('/system', system);
 app.use(middleware.validateLogin);
