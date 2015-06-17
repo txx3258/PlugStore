@@ -8,17 +8,18 @@
         "database":"auto_desk_appstore",
         "insecureAuth":true
     },
-    "developerUploadPlugPath":"/data/appstore/plug/",
+    "developerUploadPlugPath":"/appstore/doc/",
+    "developerUploadIconPath":"/Services/PlugIns/Images/",
     "PART_VIEW":"/views/partView/",
     "icon_form": {
         "encoding": "utf-8",
-        "uploadDir": "/Users/soft_tangxiaoxian/Desktop/PlugStore/",
+        "uploadDir": "/data/appstore/EmpowerADS/",
         "keepExtensions": true,
         "maxFieldsSize": 5000
     },
     "upload_form": {
         "encoding": "utf-8",
-        "uploadDir": "/Users/soft_tangxiaoxian/Desktop/PlugStore/",
+        "uploadDir": "/data/appstore/doc/",
         "keepExtensions": true,
         "maxFieldsSize": 5000
     },

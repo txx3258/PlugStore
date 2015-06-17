@@ -117,12 +117,12 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
 
         var upload=files["uploadFile"];
         var icon=files["uploadIcon"];
-        var filePath=handleFilePath(upload,"_file_",fileName,constants.upload_form.uploadDir);
-        var iconPath=handleFilePath(icon,"_icon_",fileName,constants.icon_form.uploadDir);
+        var filePath=handleFilePath(upload,"_file_",fileName);
+        var iconPath=handleFilePath(icon,"_icon_",fileName);
 
 
-        fs.rename(icon.path, iconPath,function(err){
-            fs.rename(upload.path, filePath,function(err){
+        fs.rename(icon.path, constants.upload_form.upload+DiriconPath,function(err){
+            fs.rename(upload.path, constants.icon_form.uploadDir+filePath,function(err){
                 res.send(icon.name+"和"+upload.name+":success");
 
                 addFileAndIcon(iconPath,filePath,fileName,uid);
@@ -135,15 +135,18 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
             });
         });
 
-        function handleFilePath(upload,type,name,path){
+        function handleFilePath(upload,type,name){
             var pos=upload.name.lastIndexOf('.');
             var fileType=upload.name.substring(pos);
 
-            return path+name+type+fileType;
+            return name+type+fileType;
         };
 
         function addFileAndIcon(iconPath,filePath,fileName,uid){
-            var _sql = utils.format(sql.app_icon_file_Update, iconPath, filePath,uid,fileName);
+            var icon=constants.developerUploadIconPath+iconPath;
+            var plug=constants.developerUploadPlugPath+fileName;
+
+            var _sql = utils.format(sql.app_icon_file_Update, icon, plug,uid,fileName);
 
             var handlers = {
                 sql: _sql,
