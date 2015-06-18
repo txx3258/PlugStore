@@ -103,7 +103,7 @@ insert into bim_app(appname,appEnName,uid,app_info,app_abstract,app_addr,icon_ad
 
 
 
-
+select * from bim_list as a left join bim_app as b on a.uid=b.uid left join bim_app_host c on b.hostapp_id=c.id
 
 insert into bim_app_host(hostAppName,hostPackageName,own_version) values('terst','tesareg','12;89;')
 
@@ -118,7 +118,16 @@ var result=[
 ]
 
 
+a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_versioncode,c.hostAppName
+
+,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_app_user d on d.user_id=a.developer_id  where a.app_status='{0}'",
+
+
 select e.id as hostapp_id ,e.hostAppName,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,c.name as appTypeName from bim_free_newtype_day as b left join bim_app as a on a.uid=b.uid left join bim_apptype_info as c on b.code=c.code left join bim_app_host as e on e.id=a.hostapp_id order by e.id asc
+
+
+
+select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_app_user d on d.user_id=a.developer_id
 
 
 
