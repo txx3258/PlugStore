@@ -320,12 +320,20 @@
                 return false;
             }
 
-            if ($(form.attr("apptype_code")).find("option:selected").val()=='-1'){
-                error_msg='请选择支持宿主版本';
+            var flagType=false;
+            $(form.attr("apptype_code")).each(function () {
+                flagType|=$(this).is(":checked")
+            });
+            if (!flagType){
+                error_msg='请选择插件的类别';
                 return false;
             }
 
-            if (!$(form.attr("support_version")).attr("checked")){
+            var flagV=false;
+            $(form.attr("support_version")).each(function () {
+                flagV|=$(this).is(":checked")
+            });
+            if (!flagV){
                 error_msg='请选择插件的版本号';
                 return false;
             }
@@ -496,7 +504,6 @@
         });
 
     })($);
-
 
 
 </script>

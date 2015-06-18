@@ -34,7 +34,7 @@ SystemService.prototype.fetchAppListForDev = function (req, res) {
     function appListForDev(result, res) {
         if (result && result.length > 0) {
             result.forEach(function(app){
-
+                app.icon_addr=
                 //调整日期
                 app.app_publishdate=utils.convertDate(app.app_publishdate);
             })

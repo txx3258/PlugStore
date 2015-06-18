@@ -51,10 +51,10 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
 
     var orderNum=Math.floor(Math.random(47)*50);
     if (body.apptype_code instanceof Array){
-        apptype_code_sql=body.apptype_code.map(function(code){
+        var apptype_code_sql=body.apptype_code.map(function(code){
             return utils.format(sql.free_newtype_day_Insert,uid,code,orderNum,'1');
         });
-        _sql.concat(apptype_code_sql);
+        _sql=apptype_code_sql;
     }else{
         apptype_code_sql=utils.format(sql.free_newtype_day_Insert,uid,body.apptype_code,orderNum,'1');
         _sql.push(apptype_code_sql);
@@ -121,8 +121,8 @@ DeveloperService.prototype.uploadPlugFile=function(req,res){
         var iconPath=handleFilePath(icon,"_icon_",fileName);
 
 
-        fs.rename(icon.path, constants.upload_form.uploadDir+iconPath,function(err){
-            fs.rename(upload.path, constants.icon_form.uploadDir+filePath,function(err){
+        fs.rename(icon.path, constants.icon_form.uploadDir+iconPath,function(err){
+            fs.rename(upload.path,constants.upload_form.uploadDir+filePath,function(err){
                 res.send(icon.name+"和"+upload.name+":success");
 
                 addFileAndIcon(iconPath,filePath,fileName,uid);

@@ -37,5 +37,7 @@
     },
     "INDEX":"http://119.29.16.116/assets/index.html",
     "COMMENT_API":"http://119.29.16.116/EmpowerADS/",
-    "ACCOUNT_API":"http://119.29.16.116/EmpowerADS/"
+    "ACCOUNT_API":"http://119.29.16.116/EmpowerADS/",
+    "ICON_URL":"http://119.29.16.116/EmpowerADS/",
+    "PLUG_URL":"http://119.29.16.116/EmpowerADS/"
 }

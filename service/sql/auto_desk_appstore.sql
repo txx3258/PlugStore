@@ -120,3 +120,8 @@ var result=[
 
 select e.id as hostapp_id ,e.hostAppName,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,c.name as appTypeName from bim_free_newtype_day as b left join bim_app as a on a.uid=b.uid left join bim_apptype_info as c on b.code=c.code left join bim_app_host as e on e.id=a.hostapp_id order by e.id asc
 
+
+
+insert into bim_free_newtype_day(uid,code,order_num,avabilable) values('test0616170920','jz','42','1')
+
+insert into bim_free_newtype_day(uid,code,order_num,avabilable) values('test0616170925','ht','37','1')
