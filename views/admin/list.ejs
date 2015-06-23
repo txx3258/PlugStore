@@ -175,27 +175,7 @@
 
         });
 
-        $("#bannerBar").delegate("#add_app_choose_button","click",function(){
-            console.log(new Date().getTime()+'going!')
 
-            var url=undefined;
-
-            var menu=$("#bannerBar").attr("menu"),
-               uid=$("#uid_forms").serialize();
-
-            if (menu=='choose'){
-                url='/admin/add_list_app?type=1&'+uid;
-                $.my_ajax_alert(url);
-            }else if(menu=='top'){
-                url='/admin/add_list_app?type=2&'+uid;
-                $.my_ajax_html(url,"#Empty",fetchList,'2');
-            }else if(menu=='type'){
-                url='/admin/add_type_app?'+uid;
-                $.my_ajax_two(url,"/admin/app_type_root",'#list_select_container');
-            }
-
-            $("#bannerBar").hide();
-        });
      $("#list_select").delegate("#publish_list_button","click",function(){
          var flag=confirm('您确认真要发布数据？');
          if (flag) {
@@ -225,6 +205,30 @@
          return false;
      });
 
+ })($);
+
+ (function($){
+     $("#bannerBar").delegate("#add_app_choose_button","click",function(){
+         console.log(new Date().getTime()+'going!')
+
+         var url=undefined;
+
+         var menu=$("#bannerBar").attr("menu"),
+                 uid=$("#uid_forms").serialize();
+
+         if (menu=='choose'){
+             url='/admin/add_list_app?type=1&'+uid;
+             $.my_ajax_alert(url);
+         }else if(menu=='top'){
+             url='/admin/add_list_app?type=2&'+uid;
+             $.my_ajax_html(url,"#Empty",fetchList,'2');
+         }else if(menu=='type'){
+             url='/admin/add_type_app?'+uid;
+             $.my_ajax_two(url,"/admin/app_type_root",'#list_select_container');
+         }
+
+         $("#bannerBar").hide();
+     });
  })($);
 
 </script>
