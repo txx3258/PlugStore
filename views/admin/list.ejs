@@ -183,16 +183,16 @@
             var menu=$("#bannerBar").attr("menu"),
                uid=$("#uid_forms").serialize();
 
-//            if (menu=='choose'){
-//                url='/admin/add_list_app?type=1&'+uid;
-//                $.my_ajax_html(url,"#Empty",fetchList,'1');
-//            }else if(menu=='top'){
-//                url='/admin/add_list_app?type=2&'+uid;
-//                $.my_ajax_html(url,"#Empty",fetchList,'2');
-//            }else if(menu=='type'){
-//                url='/admin/add_type_app?'+uid;
-//                $.my_ajax_two(url,"/admin/app_type_root",'#list_select_container');
-//            }
+            if (menu=='choose'){
+                url='/admin/add_list_app?type=1&'+uid;
+                $.my_ajax_alert(url);
+            }else if(menu=='top'){
+                url='/admin/add_list_app?type=2&'+uid;
+                $.my_ajax_html(url,"#Empty",fetchList,'2');
+            }else if(menu=='type'){
+                url='/admin/add_type_app?'+uid;
+                $.my_ajax_two(url,"/admin/app_type_root",'#list_select_container');
+            }
 
             $("#bannerBar").hide();
         });
