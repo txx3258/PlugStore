@@ -150,16 +150,20 @@ router.get('/publish_list_app', function(req, res, next) {
     adminService.publishListApp(req,res);
 });
 
-//router.get('/layout_app_type', function(req, res, next) {
-//
-//    adminService.publishListApp(req,res);
-//});
-
 router.get('/choose_list_type', function(req, res, next) {
 
     adminService.chooseListType(req,res);
 });
 
+router.get('/bim_app', function(req, res, next) {
+
+    adminService.fetchBimAd(req,res);
+});
+
+router.post('/uploadAd', function(req, res, next) {
+
+    adminService.uploadBimAd(req,res);
+});
 
 
 module.exports = router;

@@ -32,8 +32,7 @@
             <li class="active"><a href="#">设置管理 <span class="sr-only">(current)</span></a></li>
             <li><a href="#hostApp"><span class="list_tab">宿主软件</span></a></li>
             <li><a href="#appTypeRoot"><span>宿主级分类</span></a></li>
-            <li><a href="#appTypeSub"><span>专业分类</span></a></li>
-            <li><a href="#User_Vistor"><span>广告管理</span></a></li>
+            <li><a href="#bimAd"><span>广告管理</span></a></li>
 
         </ul>
 
@@ -131,9 +130,40 @@
 
         </table>
     </form>
-    </form>
 </div>
 
+<div id="add_bim_ad" style="display:none" width="500px" height="300px" type="">
+    <form id="replace_add_bim_ad_form" action="/admin/uploadAd" class="form-signin" method="post" enctype="multipart/form-data" target="hidden_frame">
+        <table id="queryTable" >
+            <tr>
+                <td>广告名称：</td>
+                <td><input id="appimg_name" name="appimg_name" type="text"  class="form-control wd200" ><input id="appimg_id" name="appimg_id" type="hidden"/></td>
+
+            </tr>
+            <tr>
+                <td>路径：</td>
+                <td><input id="ads_path" type="file"  name="ads_path" class="wd200"></td>
+            </tr>
+            <tr class="ht_80">
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-lg btn-primary btn-block" type="button">确定</button>
+
+
+                </td>
+                <td></td>
+
+            </tr>
+
+        </table>
+        <iframe name="hidden_frame" id="hidden_frame" style="display: none"></iframe>
+
+    </form>
+</div>
 
 <%- include _footer %>
 
@@ -147,6 +177,11 @@
 
         function fetchAppTypeRoot(){
             var url="/admin/app_type_root";
+            $.my_ajax_html(url,'#list_select');
+        }
+
+        function fetchBimAd(){
+            var url="/admin/bim_app";
             $.my_ajax_html(url,'#list_select');
         }
 
@@ -168,7 +203,6 @@
                 }else if(data=='add_app_type_root'){
                     fetchAppTypeRoot();
                 }
-
             }
         });
 
@@ -194,6 +228,14 @@
                 $("#text_code").val($(this).attr("code"));
                 $("#text_name").val($(this).attr("name"));
                 $("#type_root_id").val($(this).attr("id"));
+            }else if(data=="add_bim_ad"){
+                $("#appimg_name").val($(this).attr("appimg_name"));
+                $("#appimg_id").val($(this).attr("appimg_id"));
+//
+//                var url=$("#replace_add_bim_ad_form").attr("action")+'?appimg_name='+$(this).attr("appimg_name");
+//                $("#replace_add_bim_ad_form").attr("action",url);
+//
+//                alert(url);
             }
 
         });
@@ -238,8 +280,6 @@
             if (type=='add'||type=='edit'){
                 var data=$("#panel-body").attr("data"),
                         form=$("#"+data+"_form").serialize();
-
-
                 if (data=='add_host_app'){
                     if (type=='add'){
                         var maxID=parseInt($("#max_type_root_id").attr("maxID"))+1;
@@ -247,12 +287,22 @@
                         var maxID=parseInt($("#max_type_root_id").attr("maxID"));
                     }
 
-
                     url='/admin/'+type+'_host_app?maxID='+maxID+'&'+form;
                     $.my_ajax_alert(url,"/admin/layout_hostapp",'#list_select');
                 }else if(data=='add_app_type_root'){
                     url='/admin/'+type+'_app_type_root?'+form;
                     $.my_ajax_alert(url,"/admin/app_type_root",'#list_select');
+                }else if(data=='add_bim_ad'){
+                    if (type=='add'){
+                        var url=$("#replace_add_bim_ad_form").attr("action")+'?appimg_name='+$("#appimg_name").val();
+                        $("#replace_add_bim_ad_form").attr("action",url);
+
+                        alert(url);
+                        //$("#replace_add_bim_ad_form").submit();
+                    }else{
+                        url='/admin/edit_bim_ad?'+form;
+                        $.my_ajax_alert(url,"/admin/app_type_root",'#list_select');
+                    }
                 }
 
 
@@ -277,6 +327,8 @@
                         fetchHostApp();
                     }else if (href=="#appTypeRoot"){
                         fetchAppTypeRoot();
+                    }else if (href=="#bimAd"){
+                        fetchBimAd();
                     }
 
                     return false;

@@ -8,6 +8,7 @@ var render = require('./render/Admin');
 var constants=require('./common/constants');
 var fs=require('fs');
 var ejs=require("ejs");
+var formidable=require('formidable');
 
 function AdminService() {
 
@@ -522,6 +523,97 @@ AdminService.prototype.chooseListType=function(req, res){
         }
     }
 
+};
+
+AdminService.prototype.fetchBimAd=function(req, res) {
+
+    var _sql = sql.bim_add_Select;
+
+    var handlers = {
+        sql: _sql,
+        callback: res,
+        handler: bimAd
+    }
+
+    mysql.query(handlers);
+
+    function bimAd(result,res){
+        if (result){
+            fs.readFile(constants.PART_VIEW+'layout_ad.ejs','utf8',function(err,data){
+                if (err){
+                    res.send('');
+                }else{
+                    res.send(ejs.render(data.toString(),{ads:result}));
+                }
+            })
+        }else{
+            res.send('系统繁忙中……');
+        }
+    }
+};
+
+AdminService.prototype.uploadBimAd=function(req, res) {
+    var oThis=this;
+    if (oThis.form!=undefined){
+        res.send("again");
+        return;
+    }
+
+    //创建上传表单
+    oThis.form = new formidable.IncomingForm();
+    //设置编辑
+    oThis.form.encoding = constants.ads_form.encoding;
+    //设置上传目录
+    oThis.form.uploadDir = constants.ads_form.uploadDir;
+    //保留后缀
+    oThis.form.keepExtensions = constants.ads_form.keepExtensions;
+    //文件大小
+    oThis.form.maxFieldsSize = constants.ads_form.maxFieldsSize;  //adminUploadAdsPath
+
+
+    oThis.form.parse(req, function(err, fields, files) {
+        if (err) {
+            res.send('again');
+            oThis.form = undefined;
+            return;
+        }
+
+        var appimg_name=req.query.appimg_name;
+        var adsPath = files["ads_path"];
+        if (adsPath.length==0){
+            res.send('again');
+            return;
+        }
+
+
+        var pos=adsPath.name.lastIndexOf('.');
+        var fileType=adsPath.name.substring(pos);
+        var adPath=new Date().getTime()+"."+fileType;
+
+        fs.rename(adsPath.path, constants.ads_form.uploadDir+adPath,function(err) {
+            if (err){
+                res.send('error');
+                return;
+            }
+
+            var _sql = utils.format(sql.bim_add_Insert,'-1',appimg_name,constants.adminUploadAdsPath+adPath,fileType);
+            var handlers = {
+                sql: _sql,
+                callback: null,
+                handler: uploadAddPath
+            }
+
+            mysql.query(handlers);
+
+            function uploadAddPath(result,res){
+                if (result){
+                    res.send('success');
+                }else{
+                    res.send('error');
+                }
+            }
+        });
+    });
 };
 
 

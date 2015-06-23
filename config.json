@@ -8,9 +8,10 @@
         "database":"bim_appstore",
         "insecureAuth":true
     },
+    "PART_VIEW":"/views/partView/",
     "developerUploadPlugPath":"/appstore/doc/",
     "developerUploadIconPath":"/Services/PlugIns/Images/",
-    "PART_VIEW":"/views/partView/",
+    "adminUploadAdsPath":"/Services/Ads/Images/",
     "icon_form": {
         "encoding": "utf-8",
         "uploadDir": "/data/appstore/EmpowerADS/",
@@ -22,6 +23,12 @@
         "uploadDir": "/data/appstore/doc/",
         "keepExtensions": true,
         "maxFieldsSize": 5000
+    },
+    "ads_form": {
+        "encoding": "utf-8",
+        "uploadDir": "/data/appstore/ads/",
+        "keepExtensions": true,
+        "maxFieldsSize": 5
     },
     "session":{
         "secret":"qwqwqw",
