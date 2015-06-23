@@ -37,8 +37,8 @@
       <file leaf-file-name="list.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/admin/list.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2613909" vertical-offset="2546" max-vertical-offset="3480">
-              <caret line="177" column="23" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.29736212" vertical-offset="2546" max-vertical-offset="3480">
+              <caret line="178" column="45" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -1196,8 +1196,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/list.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2613909" vertical-offset="2546" max-vertical-offset="3480">
-          <caret line="177" column="23" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.29736212" vertical-offset="2546" max-vertical-offset="3480">
+          <caret line="178" column="45" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
           <folding />
         </state>
       </provider>
