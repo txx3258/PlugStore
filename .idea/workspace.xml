@@ -66,8 +66,8 @@
       <file leaf-file-name="DeveloperService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/service/DeveloperService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6657609" vertical-offset="595" max-vertical-offset="3285">
-              <caret line="58" column="99" selection-start-line="58" selection-start-column="99" selection-end-line="58" selection-end-column="99" />
+            <state vertical-scroll-proportion="0.33152175" vertical-offset="388" max-vertical-offset="3285">
+              <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
               <folding>
                 <element signature="e#0#51#0" expanded="false" />
               </folding>
@@ -1243,8 +1243,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/DeveloperService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6657609" vertical-offset="595" max-vertical-offset="3285">
-          <caret line="58" column="99" selection-start-line="58" selection-start-column="99" selection-end-line="58" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.33152175" vertical-offset="388" max-vertical-offset="3285">
+          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
           <folding>
             <element signature="e#0#51#0" expanded="false" />
           </folding>

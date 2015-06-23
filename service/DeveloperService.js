@@ -34,7 +34,7 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
         app_versioncode=body.app_versioncode,
         app_version=body.app_version,
 
-        app_status=1,
+        app_status=0,
 
         available=1,
         developer_id=body.developer_id,
@@ -52,11 +52,11 @@ DeveloperService.prototype.uploadPlugInfo=function(req,res){
     var orderNum=Math.floor(Math.random(47)*50);
     if (body.apptype_code instanceof Array){
         var apptype_code_sql=body.apptype_code.map(function(code){
-            return utils.format(sql.free_newtype_day_Insert,uid,code,orderNum,'0');
+            return utils.format(sql.free_newtype_day_Insert,uid,code,orderNum,'1');
         });
         _sql=apptype_code_sql;
     }else{
-        apptype_code_sql=utils.format(sql.free_newtype_day_Insert,uid,body.apptype_code,orderNum,'0');
+        apptype_code_sql=utils.format(sql.free_newtype_day_Insert,uid,body.apptype_code,orderNum,'1');
         _sql.push(apptype_code_sql);
     }
 
