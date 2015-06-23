@@ -37,14 +37,14 @@
       <file leaf-file-name="list.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/admin/list.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7434053" vertical-offset="1160" max-vertical-offset="1695">
-              <caret line="193" column="29" selection-start-line="193" selection-start-column="29" selection-end-line="193" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.69304556" vertical-offset="1136" max-vertical-offset="1695">
+              <caret line="190" column="56" selection-start-line="190" selection-start-column="56" selection-end-line="190" selection-end-column="56" />
               <folding>
                 <element signature="e#1577#2574#0#HTML" expanded="false" />
                 <element signature="e#3039#4031#0#HTML" expanded="false" />
                 <element signature="e#4128#4881#0#HTML" expanded="false" />
                 <element signature="e#5148#5695#0#HTML" expanded="false" />
-                <element signature="e#6633#7451#0#HTML" expanded="false" />
+                <element signature="e#6567#7385#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -107,8 +107,8 @@
       <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.038462" vertical-offset="1966" max-vertical-offset="2580">
-              <caret line="147" column="37" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
+            <state vertical-scroll-proportion="-6.8076925" vertical-offset="1803" max-vertical-offset="2580">
+              <caret line="134" column="23" selection-start-line="134" selection-start-column="23" selection-end-line="134" selection-end-column="23" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
               </folding>
@@ -129,8 +129,8 @@
       <file leaf-file-name="AdminService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/AdminService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6263" max-vertical-offset="9390">
-              <caret line="432" column="29" selection-start-line="432" selection-start-column="29" selection-end-line="432" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3925" max-vertical-offset="9390">
+              <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1154,24 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/AdminService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6263" max-vertical-offset="9390">
-          <caret line="432" column="29" selection-start-line="432" selection-start-column="29" selection-end-line="432" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.038462" vertical-offset="1966" max-vertical-offset="2580">
-          <caret line="147" column="37" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partView/list_choose_type.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="11.541667" vertical-offset="337" max-vertical-offset="780">
@@ -1200,16 +1182,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.8076925" vertical-offset="1803" max-vertical-offset="2580">
+          <caret line="134" column="23" selection-start-line="134" selection-start-column="23" selection-end-line="134" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/AdminService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3925" max-vertical-offset="9390">
+          <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/list.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7434053" vertical-offset="1160" max-vertical-offset="1695">
-          <caret line="193" column="29" selection-start-line="193" selection-start-column="29" selection-end-line="193" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.69304556" vertical-offset="1136" max-vertical-offset="1695">
+          <caret line="190" column="56" selection-start-line="190" selection-start-column="56" selection-end-line="190" selection-end-column="56" />
           <folding>
             <element signature="e#1577#2574#0#HTML" expanded="false" />
             <element signature="e#3039#4031#0#HTML" expanded="false" />
             <element signature="e#4128#4881#0#HTML" expanded="false" />
             <element signature="e#5148#5695#0#HTML" expanded="false" />
-            <element signature="e#6633#7451#0#HTML" expanded="false" />
+            <element signature="e#6567#7385#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
