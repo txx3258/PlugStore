@@ -175,7 +175,7 @@
 
         });
 
-        $("#panel-body").delegate("#add_app_choose_button","click",function(){
+        $("#bannerBar").delegate("#add_app_choose_button","click",function(){
             console.log(new Date().getTime()+'going!')
 
             var url=undefined;
@@ -193,6 +193,8 @@
                 url='/admin/add_type_app?'+uid;
                 $.my_ajax_alert(url,"/admin/app_type_root",'#list_select_container');
             }
+
+            $("#bannerBar").hide();
         });
      $("#list_select").delegate("#publish_list_button","click",function(){
          var flag=confirm('您确认真要发布数据？');
