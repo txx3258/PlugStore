@@ -28,7 +28,7 @@
 <tr class="toggler_row" style="cursor: move; display: table-row;">
     <td><%= i++ %>  </td>
     <td>
-        <img width="45px" height="45px" src="<%= app.iconAdress %> "/>
+        <img width="45px" height="45px" src="<%= app.icon_addr %> "/>
     </td>
     <td><%= app.appname %></td>
     <td><%= app.appEnName %></td>
@@ -39,7 +39,7 @@
     <td><%= app.app_size %></td>
     <td><%= app.app_publishdate %></td>
     <td class="small_buttons">
-        <div><button table="bim_list" id="<%= app.id %>" class="list_delete">删除</button></div>
+        <div><button table="bim_list" id="<%= app.id %>" col_id="id" class="list_delete">删除</button></div>
     </td>
 </tr>
 <% })%>

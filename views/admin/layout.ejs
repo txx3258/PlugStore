@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<div id="list_select" class="tableDemo" style="margin-left:100px; width: 1000px;">
+<div id="list_select" class="tableDemo" style="margin-left:100px; width: 10000px;">
 
 </div>
 
@@ -58,7 +58,7 @@
 
 <div id="EventListen" style="display: none"></div>
 
-<div id="add_host_app" style="display: none" width="600px" height="350px" type="">
+<div id="add_host_app" style="display: none" width="600px" height="380px" type="">
     <form id="replace_host_app_form" class="form-signin">
         <table id="queryTable" >
             <tr>
@@ -78,7 +78,15 @@
             </tr>
             <tr>
                 <td>选择类别</td>
-                <td id="choose_hostApp_type" colspan="3"></td>
+                <td id="choose_hostApp_type" colspan="4"></td>
+            </tr>
+
+            <tr>
+                <td>宿主标识：</td>
+                <td><input id="text_hostApp_id" name="app_product_id" type="text"  class="form-control wd200" ></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             <tr class="ht_80">
                 <td></td>
@@ -87,6 +95,8 @@
                 <td></td>
                 <td></td>
             </tr>
+
+
             <tr>
                 <td><button class="btn btn-lg btn-primary btn-block" type="button">确定</button></td>
                 <td></td>
@@ -95,6 +105,9 @@
                 <td></td>
 
             </tr>
+
+
+
 
         </table>
     </form>
@@ -132,17 +145,21 @@
     </form>
 </div>
 
+<iframe name="hidden_frame" id="hidden_frame" style="display: none"></iframe>
+
 <div id="add_bim_ad" style="display:none" width="500px" height="300px" type="">
-    <form id="replace_add_bim_ad_form" action="/admin/uploadAd" class="form-signin" method="post" enctype="multipart/form-data" target="hidden_frame">
+    <form id="replace_add_bim_ad_form" name="replace_add_bim_ad_form" action="/admin/uploadAd" class="form-signin" method="post" enctype="multipart/form-data" target="hidden_frame" onsubmit="doCheck()">
         <table id="queryTable" >
             <tr>
                 <td>广告名称：</td>
-                <td><input id="appimg_name" name="appimg_name" type="text"  class="form-control wd200" ><input id="appimg_id" name="appimg_id" type="hidden"/></td>
-
+                <td>
+                    <input id="appimg_name" name="appimg_name" type="text"  class="form-control wd200" >
+                    <input id="appimg_id" name="appimg_id" type="hidden"/>
+                </td>
             </tr>
             <tr>
                 <td>路径：</td>
-                <td><input id="ads_path" type="file"  name="ads_path" class="wd200"></td>
+                <td><input type="file" name="adsPath" multiple="multiple" class="wd200"></td>
             </tr>
             <tr class="ht_80">
                 <td></td>
@@ -151,16 +168,15 @@
             </tr>
             <tr>
                 <td>
-                    <button class="btn btn-lg btn-primary btn-block" type="button">确定</button>
-
+                    <input style="height: 40px;" class="btn btn-lg btn-primary btn-block" type="submit" value="确定"/>
 
                 </td>
-                <td></td>
+                <td>
 
+                </td>
             </tr>
 
         </table>
-        <iframe name="hidden_frame" id="hidden_frame" style="display: none"></iframe>
 
     </form>
 </div>
@@ -202,6 +218,10 @@
                     fetchHostApp();
                 }else if(data=='add_app_type_root'){
                     fetchAppTypeRoot();
+                }else if (data=='add_bim_ad'){
+                    fetchBimAd();
+                }else{
+                    fetchBimAd();
                 }
             }
         });
@@ -217,6 +237,7 @@
             var data=$("#panel-body").attr("data");
 
             if (data=="add_host_app"){
+                $("#text_hostApp_id").val($(this).attr("app_product_id"));
                 $("#text_hostApp").val($(this).attr("hostAppName"));
                 $("#text_hostApp_name").val($(this).attr("hostPackageName"));
                 $("#text_hostApp_version").val($(this).attr("own_version"));
@@ -231,13 +252,7 @@
             }else if(data=="add_bim_ad"){
                 $("#appimg_name").val($(this).attr("appimg_name"));
                 $("#appimg_id").val($(this).attr("appimg_id"));
-//
-//                var url=$("#replace_add_bim_ad_form").attr("action")+'?appimg_name='+$(this).attr("appimg_name");
-//                $("#replace_add_bim_ad_form").attr("action",url);
-//
-//                alert(url);
             }
-
         });
 
         $("#list_select").delegate(".list_add","click",function(){
@@ -274,40 +289,48 @@
             $("#bannerBar").center();
         }
 
-        $("#panel-body").delegate("button","click",function(){
-            var url=undefined;
+        $("#panel-body").delegate("#replace_add_bim_ad_submit","click",function(){
             var type=$("#bannerBar").attr('type');
-            if (type=='add'||type=='edit'){
-                var data=$("#panel-body").attr("data"),
-                        form=$("#"+data+"_form").serialize();
-                if (data=='add_host_app'){
-                    if (type=='add'){
-                        var maxID=parseInt($("#max_type_root_id").attr("maxID"))+1;
-                    }else{
-                        var maxID=parseInt($("#max_type_root_id").attr("maxID"));
-                    }
+            document.forms["replace_add_bim_ad_form"].submit();
+            //$("#replace_add_bim_ad_form").submit();
+            doCheck();
+        })
 
-                    url='/admin/'+type+'_host_app?maxID='+maxID+'&'+form;
-                    $.my_ajax_alert(url,"/admin/layout_hostapp",'#list_select');
-                }else if(data=='add_app_type_root'){
-                    url='/admin/'+type+'_app_type_root?'+form;
-                    $.my_ajax_alert(url,"/admin/app_type_root",'#list_select');
-                }else if(data=='add_bim_ad'){
-                    if (type=='add'){
-                        var url=$("#replace_add_bim_ad_form").attr("action")+'?appimg_name='+$("#appimg_name").val();
-                        $("#replace_add_bim_ad_form").attr("action",url);
-
-                        alert(url);
-                        //$("#replace_add_bim_ad_form").submit();
-                    }else{
-                        url='/admin/edit_bim_ad?'+form;
-                        $.my_ajax_alert(url,"/admin/app_type_root",'#list_select');
-                    }
-                }
-
-
-            }
-        });
+//        $("#panel-body").delegate("button","click",function(){
+//            var url=undefined;
+//            var type=$("#bannerBar").attr('type');
+//            if (type=='add'||type=='edit'){
+//                var data=$("#panel-body").attr("data"),
+//                        form=$("#"+data+"_form").serialize();
+//                if (data=='add_host_app'){
+//                    if (type=='add'){
+//                        var maxID=parseInt($("#max_type_root_id").attr("maxID"))+1;
+//                    }else{
+//                        var maxID=parseInt($("#max_type_root_id").attr("maxID"));
+//                    }
+//
+//                    url='/admin/'+type+'_host_app?maxID='+maxID+'&'+form;
+//                    $.my_ajax_alert(url,"/admin/layout_hostapp",'#list_select');
+//                }else if(data=='add_app_type_root'){
+//                    url='/admin/'+type+'_app_type_root?'+form;
+//                    $.my_ajax_alert(url,"/admin/app_type_root",'#list_select');
+//                }else if(data=='add_bim_ad'){
+//                    if (type=='add'){
+//                        var url=$("#replace_add_bim_ad_form").attr("action")+'?appimg_name='+$("#appimg_name").val();
+//                        $("#replace_add_bim_ad_form").attr("action",url);
+//
+//                        document.forms["replace_add_bim_ad_form"].submit();
+//                        //$("#replace_add_bim_ad_form").submit();
+//                        doCheck();
+//                    }else{
+//                        url='/admin/edit_bim_ad?'+form;
+//                        $.my_ajax_alert(url,"/admin/app_type_root",'#list_select');
+//                    }
+//                }
+//
+//
+//            }
+//        });
 
         $("#list_tab li a").click(function(){
                 var href=$(this).attr('href');
@@ -335,7 +358,57 @@
                 }
             });
 
+
+
     })($);
+
+
+    function doCheck() {
+        var count = 0;
+        var interval = setInterval(function () {
+            var body = $(document.getElementById("hidden_frame").contentWindow.document.body).text().toString();
+
+            console.log(new Date().getTime() + body);
+
+            if (body.indexOf("error") != -1) {
+                clearInterval(interval);
+                alert('很抱歉，系统维护中，请稍后在试……');
+                return;
+            }
+
+            if (body.indexOf("again") != -1) {
+                clearInterval(interval);
+                alert('很抱歉，系统繁忙中，请稍后在试……');
+                return;
+            }
+
+            if (body.indexOf("success") != -1) {
+                clearInterval(interval);
+                alert("广告信息提交成功！");
+                fetchBimAd();
+                return;
+            }
+
+            if (body.indexOf("failed") != -1) {
+                clearInterval(interval);
+                alert("提交插件失败，请联系管理人员！");
+                return;
+            }
+
+            count += 1;
+            if (count == 300) {
+                clearInterval(interval);
+                alert("本次提交时间延迟，请稍后重试！");
+                return;
+            }
+
+        }, 1000);
+
+        function fetchBimAd() {
+            var url = "/admin/bim_app";
+            $.my_ajax_html(url,'#list_select');
+        };
+    }
 
 </script>
 <!--$("#EventListen").bind('DOMNodeInserted',function(e){-->

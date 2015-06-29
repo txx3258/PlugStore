@@ -2,10 +2,13 @@
             <thead id="sprintlist_header">
             <tr style="cursor: move;font-size:14px">
                 <th class="end_date" style="width:20px">序号</th>
+                <th class="name" style="width: 200px">宿主标识</th>
                 <th class="end_date" style="width:200px">宿主软件</th>
                 <th class="name" style="width: 200px">包名</th>
                 <th class="start_date" style="width: 200px">支持的版本</th>
                 <th class="name" style="width: 200px">类别</th>
+
+
                 <th class="actions">操作</th>
             </tr>
             </thead>
@@ -13,13 +16,14 @@
             <%var i=1 ;hostApps.forEach(function(hostApp){ %>
                 <tr id="<%= hostApp.id %>" table="bim_app_host" col_id="id">
                 <td><%= i++%></td>
+                    <td><%= hostApp.app_product_id %></td>
                 <td><%= hostApp.hostAppName %></td>
                 <td><%= hostApp.hostPackageName %></td>
                 <td><%= hostApp.own_version %></td>
                     <td><%= hostApp.name %></td>
                 <td class="small_buttons">
                     <div>
-                        <button title="编辑宿主软件" divID="add_host_app" id="<%= hostApp.id%>" hostAppName="<%= hostApp.hostAppNameFull %>" hostPackageName="<%= hostApp.hostPackageNameFull %>"  own_version="<%= hostApp.own_versionFull %>"  class="list_edit">编辑</button>
+                        <button title="编辑宿主软件" divID="add_host_app" id="<%= hostApp.id%>" app_product_id="<%= hostApp.app_product_id%>"  hostAppName="<%= hostApp.hostAppNameFull %>" hostPackageName="<%= hostApp.hostPackageNameFull %>"  own_version="<%= hostApp.own_versionFull %>"  class="list_edit">编辑</button>
                         <button class="list_delete">删除</button>
                     </div>
                 </td>
@@ -33,13 +37,15 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
             <tr >
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+
+                <td></td> <td></td>
                 <td class="small_buttons">
                     <div>
                         <button divID="add_host_app" title="添加一级分类"  class="list_add">添加</button>

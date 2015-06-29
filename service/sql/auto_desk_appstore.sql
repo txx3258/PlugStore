@@ -6,7 +6,9 @@ alter table bim_app add column appEnName varchar (50);
 alter table bim_app add column appEnName varchar (50);
 
 
-alter table bim_app add column p varchar (50);
+alter table bim_app add column upgrade_code varchar (1024);
+alter table bim_app add column productId varchar (1024);
+
 
 alter table bim_app add column apptype_id
 appEnName
@@ -134,3 +136,39 @@ select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishd
 insert into bim_free_newtype_day(uid,code,order_num,avabilable) values('test0616170920','jz','42','1')
 
 insert into bim_free_newtype_day(uid,code,order_num,avabilable) values('test0616170925','ht','37','1')
+
+
+drop trigger if exists t_afterdelete_on_sub;
+create trigger t_afterdelete_on_sub
+after delete on root_trigger
+
+for each row
+begin
+    delete from sub_trigger where rootid=old.id;
+end;
+
+
+
+
+
+select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status='1' or a.hostapp_id='-1' or d.id in ('-1')
+
+
+select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status='1' or a.hostapp_id='-1' or d.id in ('-1')
+
+
+select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status='-1' or a.hostapp_id='-1' or d.id in ('9,10,11')
+
+
+insert into bim_appimg_resource(appid,appimg_name,appimg_path,appimg_mime) values('-1','哈哈','/Services/Ads/Images/1435388278298.','')
+
+
+insert into bim_ad(img_resource_id,ad_name,ad_url,create_time,order_num,available) values('22','几千急急急','http://119.29.16.116/EmpowerADS//Services/Ads/Images/1435406101163.png','2015-05-00','15','1')
+
+
+insert into bim_ad(img_resource_id,ad_name,ad_url,create_time,order_num,available) values('22','几千急急急','http://119.29.16.116/EmpowerADS//Services/Ads/Images/1435406101163.png','2015-05-00','15','1')
+
+
+
+
+select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status='0' or a.hostapp_id='undefined' or d.id in ('undefined')

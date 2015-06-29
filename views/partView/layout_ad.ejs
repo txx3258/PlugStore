@@ -4,19 +4,18 @@
     <tr style="cursor: move;font-size:14px">
         <th class="end_date" style="width:100px">序号</th>
         <th class="end_date" style="width:330px">广告名称</th>
-        <th class="name" style="width:330px">路径</th>
+        <th class="name" style="width:330px">图标</th>
         <th class="actions" style="width:120px">操作</th>
     </tr>
     </thead>
     <tbody style="font-size:14px">
     <%var i=1 ;ads.forEach(function(ad){ %>
-    <tr id="<%= ad.appimg_id %>" table="bim_ad" col_id="appimg_id">
+    <tr id="<%= ad.appimg_id %>" table="bim_appimg_resource" col_id="appimg_id">
         <td><%= i++%></td>
         <td><%= ad.appimg_name %></td>
-        <td><%= ad.appimg_path %></td>
+        <td>  <img width="85px" height="85px" src="<%= ad.appimg_path %>"/></td>
         <td class="small_buttons">
             <div>
-                <button title="编辑广告" divID="add_bim_ad" appimg_id="<%= ad.appimg_id%>" appimg_name="<%= ad.appimg_name %>"  class="list_edit">编辑</button>
                 <button class="list_delete">删除</button>
             </div>
         </td>

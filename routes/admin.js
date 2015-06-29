@@ -145,14 +145,30 @@ router.get('/add_list_app', function(req, res, next) {
     adminService.addListApp(req,res);
 });
 
+
 router.get('/publish_list_app', function(req, res, next) {
 
     adminService.publishListApp(req,res);
 });
 
+
 router.get('/choose_list_type', function(req, res, next) {
 
     adminService.chooseListType(req,res);
+});
+router.get('/choose_list_ad', function(req, res, next) {
+
+    adminService.chooseListAd(req,res);
+});
+
+router.get('/choose_list_ad_add', function(req, res, next) {
+
+    adminService.chooseListAdAdd(req,res);
+});
+
+router.get('/add_list_ad', function(req, res, next) {
+
+    adminService.addListAd(req,res);
 });
 
 router.get('/bim_app', function(req, res, next) {
@@ -163,6 +179,11 @@ router.get('/bim_app', function(req, res, next) {
 router.post('/uploadAd', function(req, res, next) {
 
     adminService.uploadBimAd(req,res);
+});
+
+router.get('/flower_query', function(req, res, next) {
+
+    adminService.flowerQuery(req,res);
 });
 
 

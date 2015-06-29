@@ -24,34 +24,30 @@ router.post('/uploadPlugInfo', function(req, res, next) {
 
 
 router.get('/upload', function(req, res, next) {
-    var registerName=req.session?req.session.registerName:'';
+
+    var session=req.session;
+        registerName=session?session.registerName:'',
+        nickName=session?session.nickname:'',
+        userId=session?session.userId:'';
 
     res.render('developer/upload', { title: '插件上传',
         staticResourceUrl: constants.staticResourceHost,
         mClass:"upload",
-        registerName:registerName
+        registerName:registerName,
+        nickName:nickName
     });
 });
 
 
 router.get('/comment', function(req, res, next) {
-    var registerName=req.session?req.session.registerName:'';
 
-    res.render('developer/comment', { title: '我的评论',
-        staticResourceUrl: constants.staticResourceHost,
-        mClass:"upload",
-        registerName:registerName
-    });
+    developerService.fetchComment(req,res);
+
 });
 
 router.get('/commentList', function(req, res, next) {
     developerService.fetchCommentList(req,res);
 });
-
-
-
-
-
 
 router.get('/register', function(req, res, next) {
     var registerName=req.session?req.session.registerName:'';
@@ -62,7 +58,6 @@ router.get('/register', function(req, res, next) {
         registerName:registerName
     });
 });
-
 
 router.get('/login', function(req, res, next) {
     var registerName=req.session?req.session.registerName:'';

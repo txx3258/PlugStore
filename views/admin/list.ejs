@@ -14,6 +14,7 @@
                 <li><a href="#list_select"><span class="list_tab">精选榜</span></a></li>
                 <li><a href="#list_top"><span>排行榜</span></a></li>
                 <li><a href="#list_type"><span>分类榜</span></a></li>
+                <li><a href="#list_ad"><span>广告管理</span></a></li>
             </ul>
 
         </div>
@@ -87,6 +88,11 @@
             $.my_ajax_html(url, "#list_select_container", selectFn);
         }
 
+        function fetchAd() {
+            var url = "/admin/choose_list_ad";
+            $.my_ajax_html(url, "#list_select_container", selectFn);
+        }
+
         $("#list_tab li a").click(function () {
             var href = $(this).attr('href');
             if (href.length > 2) {
@@ -109,9 +115,13 @@
                 } else if (href == "#list_top") {
                     fetchList('2');
                     $("#bannerBar").attr("menu", "top");
-                } else {
+
+                }else if (href =="#list_type"){
                     fetchType();
                     $("#bannerBar").attr("menu", "type");
+                }else if (href == "#list_ad"){
+                    fetchAd();
+                    $("#bannerBar").attr("menu", "ad");
                 }
 
                 return false;
@@ -126,7 +136,7 @@
                 var dom = $(this);
                 var id = dom.attr('id');
                 var table = dom.attr('table');
-                var col_id = "id";
+                var col_id = dom.attr('col_id');
 
                 var url = '/system/delete_table?col_id=' + col_id + '&id=' + id + "&table=" + table;
                 $.my_ajax_html(url, "");
@@ -138,6 +148,8 @@
                     fetchList('2');
                 } else if (menu == 'type') {
                     fetchType();
+                }else if (menu == 'ad'){
+                    fetchAd();
                 }
             }
 
@@ -166,14 +178,16 @@
             } else if (menu == 'type') {
 
             }
-
             var url = "/admin/choose_list_app_add?type=" + type + "&ejsView=list_choose_app.ejs&other=unique";
             $.my_ajax_html(url, "#panel-body", showListAppFn, title);
-
             return false;
-
         });
 
+        $("#list_select").delegate("#add_list_ad_div", "click", function () {
+            var url = "/admin/choose_list_ad_add";
+            $.my_ajax_html(url, "#panel-body", showListAppFn, "添加广告");
+            return false;
+        });
 
         $("#list_select").delegate("#publish_list_button", "click", function () {
             var flag = confirm('您确认真要发布数据？');
@@ -186,7 +200,7 @@
                 }
 
                 var menu = $("#bannerBar").attr("menu");
-                var url = "/admin/publish_list_app?" + uids;
+                var url = "/admin/publish_list_app?type=list&" + uids;
 
                 if (menu == 'choose') {
                     var fn = fetchList, arg1 = 1;
@@ -194,7 +208,10 @@
                     var fn = fetchList, arg1 = 2;
                 } else if (menu == 'type') {
                     var fn = fetchType, arg1 = undefined;
-                    url = "/admin/publish_list_app?type=code&" + uids
+                    url = "/admin/publish_list_app?type=type&" + uids
+                }else if (menu == 'ad'){
+                    var fn = fetchAd, arg1 = undefined;
+                    url = "/admin/publish_list_app?type=ad&" + uids
                 }
 
                 $.my_ajax_html(url, "#Empty", fn, arg1);
@@ -204,7 +221,6 @@
         });
 
         $("#bannerBar").delegate("#add_app_choose_button", "click", function () {
-            console.log(new Date().getTime() + 'going!')
 
             var url = undefined;
 
@@ -220,6 +236,9 @@
             } else if (menu == 'type') {
                 url = '/admin/add_type_app?' + uid;
                 $.my_ajax_alert(url, "/admin/app_type_root", '#list_select_container');
+            }else if (menu == 'ad'){
+                url = '/admin/add_list_ad?' + uid;
+                $.my_ajax_alert(url, "/admin/choose_list_ad", '#list_select_container');
             }
 
             $("#bannerBar").hide();

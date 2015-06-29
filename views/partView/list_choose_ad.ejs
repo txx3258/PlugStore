@@ -1,0 +1,42 @@
+<form id="list_app_pubish">
+    <table id="sprintlist_table" cellspacing="0" cellpadding="10" data-table="dnd" data-ondragstart="$(table).parent().find('.result').text('data-ondragstart');" data-ondrop="inline_sprintlist_ondrop(table, row);" data-serializeregexp="^.*sprints$|[^\_]*$" data-ondragclass="sprintlist-drag" data-ondragstyle="" data-ondropstyle="" data-scrollamount="100" data-sensitivity="1" data-hierarchylevel="2" data-indentartifact="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" data-autowidthadjust="1" data-autocleanrelations="1" data-jsonpretifyseparator="    " data-serializeparamname="sprintlist" data-draghandle="" class="indtd" style="white-space: nowrap;">
+        <thead id="sprintlist_header">
+        <tr style="cursor: move;font-size:14px">
+            <th class="end_date" style="width: 50px">序号</th>
+            <th class="name">图标</th>
+            <th class="name" >广告名称</th>
+            <th class="start_date">创建时间</th>
+            <th class="name" >操作</th>
+        </tr>
+        </thead>
+        <tbody style="font-size:14px">
+        <tr id="present_sprints" class="group_heading nodrag">
+            <td colspan="4"></td>
+            <td class="small_buttons">
+                <div><a title="添加广告" href="#" id="add_list_ad_div" class="list_add">添加</a></div>
+            </td>
+        </tr>
+
+        <%var i=1 ;ads.forEach(function(ad){ %>
+        <tr class="toggler_row" style="cursor: move; display: table-row;">
+            <td><%= i++ %> <input type="hidden" name="uid" value="<%= ad.ad_id %>"> </td>
+            <td>
+                <img width="85px" height="85px" src="<%= ad.ad_url %> "/>
+            </td>
+            <td><%= ad.ad_name %></td>
+
+            <td><%= ad.create_time %></td>
+            <td class="small_buttons">
+                <div><button table="bim_ad" id="<%= ad.ad_id%>" col_id="ad_id"  class="list_delete">删除</button></div>
+            </td>
+        </tr>
+        <% })%>
+        <tr>
+            <td class="small_buttons">
+                <div><button id="publish_list_button"  class="list_public">发布</button></div>
+            </td>
+            <td colspan="10"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>

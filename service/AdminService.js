@@ -9,9 +9,10 @@ var constants=require('./common/constants');
 var fs=require('fs');
 var ejs=require("ejs");
 var formidable=require('formidable');
+var async=require('async');
 
 function AdminService() {
-
+    this.form=undefined;
 }
 
 AdminService.prototype.fetchDevUsers = function (req, res) {
@@ -151,6 +152,7 @@ AdminService.prototype.fetchAppTypeRoot = function (req, res) {
     }
 
 };
+
 AdminService.prototype.editAppTypeRoot = function (req, res) {
     var query = req.query,
         id = query.id,
@@ -175,7 +177,6 @@ AdminService.prototype.editAppTypeRoot = function (req, res) {
         }
     }
 };
-
 
 AdminService.prototype.addAppTypeRoot = function (req, res) {
     var query = req.query,
@@ -261,7 +262,6 @@ AdminService.prototype.fetchHostApp = function (req, res) {
     }
 }
 
-
 AdminService.prototype.fetchChooseListApp = function (req, res) {
     var query=req.query,
         type=query.type;
@@ -281,6 +281,7 @@ AdminService.prototype.fetchChooseListApp = function (req, res) {
             result.forEach(function(app){
                 //调整日期
                 app.app_publishdate=utils.convertDate(app.app_publishdate);
+                app.icon_addr=constants.ICON_URL+app.icon_addr;
             })
 
             fs.readFile(constants.PART_VIEW+"list_choose.ejs",'utf8',function(err,data){
@@ -303,10 +304,11 @@ AdminService.prototype.editHostApp = function (req, res) {
         hostPackageName=query.hostPackageName,
         own_version=query.own_version,
         apptype_id=query.apptype_id,
+        app_product_id=query.app_product_id,
         maxID=query.maxID;
     var _sql=[];
 
-    var _sqlHostApp = utils.format(sql.hostAppName_Update,hostAppName,hostPackageName,own_version,maxID);
+    var _sqlHostApp = utils.format(sql.hostAppName_Update,hostAppName,hostPackageName,own_version,app_product_id,maxID);
     _sql.push(_sqlHostApp);
 
     var _sqlTypeAppDelete = utils.format(sql.appTypeList_Delete,maxID);
@@ -345,10 +347,11 @@ AdminService.prototype.addHostApp = function (req, res) {
         hostPackageName=query.hostPackageName,
         own_version=query.own_version,
         apptype_id=query.apptype_id,
+        app_product_id=query.app_product_id,
         maxID=query.maxID;
     var _sql=[];
 
-    var _sqlHostApp = utils.format(sql.hostAppName_Insert,hostAppName,hostPackageName,own_version);
+    var _sqlHostApp = utils.format(sql.hostAppName_Insert,hostAppName,hostPackageName,own_version,app_product_id);
     _sql.push(_sqlHostApp);
 
     if (apptype_id instanceof Array){
@@ -381,6 +384,7 @@ AdminService.prototype.addHostApp = function (req, res) {
     }
 };
 
+
 AdminService.prototype.publishListApp=function(req, res){
     var uids=req.query.uid,
         type=req.query.type;
@@ -388,14 +392,18 @@ AdminService.prototype.publishListApp=function(req, res){
 
     var order=1;
 
-    if (type!='code'){
+    if (type=='list'){
         var _sqls=uids.map(function(uid){
             return  utils.format(sql.list_choose_Update,order++,uid);
         });
-    }else{
+    }else if(type=='type'){
         var _sqls=uids.map(function(uid){
             var uidCol=uid.split("@#$!");
             return  utils.format(sql.type_choose_Update,order++,uidCol[0],uidCol[1]);
+        });
+    }else if (type=='ad'){
+        var _sqls=uids.map(function(uid){
+            return  utils.format(sql.ad_choose_Update,order++,uid);
         });
     }
 
@@ -525,9 +533,111 @@ AdminService.prototype.chooseListType=function(req, res){
 
 };
 
-AdminService.prototype.fetchBimAd=function(req, res) {
+AdminService.prototype.chooseListAd=function(req, res){
 
-    var _sql = sql.bim_add_Select;
+    var _sql=sql.list_choose_ad_Select;
+
+    var handlers = {
+        sql: _sql,
+        callback: res,
+        handler: listAd
+    }
+
+    mysql.query(handlers);
+
+    function listAd(result, res) {
+        if (result) {
+            result.forEach(function(ad){
+                ad.create_time=utils.convertDate(ad.create_time);
+            });
+
+            fs.readFile(constants.PART_VIEW+'list_choose_ad.ejs','utf8',function(err,data){
+                if (err){
+                    res.send('');
+                }else{
+                    res.send(ejs.render(data.toString(),{ads:result}));
+                }
+            })
+        } else {
+            res.send('发布失败！');
+        }
+    }
+
+};
+
+
+AdminService.prototype.chooseListAdAdd=function(req, res){
+
+    var _sql=sql.list_choose_ad_add_Select;
+
+    var handlers = {
+        sql: _sql,
+        callback: res,
+        handler: adAdd
+    }
+
+    mysql.query(handlers);
+
+    function adAdd(result, res) {
+        if (result) {
+            result.forEach(function(ad){
+                ad.appimg_path=constants.ICON_URL+ad.appimg_path;
+            });
+
+            fs.readFile(constants.PART_VIEW+'list_choose_ad_add.ejs','utf8',function(err,data){
+                if (err){
+                    res.send('');
+                }else{
+                    res.send(ejs.render(data.toString(),{ads:result}));
+                }
+            })
+        } else {
+            res.send('发布失败！');
+        }
+    }
+};
+
+AdminService.prototype.addListAd=function(req, res) {
+    var query=req.query,
+        appimg_id=query.appimg_id;
+    var sqls=[];
+
+    if (appimg_id instanceof Array){
+        for(var i in appimg_id){
+            var order=Math.floor(Math.random(50)*100);
+            var _appimg_id=appimg_id[i].split("@#$!");
+            var _sql=utils.format(sql.list_choose_ad_Insert,_appimg_id[0],_appimg_id[1],_appimg_id[2],utils.convertDate(),order,'1');
+
+            sqls.push(_sql);
+        }
+    }else{
+        var order=Math.floor(Math.random(50)*100);
+        var _appimg_id=appimg_id.split("@#$!");
+
+        var _sql=utils.format(sql.list_choose_ad_Insert,_appimg_id[0],_appimg_id[1],_appimg_id[2],utils.convertDate(),order,'1');
+        sqls.push(_sql);
+    }
+
+
+    var handlers = {
+        sql: sqls,
+        callback: res,
+        handler: adList
+    }
+
+    mysql.queryArrays(handlers)
+
+    function adList(result, res) {
+        if (result){
+            res.send('添加成功！');
+        }else{
+            res.send('添加失败！');
+        }
+    }
+}
+
+AdminService.prototype.fetchBimAd=function(req, res) {
+    var _sql = sql.bim_ad_Select;
 
     var handlers = {
         sql: _sql,
@@ -539,6 +649,10 @@ AdminService.prototype.fetchBimAd=function(req, res) {
 
     function bimAd(result,res){
         if (result){
+            result.forEach(function(ad){
+                ad.appimg_path=constants.ICON_URL+ad.appimg_path;
+            })
+
             fs.readFile(constants.PART_VIEW+'layout_ad.ejs','utf8',function(err,data){
                 if (err){
                     res.send('');
@@ -570,6 +684,8 @@ AdminService.prototype.uploadBimAd=function(req, res) {
     //文件大小
     oThis.form.maxFieldsSize = constants.ads_form.maxFieldsSize;  //adminUploadAdsPath
 
+    oThis.form.multiples=constants.ads_form.multiples;;
+
 
     oThis.form.parse(req, function(err, fields, files) {
         if (err) {
@@ -578,43 +694,104 @@ AdminService.prototype.uploadBimAd=function(req, res) {
             return;
         }
 
-        var appimg_name=req.query.appimg_name;
-        var adsPath = files["ads_path"];
-        if (adsPath.length==0){
+        var appimg_name=fields.appimg_name;
+        var adsPath = files["adsPath"];
+        if (!adsPath||files.length==0){
             res.send('again');
             return;
         }
 
+        var times=new Date().getTime();
 
-        var pos=adsPath.name.lastIndexOf('.');
-        var fileType=adsPath.name.substring(pos);
-        var adPath=new Date().getTime()+"."+fileType;
+        async.each(adsPath, function(adPath, callback) {
+            var pos=adPath.name.lastIndexOf('.');
+            var fileType=adPath.name.substring(pos);
+            var filePath=times+fileType;
 
-        fs.rename(adsPath.path, constants.ads_form.uploadDir+adPath,function(err) {
-            if (err){
-                res.send('error');
-                return;
-            }
-
-            var _sql = utils.format(sql.bim_add_Insert,'-1',appimg_name,constants.adminUploadAdsPath+adPath,fileType);
-            var handlers = {
-                sql: _sql,
-                callback: null,
-                handler: uploadAddPath
-            }
-
-            mysql.query(handlers);
-
-            function uploadAddPath(result,res){
-                if (result){
-                    res.send('success');
-                }else{
-                    res.send('error');
+            fs.rename(adPath.path, constants.ads_form.uploadDir+filePath,function(err) {
+                if (err){
+                    callback("rename file error!");
                 }
+
+                var _sql = utils.format(sql.bim_ad_Insert,'-1',appimg_name,constants.adminUploadAdsPath+filePath,fileType);
+                var handlers = {
+                    sql: _sql,
+                    callback: callback,
+                    handler: uploadAddPath
+                }
+
+                mysql.query(handlers);
+
+                function uploadAddPath(result,callback){
+                    if (result){
+                        callback();
+                    }else{
+                        callback("write sql error!");
+                    }
+                }
+            });
+
+        }, function(err){
+            oThis.form = undefined;
+            if( err ) {
+                res.send(':error');
+            } else {
+                res.send(':success');
             }
         });
     });
 };
+
+AdminService.prototype.flowerQuery=function(req,res){
+    var query=req.query,
+        hostNameValue=query.hostNameValue,
+        appStatusValue=query.appStatusValue,
+        apptypeValue=query.apptype;
+
+    if (apptypeValue instanceof Array){
+        apptypeValue=apptypeValue.join(',');
+    }
+
+    var _sql = utils.format(sql.flower_query_app_Select,appStatusValue,hostNameValue,apptypeValue);
+    var handlers = {
+        sql: _sql,
+        callback: res,
+        handler: flowerApp
+    }
+
+    mysql.query(handlers);
+
+    function flowerApp(result,res){
+        var map={};
+        result.forEach(function(app){
+            //调整日期
+            app.app_publishdate=utils.convertDate(app.app_publishdate);
+
+        });
+
+        result.forEach(function(app){
+            var key=app.appid;
+            var obj=map[key];
+
+            if (obj==undefined){
+                //map[key]=[];
+                app["typename"]=app.name;
+                map[key]=app;
+            }else{
+                var reapp=map[key];
+                reapp["typename"]+=","+app.name;
+            }
+        });
+
+        fs.readFile(constants.PART_VIEW+'flower_query_app.ejs','utf8',function(err,data){
+            if (err){
+                res.send('');
+            }else{
+                res.send(ejs.render(data.toString(),{apps:map}));
+            }
+        });
+    }
+}
 
 
 module.exports.AdminService = new AdminService;

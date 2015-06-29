@@ -1,0 +1,38 @@
+<div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>开发者申请</strong> 当现在为止，共有<%= apps.length %>个开发者提出申请.
+</div>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>插件名称</th>
+        <th>英文名称</th>
+        <th>宿主软件</th>
+        <th>支持的版本</th>
+        <th>所属类别</th>
+        <th>价格</th>
+        <th>大小</th>
+        <th>发布时间</th>
+        <th>开发者</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <% var i=1;for(var key in apps){ var app=apps[key] %>
+    <tr id="<%= app.appid %>" table="bim_app" col_id="appid" up_col="app_status">
+        <td><%= i++ %></td>
+        <td><%= app.appname %></td>
+        <td><%= app.appEnName %></td>
+        <td><%= app.hostAppName %></td>
+        <td><%= app.support_version %></td>
+        <td><%= app.typename %></td>
+        <td><%= app.app_price %></td>
+        <td><%= app.app_size %></td>
+        <td><%= app.app_publishdate %></td>
+        <td><%= app.name %></td>
+    </tr>
+    <% } %>
+    </tbody>
+</table>

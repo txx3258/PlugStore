@@ -15,10 +15,7 @@
     }
 
 </style>
-
-
 <div id="row" class="row">
-
     <div class="panel panel-default mt_10">
             <div class="panel-heading">
                 <h3 class="panel-title"> 查询</h3>
@@ -28,42 +25,32 @@
                     <table id="queryTable" class="ml_50">
                         <tr>
                             <td><label>宿主名称：</label></td>
-                            <td><select class="form-control wd200">
-                                    <option></option>
-                                    <option>XP</option>
-                                    <option>Windows</option>
+                            <td><select id="flower_host_select" class="form-control wd200">
+
                                 </select>
                             </td>
                             <td></td>
-                            <td><label>插件名称：</label></td>
-                            <td><input type="email" id="inputEmail" class="form-control wd200" required autofocus></td>
-                        </tr>
-                        <tr>
-                            <td><label>开发者：</label></td>
-                            <td><input type="email" id="inputEmail" class="form-control wd200"  required autofocus></td>
-                            <td></td>
-                            <td><label>用户名称：</label></td>
-                            <td><input type="email" id="inputEmail" class="form-control wd200" required autofocus></td>
-                        </tr>
-
-                        <tr>
                             <td><label>所属状态：</label></td>
                             <td>
-                                <select class="form-control wd200">
-                                    <option></option>
-                                    <option>已确认</option>
-                                    <option>已下架</option>
-                                    <option>已冻结</option>
-                                    <option>申请</option>
-                                    <option>待测试</option>
-                                    <option>通过测试</option>
-                                    <option>未测试</option>
-                                </select>
+                                <select id="flower_status_select" class="form-control wd200">
+                                    <option value="-1">请选择</option>
+                                    <option value="9">已确认</option>
+                                    <option value="0">申请</option>
+                                    <option value="1">待测试</option>
+                                    <option value="2">通过测试</option>
 
+
+                                    <option value="3">未通过测试</option>
+                                    <option value="4">已下架</option>
+                                    <option value="5">已冻结</option>
+                                </select>
                             </td>
-                            <td></td>
+
+                        </tr>
+
+                        <tr>
                             <td><label>插件类别：</label></td>
-                            <td><input type="email" id="inputEmail" class="form-control wd200"  required autofocus></td>
+                            <td colspan="3" id="flower_apptype"></td>
                         </tr>
 
                         <tr>
@@ -72,32 +59,16 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <button class="btn btn-lg btn-primary btn-block" type="button">查询</button>
+                                <div id="flower_query" class="btn btn-lg btn-primary btn-block" type="button">查询</div>
                             <td>
                         </tr>
-
                     </table>
-
-
-
                 </form>
-
-
             </div>
         </div>
-
     <div class="table-responsive">
-
         <div id="flower_developer"></div>
-
         <div id="flower_app"></div>
-
-
-
-
-
-
-
     </div>
 
 </div>
@@ -136,7 +107,7 @@
 
         </table>
 
-        <button id="flower_submit" style="width: 150px;margin-left: 160px"  class="btn btn-lg btn-primary btn-block" type="button">确定</button>
+        <div id="flower_submit" style="width: 150px;margin-left: 160px"  class="btn btn-lg btn-primary btn-block">确定</div>
            <input type="hidden" name="id" id="bannerBar_id" value="">
            <input type="hidden" name="table" id="bannerBar_table" value="">
            <input type="hidden" name="col_id" id="bannerBar_col_id" value="">
@@ -153,18 +124,23 @@
 
     (function($){
         function load(){
-            var url="/admin/flower_developer";
-            $.my_ajax_html(url,'#flower_developer');
+            var url_developer="/admin/flower_developer";
+            $.my_ajax_html(url_developer,'#flower_developer');
 
-            var url="/admin/flower_app?type=0&ejsView=flower_app.ejs";
-            $.my_ajax_html(url,'#flower_app');
+            var url_flower="/admin/flower_app?type=0&ejsView=flower_app.ejs";
+            $.my_ajax_html(url_flower,'#flower_app');
+
+            var url_host="/system/hostAppName";
+            $.my_ajax_html(url_host,'#flower_host_select');
+
+            var url_apptype="/system/apptype";
+            $.my_ajax_html(url_apptype,'#flower_apptype');
         }
 
         load();
 
         $("#flower_developer").delegate("table tr","dblclick",function(){
             addTable($(this));
-
             $("#bannerBar").show();
 
             return false;
@@ -172,7 +148,6 @@
 
         $("#flower_app").delegate("table tr","dblclick",function(){
             addTable($(this));
-
             $("#bannerBar").show();
 
             return false;
@@ -194,8 +169,30 @@
 
         });
 
+        $("#flower_query").click(function(){
+            var hostNameValue='hostNameValue='+$("#flower_host_select").find("option:selected").val();
+            var appStatusValue='appStatusValue='+$("#flower_status_select").find("option:selected").val();
+
+            var apptypeValue=[];
+            $("#flower_apptype input").each(function () {
+                if ($(this).is(":checked")){
+                    apptypeValue.push('apptype='+$(this).val());
+                }
+            });
+
+            if (hostNameValue.indexOf('-1')>0&&appStatusValue.indexOf('-1')>0&&apptypeValue.length==0){
+                alert('请选择至少一个查询条件');
+                return;
+            }
+
+            if (apptypeValue.length==0){
+                apptypeValue.push('apptype=-1');
+            }
+
+            var url="/admin/flower_query?"+hostNameValue+'&'+appStatusValue+'&'+apptypeValue.join('&');
+            $.my_ajax_html(url,'#flower_app');
+        });
+
     })($);
-
-
 
 </script>

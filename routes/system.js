@@ -27,19 +27,23 @@ router.get('/queryAppListForDev', function(req, res, next) {
 });
 
 router.get('/register', function(req, res, next) {
-    systemService.queryAppListForDev(req,res);
+    systemService.registerUser(req,res);
 });
 
 router.post('/checkLogin', function(req, res, next) {
     systemService.checkLogin(req,res);
 });
 
-router.post('/putDevBaseInfo',function(req,res,next){
+router.post('/registerDeveloper',function(req,res,next){
     systemService.putDeveloperBaseInfo(req,res);
 });
 
 router.get('/delete_table',function(req,res,next){
     systemService.deleteTable(req,res);
+});
+
+router.get('/addreview',function(req,res,next){
+    systemService.addreview(req,res);
 });
 
 module.exports = router;

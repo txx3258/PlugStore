@@ -14,21 +14,22 @@
     "adminUploadAdsPath":"/Services/Ads/Images/",
     "icon_form": {
         "encoding": "utf-8",
-        "uploadDir": "/data/appstore/EmpowerADS/",
+        "uploadDir": "/data/appstore/EmpowerADS/Services/PlugIns/Images/",
         "keepExtensions": true,
-        "maxFieldsSize": 5000
+        "maxFieldsSize": 500000
     },
     "upload_form": {
         "encoding": "utf-8",
         "uploadDir": "/data/appstore/doc/",
         "keepExtensions": true,
-        "maxFieldsSize": 5000
+        "maxFieldsSize": 500000
     },
     "ads_form": {
         "encoding": "utf-8",
-        "uploadDir": "/data/appstore/ads/",
+        "uploadDir": "/Users/soft_tangxiaoxian/Desktop/webgl/",
         "keepExtensions": true,
-        "maxFieldsSize": 5
+        "maxFieldsSize": 5000,
+        "multiples":true
     },
     "session":{
         "secret":"qwqwqw",

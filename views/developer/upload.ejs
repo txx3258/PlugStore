@@ -78,6 +78,21 @@
             </tr>
 
             <tr>
+                <td class="td-2"><em>*</em>upgradeCode&nbsp;：</td>
+                <td>
+                    <input  name="upgrade_code" class="input-class" type="text" value="" size="40">
+
+                </td>
+            </tr>
+            <tr>
+                <td class="td-2"><em>*</em>productId&nbsp;：</td>
+                <td>
+                    <input  name="productId" class="input-class" type="text" value="" size="40">
+
+                </td>
+            </tr>
+
+            <tr>
                 <td class="td-2"><em>*</em>显示版本号&nbsp;：</td>
                 <td>
                     <input name="app_version" class="input-class" type="text" value="" size="100">
@@ -170,8 +185,8 @@
             <tr>
                 <td class="td-2"><em>*</em>显示开发者名称&nbsp;：</td>
                 <td>
-                    <input  class="input-class"  type="text" value="ceshi" size="40" maxlength="10">
-                    <input  type="hidden" name="developer_id" value="121" />
+                    <input  class="input-class" readonly  type="text" value="<%= nickName%>" size="40" maxlength="10">
+                    <input  type="hidden" name="developer_id" value="<%= userId%>" />
 
                 </td>
             </tr>
@@ -350,6 +365,16 @@
 
             if ($(form.attr("uid")).val().length<3){
                 error_msg='插件标示UID不正确';
+                return false;
+            }
+
+            if ($(form.attr("productId")).val().length<1){
+                error_msg='productId不正确';
+                return false;
+            }
+
+            if ($(form.attr("upgrade_code")).val().length<1){
+                error_msg='upgradecode不正确';
                 return false;
             }
 

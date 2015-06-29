@@ -36,7 +36,7 @@
                 <a href="#" style="float: right">回复</a>
 
             </div>
-            <div userID="@<%= comment.userId%>"  style="width: 100%;height: 100px;clear: both;display: none;">
+            <div userID="@<%= comment.userId%>" bizIdentity="<%= comment.bizIdentity%>" originalCommentId="<%= comment.originalCommentId%>" parentId="<%= comment.id%>"  style="width: 100%;height: 100px;clear: both;display: none;">
 
             </div>
 
@@ -91,3 +91,5 @@
 </table>
 <% } %>
 <% } %>
+
+<div class="page plus" style="background: #ffffff;width: 100%;height: 50px;clear: both;margin: auto;text-align: center;padding-top: 20px;">

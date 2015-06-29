@@ -1,0 +1,26 @@
+<form id="uid_forms">
+    <table id="list_choose_app_view" class="table table-bordered">
+        <thead>
+        <tr>
+            <th>选择</th>
+            <th>广告图标</th>
+            <th>广告名称</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% var i=1;ads.forEach(function(ad){ %>
+        <tr>
+            <td><input type="checkbox" value="<%= ad.appimg_id %>@#$!<%= ad.appimg_name %>@#$!<%= ad.appimg_path %>" name="appimg_id"></td>
+            <td> <img width="85px" height="85px" src="<%= ad.appimg_path %>"></td>
+            <td><%= ad.appimg_name %></td>
+
+        </tr>
+        <% }) %>
+
+        <tr>
+
+            <td colspan="10"><div id="add_app_choose_button" style="width: 80px;height: 40px" class="btn btn-lg btn-primary btn-block">确定</div></td>
+        </tr>
+        </tbody>
+    </table>
+</form>

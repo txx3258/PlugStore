@@ -9,6 +9,7 @@ var constants=require('./common/constants');
 var ejs=require("ejs");
 var fs=require("fs");
 var security=require('./SecurityService').SecurityService;
+var HTTP = require('./common/singleton').HTTP;
 
 function SystemService() {
 
@@ -34,9 +35,9 @@ SystemService.prototype.fetchAppListForDev = function (req, res) {
     function appListForDev(result, res) {
         if (result && result.length > 0) {
             result.forEach(function(app){
-                app.icon_addr=
                 //调整日期
                 app.app_publishdate=utils.convertDate(app.app_publishdate);
+                app.icon_addr=constants.ICON_URL+app.icon_addr;
             })
 
             fs.readFile(constants.PART_VIEW+"appTableView.ejs",'utf8',function(err,data){
@@ -202,32 +203,38 @@ SystemService.prototype.checkLogin=function(req,res){
         var registerName = req.body.registerName;
         var password = req.body.password;
 
-        registerName = registerName.replace(/~|@|#|^|&|\(|\)|and|or|'|"|=/g, '');
+        registerName = registerName.replace(/~|#|^|&|\(|\)|and|or|'|"|=/g, '');
         password = password.replace(/~|@|#|^|&|\(|\)|and|or|'|"|=/g, '');
 
-        var _sql = utils.format(sql.checkUser, registerName, password);
+        var params={
+            url:constants.ACCOUNT_API+"Services/User/SignIn",
+            method:'POST',
+            form: {
+                email:registerName,
+                password:password
+            },
+            json: true
+        }
 
+        HTTP.request(params,handleLogin,res);
+
+        function handleLogin(res,result){
+            if (result&&result.success==true){
+                var data=result.data;
+
+                req.session.token=data.token;
+                req.session.userId=data.userId;
+                req.session.registerName=registerName;
+                req.session.nickname=data.nickname;
+                req.session.secret=security.sign(data.t);
+
+                res.redirect(url);
+            }else{
+                res.redirect(backup);
+            }
+        }
     } catch (e) {
         res.redirect(backup);
-        return;
-    }
-
-    var handlers = {
-        sql: _sql,
-        callback: res,
-        handler: checkUser
-    }
-
-    mysql.query(handlers);
-
-    function checkUser(result, res) {
-        if (result && result[0]['count'] == 1) {
-            req.session.secret=security.sign(result[0].type);
-            
-            res.redirect(url);
-        } else {
-            res.redirect(backup);
-        }
     }
 }
 
@@ -235,7 +242,7 @@ SystemService.prototype.putDeveloperBaseInfo=function(req,res){
     var body=req.body;
 
     var registerName=body.registerName,
-        password=body.password,
+        password=utils.MD5(body.password),
         name=body.name,
         email=body.email,
         qq=body.qq,
@@ -294,6 +301,72 @@ SystemService.prototype.deleteTable=function(req,res){
 
 }
 
+SystemService.prototype.registerUser=function(req,res){
+    var query=req.query;
+
+    var params = {
+        url: constants.ACCOUNT_API+"/Services/User/register",
+        method: 'POST',
+        form: {
+            email:query.email,
+            nickname:query.nickname,
+            password:query.password,
+            paypwd:query.paypwd,
+            phone:query.phone,
+            realname:query.realname,
+            cardno:query.cardno
+        },
+        json: true
+    }
+
+    HTTP.request(params, handleRegister, res);
+
+    function handleRegister(res,result){
+        if (result&&result.success==true){
+            res.send('账号注册成功！开始尝试一下客户端软件吧');
+        }else{
+            res.send('系统繁忙，请联系管理员');
+        }
+    }
+}
+
+SystemService.prototype.addreview=function(req,res){
+    var token=req.session.token,
+        query=req.query
+    if (!token){
+        res.send('请登录后在评论！');
+        return
+    }
+
+    var tokens='&token='+req.session.token;
+
+    var param=builderParams(query);
+
+    var params = {
+        url: constants.COMMENT_API+"api/addreview?"+param+tokens,
+        method: 'GET'
+    }
+
+    HTTP.request(params, handleRegister, res);
+
+    function handleRegister(res,result){
+        if (result){
+            res.send('回复成功！')
+        }else{
+            res.send('系统繁忙，回复失败！');
+        }
+    }
+
+    function builderParams(query){
+        var params=[];
+
+        for(var key in query){
+            params.push(key+"="+encodeURIComponent(query[key]));
+        }
+
+        return params.join('&');
+    }
+}
 
 
 module.exports.SystemService = new SystemService;

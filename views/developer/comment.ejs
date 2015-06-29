@@ -236,7 +236,7 @@ background: url("/img/pic_08.gif") no-repeat scroll 3px 3px transparent;
 color: #BB0000;
 }
 </style>
-<div id="my-app-container">
+<div id="my-app-container" appInfo="<%=appInfo%>">
     <div id="my-app-content" class="clear">
     <div class="fm">
         <ul class="menu">
@@ -258,7 +258,7 @@ color: #BB0000;
 <script type="text/javascript">
     (function($){
 
-        var url="/developer/commentList";
+        var url="/developer/commentList?pager=0&appInfo="+$('#my-app-container').attr('appInfo');
         $.my_ajax_html(url,"#comment_container");
 
         $("#comment_container").delegate(".event a","click",function(){
@@ -267,14 +267,31 @@ color: #BB0000;
             var replyDom=$(this).parent().next();
 
             replyDom.show();
-            replyDom.html(replyDom.attr("userID"));
+
+            //$("<textarea rows='4' style='width: 100%'></textarea>")
+            replyDom.html("<textarea rows='5' style='width: 100%'>"+replyDom.attr("userID")+":\n</textarea><a class='flag_add_review' style='float: right;margin:5px 5px 0 0' href=''> 提交 </a>");//replyDom.attr("userID"));
 
             return false;
         });
 
+        $("#comment_container").delegate(".flag_add_review","click",function(){
+            var url="/system/addreview?"
+            var con=$(this).prev().val();
+            var pDom=$(this).parent();
 
+            alert(pDom.attr('bizIdentity'));
+
+            var content="bizIdentity="+pDom.attr('bizIdentity')+"&originalCommentId="+pDom.attr('originalCommentId')+"&parentId="+pDom.attr('parentId')+"&content="+con;
+
+            $.my_ajax_alert(url+content)
+
+            return false;
+        });
     })($);
 
-
+    function ajax_page(pager){
+        var url="/developer/commentList?page="+pager+"&appInfo="+$('#my-app-container').attr('appInfo');
+        $.my_ajax_html(url,"#comment_container");
+    }
 
 </script>

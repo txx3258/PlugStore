@@ -16,4 +16,6 @@ module.exports.upload_form=config.upload_form;
 module.exports.ads_form=config.ads_form;
 module.exports.security=config.security;
 module.exports.INDEX=config.INDEX;
-
+module.exports.COMMENT_API=config.COMMENT_API;
+module.exports.ACCOUNT_API=config.ACCOUNT_API;
+module.exports.ICON_URL=config.ICON_URL;
