@@ -325,7 +325,7 @@ SystemService.prototype.registerUser=function(req,res){
         if (result&&result.success==true){
             res.send('账号注册成功！开始尝试一下客户端软件吧');
         }else{
-            res.send('系统繁忙，请联系管理员');
+            res.send(result.message);
         }
     }
 }

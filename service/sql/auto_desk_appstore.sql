@@ -148,7 +148,12 @@ begin
 end;
 
 
-
+dscl . -create /Users/nginx
+dscl . -create /Users/nginx UserShell /bin/bash
+dscl . -create /Users/luser RealName "Lucius Q. User"
+dscl . -create /Users/luser UniqueID "1010"
+dscl . -create /Users/luser PrimaryGroupID 80
+dscl . -create /Users/nginx NFSHomeDirectory /Users/soft_tangxiaoxian/Desktop/webgl
 
 
 select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status='1' or a.hostapp_id='-1' or d.id in ('-1')

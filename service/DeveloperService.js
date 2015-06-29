@@ -202,7 +202,7 @@ DeveloperService.prototype.fetchCommentList = function (req, res) {
         }
 
         var json = JSON.parse(result);
-        if (json.success==true && json.data.dataList.length > 1) {
+        if (json.success==true) {
             var dataList = json.data.datalist;
             var pager=utils.pager(pager,10,json.data.totalCount,4);
             fs.readFile(constants.PART_VIEW + "developer_comment.ejs", 'utf8', function (err, data) {

@@ -290,7 +290,7 @@ color: #BB0000;
     })($);
 
     function ajax_page(pager){
-        var url="/developer/commentList?page="+pager+"&appInfo="+$('#my-app-container').attr('appInfo');
+        var url="/developer/commentList?pager="+pager+"&appInfo="+$('#my-app-container').attr('appInfo');
         $.my_ajax_html(url,"#comment_container");
     }
 

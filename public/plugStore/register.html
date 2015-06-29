@@ -84,14 +84,14 @@
 
                     <td  class="right">
 
-                        <input id="password" name="password" type="text" value="">
+                        <input id="password" name="password" type="password" value="">
                     </td>
                 </tr>
                 <tr>
                     <td class="left"><em>*&nbsp;</em><label>确认密码：</label></td>
 
                     <td  class="right">
-                        <input id="repassword" type="text" value="">
+                        <input id="repassword" type="password" value="">
                     </td>
                 </tr>
             </table>
@@ -106,14 +106,14 @@
 
                     <td  class="right">
 
-                        <input id="paypwd" type="text" value="">
+                        <input id="paypwd" name="paypwd" type="password" value="">
                     </td>
                 </tr>
                 <tr>
                     <td class="left"><em>*&nbsp;</em><label>确认密码：</label></td>
 
                     <td  class="right">
-                        <input id="repaypwd" type="text" value="">
+                        <input id="repaypwd" type="password" value="">
                     </td>
                 </tr>
 
@@ -185,6 +185,7 @@
 
 </body>
 <script src="http://119.29.16.116/assets/js/jquery-1.11.3.min.js"></script>
+<script src="http://119.29.16.116/assets/js/share.js"></script>
 <script type="text/javascript">
     (function($){
         if ($('#repassword').val()!=$('#password').val()){
@@ -197,8 +198,8 @@
             return;
         }
 
-        if ($('#repaypwd').val()!=$('#repaypwd').val()){
-            alert('验证码不正确！');
+        if ($('#email').val().length>=6){
+            alert('邮箱不能为空或不正确！');
             return;
         }
 

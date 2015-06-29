@@ -20,7 +20,7 @@ var params = {
     url:"http://119.29.16.116/EmpowerADS/Services/User/register",
     method: 'POST',
     form: {
-        email:'111111',
+        email:'11111189',
         nickname:'111111',
         password:'111111',
         paypwd:'111111',
@@ -82,7 +82,7 @@ function print(res,body){
 //    console.log('The solution is: ', rows[0].solution);
 //});
 
-
+//devID->uid->commentid
 
 
 
