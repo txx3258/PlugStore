@@ -26,11 +26,11 @@
     <splitter split-orientation="vertical" split-proportion="0.8575">
       <split-first>
         <leaf>
-          <file leaf-file-name="DeveloperService.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="DeveloperService.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/service/DeveloperService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.42857143" vertical-offset="4899" max-vertical-offset="5160">
-                  <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
+                <state vertical-scroll-proportion="-5.0384617" vertical-offset="334" max-vertical-offset="5160">
+                  <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
                   <folding />
                 </state>
               </provider>
@@ -41,16 +41,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="-0.5833333" vertical-offset="166" max-vertical-offset="405">
                   <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="comment_old.ejs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/developer/comment_old.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-4.5" vertical-offset="822" max-vertical-offset="4515">
-                  <caret line="62" column="15" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
@@ -82,6 +72,16 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="upload.ejs" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/views/developer/upload.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.54022986" vertical-offset="1824" max-vertical-offset="7530">
+                  <caret line="131" column="17" selection-start-line="131" selection-start-column="17" selection-end-line="131" selection-end-column="17" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="manage.ejs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/developer/manage.ejs">
               <provider selected="true" editor-type-id="text-editor">
@@ -99,8 +99,8 @@
           <file leaf-file-name="developer.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/routes/developer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-7.9615383" vertical-offset="198" max-vertical-offset="1770">
-                  <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+                <state vertical-scroll-proportion="-4.5" vertical-offset="198" max-vertical-offset="1770">
+                  <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -582,7 +582,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="712" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43434343" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1330,14 +1330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/developer/upload.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7251" max-vertical-offset="7650">
-          <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/developer/commentTest.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43042073" vertical-offset="2012" max-vertical-offset="4065">
@@ -1434,14 +1426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/developer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.9615383" vertical-offset="198" max-vertical-offset="1770">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partView/appCommentTab.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-35.0" vertical-offset="0" max-vertical-offset="930">
@@ -1464,10 +1448,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/developer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.5" vertical-offset="198" max-vertical-offset="1770">
+          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/service/DeveloperService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42857143" vertical-offset="4899" max-vertical-offset="5160">
-          <caret line="334" column="0" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.0384617" vertical-offset="334" max-vertical-offset="5160">
+          <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/developer/upload.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54022986" vertical-offset="1824" max-vertical-offset="7530">
+          <caret line="131" column="17" selection-start-line="131" selection-start-column="17" selection-end-line="131" selection-end-column="17" />
           <folding />
         </state>
       </provider>
