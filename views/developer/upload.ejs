@@ -329,18 +329,8 @@
                 return false;
             }
 
-            if ($(form.attr("appEnName")).val().length<3){
-                error_msg='插件英文不正确';
-                return false;
-            }
-
             if ($(form.attr("uid")).val().length<3){
                 error_msg='插件标示UID不正确';
-                return false;
-            }
-
-            if ($(form.attr("productId")).val().length<1){
-                error_msg='productId不正确';
                 return false;
             }
 
@@ -367,12 +357,6 @@
             var price_reg=/^(\d+)$|^(\d+\.\d+)$/;
             if (!price_reg.test($(form.attr("app_price")).val())){
                 error_msg='插件价格不正确';
-                return false;
-            }
-
-            var reg=/20[1-2]\d-(0[1-9]|1[0-2])-(0[1-9]|[1-2]\d|3[0-1])/;
-            if (!reg.test($(form.attr("app_publishdate")).val())){
-                error_msg='插件发布时间不正确';
                 return false;
             }
 
