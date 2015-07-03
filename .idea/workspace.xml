@@ -29,48 +29,8 @@
           <file leaf-file-name="DeveloperService.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/service/DeveloperService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-5.8846154" vertical-offset="1167" max-vertical-offset="5160">
-                  <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="upload.ejs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/developer/upload.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.76" vertical-offset="1097" max-vertical-offset="7290">
-                  <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="appTableView.ejs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/partView/appTableView.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-4.7083335" vertical-offset="262" max-vertical-offset="570">
-                  <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="flower_app.ejs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/partView/flower_app.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-2.5" vertical-offset="300" max-vertical-offset="645">
-                  <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="flower_query_app.ejs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/partView/flower_query_app.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.9583333" vertical-offset="295" max-vertical-offset="645">
-                  <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+                <state vertical-scroll-proportion="-5.3846154" vertical-offset="850" max-vertical-offset="5175">
+                  <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -79,8 +39,38 @@
           <file leaf-file-name="list_choose.ejs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/partView/list_choose.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-5.5416665" vertical-offset="347" max-vertical-offset="885">
-                  <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+                <state vertical-scroll-proportion="-4.74" vertical-offset="453" max-vertical-offset="885">
+                  <caret line="46" column="28" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="28" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="upload.ejs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/developer/upload.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-1.74" vertical-offset="1038" max-vertical-offset="7290">
+                  <caret line="75" column="46" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="46" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Admin.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/service/sql/Admin.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="5.28" vertical-offset="654" max-vertical-offset="1035">
+                  <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="config.json" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/config.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.33333334" vertical-offset="273" max-vertical-offset="855">
+                  <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -96,12 +86,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="list_choose_type.ejs" pinned="false" current-in-tab="true">
+          <file leaf-file-name="list_choose_type.ejs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/partView/list_choose_type.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4878049" vertical-offset="325" max-vertical-offset="780">
+                <state vertical-scroll-proportion="-5.8333335" vertical-offset="325" max-vertical-offset="780">
                   <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/routes/admin.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-5.9615383" vertical-offset="2215" max-vertical-offset="2895">
+                  <caret line="160" column="22" selection-start-line="160" selection-start-column="22" selection-end-line="160" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#0#43#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -109,28 +111,27 @@
           <file leaf-file-name="AdminService.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/service/AdminService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1660" max-vertical-offset="7065">
-                  <caret line="268" column="50" selection-start-line="268" selection-start-column="32" selection-end-line="268" selection-end-column="50" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="6692" max-vertical-offset="7515">
+                  <caret line="711" column="90" selection-start-line="711" selection-start-column="90" selection-end-line="711" selection-end-column="90" />
                   <folding>
                     <element signature="e#484#1458#0" expanded="false" />
                     <element signature="e#1517#2082#0" expanded="false" />
                     <element signature="e#2143#3129#0" expanded="false" />
                     <element signature="e#3193#3778#0" expanded="false" />
                     <element signature="e#3842#4332#0" expanded="false" />
-                    <element signature="e#9005#10090#0" expanded="false" />
-                    <element signature="e#11086#12291#0" expanded="false" />
-                    <element signature="e#13520#14213#0" expanded="false" />
-                    <element signature="e#18988#20283#0" expanded="false" />
+                    <element signature="e#9004#10089#0" expanded="false" />
+                    <element signature="e#11085#12290#0" expanded="false" />
+                    <element signature="e#18987#20282#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Admin.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/service/sql/Admin.json">
+          <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/service/common/constants.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.3076923" vertical-offset="633" max-vertical-offset="1035">
-                  <caret line="49" column="25" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="25" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="405">
+                  <caret line="10" column="59" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="59" />
                   <folding />
                 </state>
               </provider>
@@ -315,7 +316,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -330,10 +335,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sql" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -653,17 +654,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>65</line>
+          <line>66</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>59</line>
+          <line>60</line>
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>74</line>
+          <line>75</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -788,12 +789,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>39</line>
+          <line>40</line>
           <option name="timeStamp" value="177" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>47</line>
+          <line>48</line>
           <option name="timeStamp" value="178" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -843,7 +844,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>53</line>
+          <line>54</line>
           <option name="timeStamp" value="194" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -903,17 +904,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>182</line>
+          <line>183</line>
           <option name="timeStamp" value="227" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>183</line>
+          <line>184</line>
           <option name="timeStamp" value="228" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>186</line>
+          <line>187</line>
           <option name="timeStamp" value="229" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -938,22 +939,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>194</line>
+          <line>195</line>
           <option name="timeStamp" value="240" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>191</line>
+          <line>192</line>
           <option name="timeStamp" value="241" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>200</line>
+          <line>201</line>
           <option name="timeStamp" value="242" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/DeveloperService.js</url>
-          <line>202</line>
+          <line>203</line>
           <option name="timeStamp" value="243" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -1009,13 +1010,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/partView/appTypeCode.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="120">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/SecurityService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="900">
@@ -1184,14 +1178,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="339" max-vertical-offset="855">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/sql/auto_desk_appstore.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2463" max-vertical-offset="2895">
@@ -1325,7 +1311,7 @@
         <state vertical-scroll-proportion="-35.0" vertical-offset="0" max-vertical-offset="930">
           <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1358,58 +1344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4615383" vertical-offset="1864" max-vertical-offset="2895">
-          <caret line="134" column="26" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/AdminService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1660" max-vertical-offset="7065">
-          <caret line="268" column="50" selection-start-line="268" selection-start-column="32" selection-end-line="268" selection-end-column="50" />
-          <folding>
-            <element signature="e#484#1458#0" expanded="false" />
-            <element signature="e#1517#2082#0" expanded="false" />
-            <element signature="e#2143#3129#0" expanded="false" />
-            <element signature="e#3193#3778#0" expanded="false" />
-            <element signature="e#3842#4332#0" expanded="false" />
-            <element signature="e#9005#10090#0" expanded="false" />
-            <element signature="e#11086#12291#0" expanded="false" />
-            <element signature="e#13520#14213#0" expanded="false" />
-            <element signature="e#18988#20283#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/sql/Admin.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923" vertical-offset="633" max-vertical-offset="1035">
-          <caret line="49" column="25" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/DeveloperService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154" vertical-offset="1167" max-vertical-offset="5160">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/developer/upload.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.76" vertical-offset="1097" max-vertical-offset="7290">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partView/appTableView.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.7083335" vertical-offset="262" max-vertical-offset="570">
@@ -1434,14 +1368,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/partView/list_choose.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5416665" vertical-offset="347" max-vertical-offset="885">
-          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partView/list_choose_app.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="6.9583335" vertical-offset="257" max-vertical-offset="660">
@@ -1452,8 +1378,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/partView/list_choose_type.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4878049" vertical-offset="325" max-vertical-offset="780">
+        <state vertical-scroll-proportion="-5.8333335" vertical-offset="325" max-vertical-offset="780">
           <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/developer/upload.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.74" vertical-offset="1038" max-vertical-offset="7290">
+          <caret line="75" column="46" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/DeveloperService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3846154" vertical-offset="850" max-vertical-offset="5175">
+          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partView/list_choose.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.74" vertical-offset="453" max-vertical-offset="885">
+          <caret line="46" column="28" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/sql/Admin.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.28" vertical-offset="654" max-vertical-offset="1035">
+          <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.9615383" vertical-offset="2215" max-vertical-offset="2895">
+          <caret line="160" column="22" selection-start-line="160" selection-start-column="22" selection-end-line="160" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/AdminService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6692" max-vertical-offset="7515">
+          <caret line="711" column="90" selection-start-line="711" selection-start-column="90" selection-end-line="711" selection-end-column="90" />
+          <folding>
+            <element signature="e#484#1458#0" expanded="false" />
+            <element signature="e#1517#2082#0" expanded="false" />
+            <element signature="e#2143#3129#0" expanded="false" />
+            <element signature="e#3193#3778#0" expanded="false" />
+            <element signature="e#3842#4332#0" expanded="false" />
+            <element signature="e#9004#10089#0" expanded="false" />
+            <element signature="e#11085#12290#0" expanded="false" />
+            <element signature="e#18987#20282#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/common/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="405">
+          <caret line="10" column="59" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="273" max-vertical-offset="855">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
           <folding />
         </state>
       </provider>

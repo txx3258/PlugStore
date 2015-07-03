@@ -35,7 +35,8 @@ DeveloperService.prototype.uploadPlugInfo = function (req, res) {
         available = 1,
         developer_id = body.developer_id,
         hostapp_id = body.hostapp_id,
-        apptype_id = -1;
+        apptype_id = -1,
+        upgrade_code=body.upgrade_code;
 
     if (body.support_version instanceof Array) {
         support_version = body.support_version.join(';');
@@ -60,7 +61,7 @@ DeveloperService.prototype.uploadPlugInfo = function (req, res) {
     var _sqlBD = utils.format(sql.bimApp_Insert, appname, uid, app_info, app_abstract
         , app_size, is_pay, app_price
         , app_publishdate, app_version, support_version
-        , app_status, available, developer_id, hostapp_id, apptype_id);
+        , app_status, available, developer_id, hostapp_id, apptype_id,upgrade_code);
     _sql.push(_sqlBD);
 
     var handlers = {

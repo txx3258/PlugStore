@@ -26,7 +26,7 @@
     },
     "ads_form": {
         "encoding": "utf-8",
-        "uploadDir": "/Users/soft_tangxiaoxian/Desktop/webgl/",
+        "uploadDir": "/data/appstore/EmpowerADS/Services/Ads/Images/",
         "keepExtensions": true,
         "maxFieldsSize": 5000,
         "multiples":true

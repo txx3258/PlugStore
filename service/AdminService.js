@@ -286,7 +286,7 @@ AdminService.prototype.fetchChooseListApp = function (req, res) {
 
             fs.readFile(constants.PART_VIEW+"list_choose.ejs",'utf8',function(err,data){
                 if (err){
-                    res.send('appTableView.ejs error');
+                    res.send('list_choose.ejs error');
                 }else{
                     res.send(ejs.render(data.toString(),{apps:result}));
                 }
