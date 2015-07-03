@@ -702,7 +702,7 @@ AdminService.prototype.uploadBimAd=function(req, res) {
         async.each(adsPath, function(adPath, callback) {
             var pos=adPath.name.lastIndexOf('.');
             var fileType=adPath.name.substring(pos);
-            var filePath=times+fileType;
+            var filePath=times+encodeURIComponent(adPath.name);
 
             fs.rename(adPath.path, constants.ads_form.uploadDir+filePath,function(err) {
                 if (err){

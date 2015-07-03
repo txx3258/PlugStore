@@ -42,7 +42,7 @@
     "type_choose_Update":"update bim_free_newtype_day set  order_num='{0}' where uid='{1}' and code='{2}'",
 
     "flowerSubmit_Update":"update {0} set {1}='{2}' where {3}='{4}'",
-    "flower_query_app_Select":"select a.appid,a.uid,a.appname,a.upgrade_code,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_version as app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status='{0}' or a.hostapp_id='{1}' or d.id in ({2})",
+    "flower_query_app_Select":"select a.appid,a.uid,a.appname,a.upgrade_code,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_version as app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status>='{0}' or a.hostapp_id='{1}' or d.id in ({2})",
 
     "list_app_Insert":"insert into bim_list(uid,type,available,order_num) values('{0}','{1}','{2}','{3}') ",
     "free_newtype_day_Insert":"insert into bim_free_newtype_day(uid,code,order_num,avabilable) values('{0}','{1}','{2}','{3}')",
@@ -54,7 +54,6 @@
 
     "bim_ad_Select":"select * from bim_appimg_resource where appid='-1'",
     "bim_ad_Insert":"insert into bim_appimg_resource(appid,appimg_name,appimg_path,appimg_mime) values('{0}','{1}','{2}','{3}')",
-    "bim_ad_choose_Select":"select * from bim_appimg_resource where appid='-1' and ",
 
     "ad_choose_Update":"update bim_ad set order_num='{0}' where ad_id='{1}'",
 
