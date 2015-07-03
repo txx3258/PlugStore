@@ -10,6 +10,7 @@ var constants = require('./common/constants');
 var fs = require('fs');
 var HTTP = require('./common/singleton').HTTP;
 var ejs = require("ejs");
+var async=require("async");
 
 function DeveloperService() {
 
@@ -21,21 +22,16 @@ function DeveloperService() {
 DeveloperService.prototype.uploadPlugInfo = function (req, res) {
     var body = req.body;
     var appname = body.appname,
-        appEnName = body.appEnName,
+        appEnName = body.uid,
         uid = body.uid,
         app_info = body.app_info,
         app_abstract = body.app_abstract,
-
         app_size = body.app_size,
         is_pay = body.is_pay,
         app_price = body.app_price,
-
         app_publishdate = body.app_publishdate,
-        app_versioncode = body.app_versioncode,
         app_version = body.app_version,
-
         app_status = 0,
-
         available = 1,
         developer_id = body.developer_id,
         hostapp_id = body.hostapp_id,
@@ -61,9 +57,9 @@ DeveloperService.prototype.uploadPlugInfo = function (req, res) {
         _sql.push(apptype_code_sql);
     }
 
-    var _sqlBD = utils.format(sql.bimApp_Insert, appname, appEnName, uid, app_info, app_abstract
+    var _sqlBD = utils.format(sql.bimApp_Insert, appname, uid, app_info, app_abstract
         , app_size, is_pay, app_price
-        , app_publishdate, app_versioncode, app_version, support_version
+        , app_publishdate, app_version, support_version
         , app_status, available, developer_id, hostapp_id, apptype_id);
     _sql.push(_sqlBD);
 
@@ -204,7 +200,7 @@ DeveloperService.prototype.fetchCommentList = function (req, res) {
         var json = JSON.parse(result);
         if (json.success==true) {
             var dataList = json.data.datalist;
-            var pager=utils.pager(pager,10,json.data.totalCount,4);
+            var pager=utils.pager(pager+1,10,json.data.totalCount,4);
             fs.readFile(constants.PART_VIEW + "developer_comment.ejs", 'utf8', function (err, data) {
                 if (err) {
                     res.send('');
@@ -222,36 +218,121 @@ DeveloperService.prototype.fetchCommentList = function (req, res) {
 };
 
 DeveloperService.prototype.fetchComment=function(req,res){
-    var userId=req.query.userId;
-    var registerName=req.session?req.session.registerName:'';
+    var appid=req.query.appid,
+        si=req.query.si;
 
-    var _sql = utils.format(sql.developer_uidfor_comment,userId);
+
+    async.parallel([
+            function(callback){
+                var params = {
+                    url: constants.COMMENT_API+"api/commentlist?c=10&bizIdentity="+appid+"&si="+si,
+                    method: 'GET'
+                }
+
+                HTTP.request(params, comment, callback);
+
+                function comment(call,result){
+                    if (!result){
+                        call(true);
+                    }
+                    var json=JSON.parse(result);
+                    if (json.success==true){
+                        call(null,json);
+                    }else{
+                        call(true);
+                    }
+                }
+            },
+            function(callback){
+                var _sql = utils.format(sql.bimAppInfo_Select, appid);
+
+                var handlers = {
+                    sql: _sql,
+                    callback: callback,
+                    handler: plugInfo
+                };
+
+                mysql.query(handlers);
+
+                function plugInfo(result,call){
+                    if (result){
+                        call(null,result);
+                    }else{
+                        call(true);
+                    }
+
+                }
+            }
+        ],
+        function(err, results){
+            console.log(results);
+
+            fs.readFile(constants.PART_VIEW + "commentTest.ejs", 'utf8', function (err, data) {
+                if (err) {
+                    res.send('');
+                } else {
+                    //  var html = ejs.render(data.toString(), {datalist: dataList}) + pager;
+
+                    res.send(data.toString());
+
+                }
+            })
+        });
+}
+
+
+DeveloperService.prototype.fetchPlugInfo=function(req,res) {
+    var appid = req.query.appid,
+        tab=req.query.type;
+
+    var _sql = utils.format(sql.bimAppInfo_Select, appid);
 
     var handlers = {
         sql: _sql,
         callback: res,
-        handler: devUid
+        handler: plugInfo
     };
 
     mysql.query(handlers);
 
-    function devUid(result, res) {
-        var appInfo='';
-        if (result&&result.length>0){
-            appInfo=JSON.stringify(result);
+    function plugInfo(result, res) {
+        if (result && result.length > 0) {
+            var map={}, key=undefined;
+            result.forEach(function(app){
+                key= app.appid;
+                var obj=map[key];
+
+                if (obj==undefined){
+                    map[key]=app
+                    app.app_publishdate=utils.convertDate(app.app_publishdate);
+                    app.icon_addr=constants.ICON_URL+app.icon_addr;
+                }else{
+                    obj.appTypeName+=","+app.appTypeName;
+                }
+            });
+
+            if (tab=="tab"){
+                var view="appCommentTab.ejs";
+            }else{
+                var view="appComment.ejs";
+            }
+
+            fs.readFile(constants.PART_VIEW+view,'utf8',function(err,data){
+                if (err){
+                    res.send('');
+                }else{
+                    res.send(ejs.render(data.toString(),{app:map[key]}));
+                }
+            })
+        }else{
+            res.send('暂无数据！');
         }
 
-        res.render('developer/comment', { title: '我的评论',
-            staticResourceUrl: constants.staticResourceHost,
-            mClass:"upload",
-            registerName:registerName,
-            appInfo:appInfo
-        });
     }
 }
 
-
 module.exports.DeveloperService = new DeveloperService;
+
 
 
 

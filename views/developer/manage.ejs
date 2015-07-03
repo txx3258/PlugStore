@@ -2,657 +2,51 @@
 
 <div id="my-app-container">
     <div id="my-app-content" class="clear">
-        <%- include _navigator%>
+        <%- include _navigator %>
 
-        <form action="<%= staticResourceUrl %>/developer/queryApp.jspx" name="queryForm" method="post">
+        <div id="my-app-con">
+            <div class="frame-content">
+                <h1>我的应用</h1>
 
-            <div id="my-app-con">
-                <div class="frame-content">
-                    <h1>我的应用</h1>
-
-                    <div class="app-title-1" id="app-title">
-                        <ul id="app-title-taps">
-                            <li><a id="tap_s0" href="#0" class="span-2-active">等待提交</a></li>
-                            <li ><a id="tap_s1" href="#1" class="span-3">待测试</a></li>
-                            <li ><a id="tap_s2" href="#3" class="span-4">通过测试</a></li>
-                            <li ><a id="tap_s3" href="#4" class="span-1">未通过测试</a></li>
-                            <li ><a id="tap_s4" href="#5" class="span-2">在售中</a></li>
-                            <li ><a id="tap_s5" href="#6" class="span-1">已下架</a></li>
-                            <li class="app-li-1"><a id="tap_s6"  href="#" class="span-3">冻结中</a>
-                            </li>
-                        </ul>
-                        <div id="app-title-bg" class="app-title-bg-1" style="left:440px"></div>
-                    </div>
-                    <div id="app-form-search">
-                        <table>
-                            <tr>
-                                <td><label for="app-form-search-input">插件名称：</label></td>
-                                <td><input type="text"  id="myQueryAppName" value=""
-                                           class="input-class"/>
-                                    &nbsp;&nbsp;&nbsp;</td>
-                                <td><input type="button" value="查询"  id="query-btn"
-                                           class="btn-class"/></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <p class="app-notice">
-                        如果您上传的应用没有提交是无法正式上架的，请您确认后提交测试，测试通过后即可上架！
-
-                    </p>
-                    <div id="bim_app_container">
-                    <!--
-                    <table class="app-table-class app-table-class-2">
-                        <thead>
+                <div class="app-title-1" id="app-title">
+                    <ul id="app-title-taps">
+                        <li><a id="tap_s0" href="#0" class="span-2-active">等待提交</a></li>
+                        <li><a id="tap_s1" href="#1" class="span-3">待测试</a></li>
+                        <li><a id="tap_s2" href="#3" class="span-4">通过测试</a></li>
+                        <li><a id="tap_s3" href="#4" class="span-1">未通过测试</a></li>
+                        <li><a id="tap_s4" href="#5" class="span-2">在售中</a></li>
+                        <li><a id="tap_s5" href="#6" class="span-1">已下架</a></li>
+                        <li class="app-li-1"><a id="tap_s6" href="#" class="span-3">冻结中</a>
+                        </li>
+                    </ul>
+                    <div id="app-title-bg" class="app-title-bg-1" style="left:440px"></div>
+                </div>
+                <div id="app-form-search">
+                    <table>
                         <tr>
-
-                            <th width="11%">状态</th>
-                            <th width="12%">应用名称</th>
-                            <th width="10%">应用APPID</th>
-                            <th width="12%">上传时间</th>
-                            <th width="9%">版本名称</th>
-                            <th width="9%">所属类别</th>
-                            <th width="12%">支持屏幕尺寸</th>
-                            <th width="8%">适用芯片</th>
-
-                            <th width="9%">大小</th>
-
-
+                            <td><label for="app-form-search-input">插件名称：</label></td>
+                            <td><input type="text" id="myQueryAppName" value=""
+                                       class="input-class"/>
+                                &nbsp;&nbsp;&nbsp;</td>
+                            <td><input type="button" value="查询" id="query-btn"
+                                       class="btn-class"/></td>
                         </tr>
-                        </thead>
-                        <tbody>
-
-                        <tr>
-
-                            <td align="center">
-
-                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2014-01-22092824-_1390354104319_3636.png"
-                                     width="45" height="45" alt=""
-                                     onerror="im_(this,'/developer')"/>
-
-
-                                <br/><span>
-
-
-
-
-
-
-
-
-
-
-
-    <span class="status">冻结中</span>
-
-
-
-</span>
-                            </td>
-                            <td><a href="javascript:ckappinfo(10214413)" class="f14">
-                                人人
-                            </a></td>
-                            <td>10211016</td>
-                            <td>2014-01-22
-                                <br/>09:28:18
-                            </td>
-                            <td>7.2.1</td>
-                            <td>飞行.射击</td>
-                            <td>
-                                小屏幕<br/>
-
-                                正常屏幕<br/>
-
-                                大屏幕<br/>
-
-                                超屏幕<br/>
-
-                            </td>
-                            <td>
-                                ARM<br/>
-
-                                Intel<br/>
-
-                            </td>
-
-                            <td>16.76M</td>
-
-
-                        </tr>
-
-                        <tr>
-
-                            <td align="center">
-
-                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-11-14053744-_1384421864613_8362.png"
-                                     width="45" height="45" alt=""
-                                     onerror="im_(this,'/developer')"/>
-
-
-                                <br/><span>
-
-
-
-
-
-
-
-
-
-
-
-    <span class="status">冻结中</span>
-
-
-
-</span>
-                            </td>
-                            <td><a href="javascript:ckappinfo(10213897)" class="f14">
-                                人人603
-                            </a></td>
-                            <td>10211016</td>
-                            <td>2013-11-14
-                                <br/>17:37:38
-                            </td>
-                            <td>6.0.3</td>
-                            <td>飞行.射击</td>
-                            <td>
-                                小屏幕<br/>
-
-                                正常屏幕<br/>
-
-                                大屏幕<br/>
-
-                                超屏幕<br/>
-
-                            </td>
-                            <td>
-                                ARM<br/>
-
-                                Intel<br/>
-
-                            </td>
-
-                            <td>14.26M</td>
-
-
-                        </tr>
-
-                        <tr>
-
-                            <td align="center">
-
-                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-11-07021529-_1383804929206_8832.png"
-                                     width="45" height="45" alt=""
-                                     onerror="im_(this,'/developer')"/>
-
-
-                                <br/><span>
-
-
-
-
-
-
-
-
-
-
-
-    <span class="status">冻结中</span>
-
-
-
-</span>
-                            </td>
-                            <td><a href="javascript:ckappinfo(10213836)" class="f14">
-                                乐商店mini-205
-                            </a></td>
-                            <td>10213728</td>
-                            <td>2013-11-07
-                                <br/>14:15:24
-                            </td>
-                            <td>1.0.3g.1106(debug)-1311071358-test-vc205</td>
-                            <td>网游</td>
-                            <td>
-                                小屏幕<br/>
-
-                                正常屏幕<br/>
-
-                                大屏幕<br/>
-
-                                超屏幕<br/>
-
-                            </td>
-                            <td>
-                                ARM<br/>
-
-                                Intel<br/>
-
-                            </td>
-
-                            <td>200KB</td>
-
-
-                        </tr>
-
-                        <tr>
-
-                            <td align="center">
-
-                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-11-06122714-_1383712034726_9307.png"
-                                     width="45" height="45" alt=""
-                                     onerror="im_(this,'/developer')"/>
-
-
-                                <br/><span>
-
-
-
-
-
-
-
-
-
-
-
-    <span class="status">冻结中</span>
-
-
-
-</span>
-                            </td>
-                            <td><a href="javascript:ckappinfo(10213807)" class="f14">
-                                乐商店-204
-                            </a></td>
-                            <td>10213728</td>
-                            <td>2013-11-06
-                                <br/>12:27:10
-                            </td>
-                            <td>1.0.3g.1018-1311061050-test-vc204</td>
-                            <td>网游</td>
-                            <td>
-                                小屏幕<br/>
-
-                                正常屏幕<br/>
-
-                                大屏幕<br/>
-
-                                超屏幕<br/>
-
-                            </td>
-                            <td>
-                                Intel<br/>
-
-                            </td>
-
-                            <td>199KB</td>
-
-
-                        </tr>
-
-                        <tr>
-
-                            <td align="center">
-
-                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-11-04031605-_1383549365443_5011.png"
-                                     width="45" height="45" alt=""
-                                     onerror="im_(this,'/developer')"/>
-
-
-                                <br/><span>
-
-
-
-
-
-
-
-
-
-
-
-    <span class="status">冻结中</span>
-
-
-
-</span>
-                            </td>
-                            <td><a href="javascript:ckappinfo(10213782)" class="f14">
-                                乐商店-203
-                            </a></td>
-                            <td>10213728</td>
-                            <td>2013-11-04
-                                <br/>15:16:01
-                            </td>
-                            <td>storemini-1311041516-test-vc203</td>
-                            <td>网游</td>
-                            <td>
-                                小屏幕<br/>
-
-                                正常屏幕<br/>
-
-                                大屏幕<br/>
-
-                                超屏幕<br/>
-
-                            </td>
-                            <td>
-                                Intel<br/>
-
-                            </td>
-
-                            <td>198KB</td>
-
-
-                        </tr>
-
-                        <tr>
-
-                            <td align="center">
-
-                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-11-01025026-_1383288626922_5701.png"
-                                     width="45" height="45" alt=""
-                                     onerror="im_(this,'/developer')"/>
-
-
-                                <br/><span>
-
-
-
-
-
-
-
-
-
-
-
-    <span class="status">冻结中</span>
-
-
-
-</span>
-                            </td>
-                            <td><a href="javascript:ckappinfo(10213767)" class="f14">
-                                乐商店-2002
-                            </a></td>
-                            <td>10213728</td>
-                            <td>2013-11-01
-                                <br/>14:50:26
-                            </td>
-                            <td>storemini-1311011452-test-vc202</td>
-                            <td>网游</td>
-                            <td>
-                                小屏幕<br/>
-
-                                正常屏幕<br/>
-
-                                大屏幕<br/>
-
-                                超屏幕<br/>
-
-                            </td>
-                            <td>
-                                Intel<br/>
-
-                            </td>
-
-                            <td>198KB</td>
-
-
-                        </tr>
-
-                        <tr>
-
-                            <td align="center">
-
-                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-10-31105726-_1383188246289_6128.png"
-                                     width="45" height="45" alt=""
-                                     onerror="im_(this,'/developer')"/>
-
-
-                                <br/><span>
-
-
-
-
-
-
-
-
-
-
-
-    <span class="status">冻结中</span>
-
-
-
-</span>
-                            </td>
-                            <td><a href="javascript:ckappinfo(10213760)" class="f14">
-                                人人601
-                            </a></td>
-                            <td>10211016</td>
-                            <td>2013-10-31
-                                <br/>10:57:21
-                            </td>
-                            <td>6.0.1</td>
-                            <td>飞行.射击</td>
-                            <td>
-                                小屏幕<br/>
-
-                                正常屏幕<br/>
-
-                                大屏幕<br/>
-
-                                超屏幕<br/>
-
-                            </td>
-                            <td>
-                                Intel<br/>
-
-                                ARM<br/>
-
-                            </td>
-
-                            <td>14.19M</td>
-
-
-                        </tr>
-
-                        <tr>
-
-                            <td align="center">
-
-                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-10-21041001-_1382343001300_4090.png"
-                                     width="45" height="45" alt=""
-                                     onerror="im_(this,'/developer')"/>
-
-
-                                <br/><span>
-
-
-
-
-
-
-
-
-
-
-
-    <span class="status">冻结中</span>
-
-
-
-</span>
-                            </td>
-                            <td><a href="javascript:ckappinfo(10213732)" class="f14">
-                                乐商店min201
-                            </a></td>
-                            <td>10213728</td>
-                            <td>2013-10-21
-                                <br/>16:09:56
-                            </td>
-                            <td>1.0.3g-1310211417-test-vc201</td>
-                            <td>网游</td>
-                            <td>
-                                小屏幕<br/>
-
-                                正常屏幕<br/>
-
-                                大屏幕<br/>
-
-                                超屏幕<br/>
-
-                            </td>
-                            <td>
-                                ARM<br/>
-
-                                Intel<br/>
-
-                            </td>
-
-                            <td>184KB</td>
-
-
-                        </tr>
-
-                        <tr>
-
-                            <td align="center">
-
-                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-10-21033952-_1382341192544_9467.png"
-                                     width="45" height="45" alt=""
-                                     onerror="im_(this,'/developer')"/>
-
-
-                                <br/><span>
-
-
-
-
-
-
-
-
-
-
-
-    <span class="status">冻结中</span>
-
-
-
-</span>
-                            </td>
-                            <td><a href="javascript:ckappinfo(10213728)" class="f14">
-                                乐商店
-                            </a></td>
-                            <td>10213728</td>
-                            <td>2013-10-21
-                                <br/>15:39:52
-                            </td>
-                            <td>1.0.3g-1310211417-test-vc201</td>
-                            <td>网游</td>
-                            <td>
-                                小屏幕<br/>
-
-                                正常屏幕<br/>
-
-                                大屏幕<br/>
-
-                                超屏幕<br/>
-
-                            </td>
-                            <td>
-                                ARM<br/>
-
-                                Intel<br/>
-
-                            </td>
-
-                            <td>184KB</td>
-
-
-                        </tr>
-
-                        <tr>
-
-                            <td align="center">
-
-                                <img src="http://img.test2.surepush.cn//crawler@cluster1/ams/fileman/img/icon/2013-07-07030516-_1373180716038_9849.png"
-                                     width="45" height="45" alt=""
-                                     onerror="im_(this,'/developer')"/>
-
-
-                                <br/><span>
-
-
-
-
-
-
-
-
-
-
-
-    <span class="status">冻结中</span>
-
-
-
-</span>
-                            </td>
-                            <td><a href="javascript:ckappinfo(10211780)" class="f14">
-                                人人595
-                            </a></td>
-                            <td>10211016</td>
-                            <td>2013-07-15
-                                <br/>20:54:05
-                            </td>
-                            <td>5.9.5</td>
-                            <td>飞行.射击</td>
-                            <td>
-                                小屏幕<br/>
-
-                                正常屏幕<br/>
-
-                                大屏幕<br/>
-
-                                超屏幕<br/>
-
-                            </td>
-                            <td>
-                                Intel<br/>
-
-                                ARM<br/>
-
-                            </td>
-
-                            <td>7.51M</td>
-
-
-                        </tr>
-
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <td colspan="11">
-
-
-                            </td>
-                        </tr>
-                        </tfoot>
                     </table>
-                    -->
+                </div>
+                <p class="app-notice">
+                    如果您上传的应用没有提交是无法正式上架的，请您确认后提交测试，测试通过后即可上架！
 
-                    </div>
+                </p>
+
+                <div id="bim_app_container">
+
 
                 </div>
-            </div>
 
-        </form>
+            </div>
+        </div>
+
+
     </div>
 </div>
 
@@ -663,8 +57,8 @@
             <tr>
                 <td colspan="2">
                     <a href="javascript:;" class="close"><img
-                            src="<%= staticResourceUrl %>/developer/images/xiugaijiage.gif" alt="修改价格"
-                            width="320" height="34"/>
+                                src="<%= staticResourceUrl %>/developer/images/xiugaijiage.gif" alt="修改价格"
+                                width="320" height="34"/>
                     </a>
                 </td>
             </tr>
@@ -679,7 +73,7 @@
                 </td>
                 <td width="233">
                     <input name="appPrices" id="appPrices" type="text" class="input" size="10"/>&nbsp;&nbsp;<span
-                        class="gray">价格须为整数</span>
+                            class="gray">价格须为整数</span>
                     <input name="appids" id="appids" type="hidden" value=""/>
                 </td>
             </tr>
@@ -711,8 +105,8 @@
             <tr>
                 <td colspan="2">
                     <a href="javascript:;" class="close"><img
-                            src="<%= staticResourceUrl %>/developer/images/xiugaizhifu.gif" alt="修改支付方式"
-                            width="320" height="34"/>
+                                src="<%= staticResourceUrl %>/developer/images/xiugaizhifu.gif" alt="修改支付方式"
+                                width="320" height="34"/>
                     </a>
                 </td>
             </tr>
@@ -823,50 +217,119 @@
     </div>
 </div>
 
+
+
+
 <%- include _footer %>
 <script src="/js/developer.js"></script>
 
 <script type="text/javascript">
-    (function($){
-        $("#app-title-taps li a").click(function(){
+    (function ($) {
+        $("#app-title-taps li a").click(function () {
 
-            var index=parseInt($(this).attr("id").substring(5));
+            var index = parseInt($(this).attr("id").substring(5));
 
-            if(index!=6){
-                $("#app-title-bg").css('left',index*110);
-            }else{
-                $("#app-title-bg").css('left',index*110-10);
+            if (index != 6) {
+                $("#app-title-bg").css('left', index * 110);
+            } else {
+                $("#app-title-bg").css('left', index * 110 - 10);
             }
 
-            var status=$(this).attr("href").substring(1);
+            var status = $(this).attr("href").substring(1);
 
             load_app_list(status);
 
             return false;
         });
 
-        function load_app_list(status){
-            var url_dev_list="/system/devAppList?status="+status;
-            $.my_ajax_html(url_dev_list,'#bim_app_container');
+        function load_app_list(status) {
+            var url_dev_list = "/system/devAppList?status=" + status;
+            $.my_ajax_html(url_dev_list, '#bim_app_container');
         }
 
         load_app_list('1');
 
-        $('#query-btn').click(function(){
-            var appname=$("#queryAppName").val();
+        $('#query-btn').click(function () {
+            var appname = $("#queryAppName").val();
 
-            if (appname==""){
+            if (appname == "") {
                 alert("请输入查询的字符串……");
                 return;
             }
 
-            var queryAppListForDev="/system/queryAppListForDev?appname="+appname;
+            var queryAppListForDev = "/system/queryAppListForDev?appname=" + appname;
 
-            $.my_ajax_html(queryAppListForDev,'#bim_app_container');
+            $.my_ajax_html(queryAppListForDev, '#bim_app_container');
         });
 
+        $("#bim_app_container").delegate("table tr", "click", function () {
+            var appid = $(this).attr("appid");
+            var url = "/developer/plugInfo?appid=" + appid;
+            $.my_ajax_html(url, '#my-app-con');
+        });
+
+        $("#my-app-con").delegate(".frame-content .myaccount .tabsh2 a", "click", function () {
+            $(this).parent().children().removeClass('active');
+            $(this).addClass('active');
+            var appid=$(this).attr("appid");
+            var type=$(this).attr("type");
+
+            if (type=="comment"){
+                var url="/developer/comment?appid="+ appid+"&si=1";
+            }else{
+                var url = "/developer/plugInfo?type=tab&appid=" + appid;
+            }
+
+            $.my_ajax_html(url, '#commentContent');
+
+
+            return false;
+//            var appid = $(this).attr("appid");
+//            var url = "/developer/plugInfo?appid=" + appid;
+//            $.my_ajax_html(url, '#my-app-con');
+        });
+
+        $("#my-app-con").delegate(".my_review_callback","click", function(){
+           $("#replyForm_"+$(this).attr("domId")).show();
+        });
+
+        $("#my-app-con").delegate(".can_review_callback","click", function(){
+            $("#replyForm_"+$(this).attr("domId")).hide();
+        });
+
+        $("#my-app-con").delegate(".mit_review_callback","click", function(){
+            $("#replyForm_"+$(this).attr("domId")).hide();
+        });
+
+        $("#my-app-con").delegate(".grade_callback","click", function(){
+            var index=parseInt($(this).attr("id").split("_")[1]);
+
+            for(var i=0;i<=index;i++){
+                $("#index_"+i).removeClass('starHollow');
+            }
+
+            for(var i=5;i>index;i--){
+                $("#index_"+i).addClass('starHollow');
+            }
+
+        });
+
+
+
+
+
+
+
+//        $("#my-app-con").delegate("a", "click", function () {
+//
+//        });
 
     })($);
 
 
 </script>
+
+<link href="<%= staticResourceUrl %>/developer/css/add.css" rel="stylesheet" type="text/css"/>
+
+
+

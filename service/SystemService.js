@@ -350,7 +350,7 @@ SystemService.prototype.addreview=function(req,res){
     HTTP.request(params, handleRegister, res);
 
     function handleRegister(res,result){
-        if (result){
+        if (result&&result.success==true){
             res.send('回复成功！')
         }else{
             res.send('系统繁忙，回复失败！');

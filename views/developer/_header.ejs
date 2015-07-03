@@ -13,6 +13,7 @@
     <link href="<%= staticResourceUrl %>/developer/css/style.css" rel="stylesheet" type="text/css"/>
     <script src="<%= staticResourceUrl %>/developer/js/pv_count.js" language="javascript" type="text/javascript"></script>
     <link href="<%= staticResourceUrl %>/developer/css/index_style.css" rel="stylesheet" type="text/css"/>
+
     <style type="text/css">
         .page{}
         .page a{display:inline-block;padding:1px 7px;margin:0 1px;background:#fff;border:1px solid #ddd; text-decoration:none;border-radius:2px;}
@@ -36,8 +37,6 @@
             <ul>
                 <li><a class="" href="/plugStore/index.html">首页</a></li>
                 <li class="active"><a class="active" href="/developer/manage">管理</a></li>
-                <li><a href="/developer/doc">开发文档</a></li>
-                <li><a href="/developer/comment">我的评论</a></li>
                 <li><a href="/developer/help">帮助</a></li>
             </ul>
         </div>
@@ -46,7 +45,7 @@
             <% if (registerName) { %>
                 <a href="#">欢迎您,<%= registerName %></a><em></em><a href="/developer/logout">退出</a>
             <% } else { %>
-                <a href="/developer/register">注册</a><em></em><a href="/developer/login">登录</a>
+               <a href="/developer/login">登录</a>
             <% } %>
 
         </div>

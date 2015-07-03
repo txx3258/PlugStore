@@ -23,6 +23,11 @@ router.post('/uploadPlugInfo', function(req, res, next) {
 });
 
 
+router.get('/plugInfo', function(req, res, next) {
+
+    developerService.fetchPlugInfo(req,res);
+});
+
 router.get('/upload', function(req, res, next) {
 
     var session=req.session;

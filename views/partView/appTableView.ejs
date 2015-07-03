@@ -14,7 +14,7 @@
     </thead>
     <tbody>
         <% apps.forEach(function(app){ %>
-            <tr>
+            <tr appid="<%= app.appid %>">
                 <td>
                    <img width="45px" height="45px" src="<%= app.icon_addr %> "/>
                 </td>

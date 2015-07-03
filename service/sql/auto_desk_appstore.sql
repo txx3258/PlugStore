@@ -176,4 +176,13 @@ insert into bim_ad(img_resource_id,ad_name,ad_url,create_time,order_num,availabl
 
 
 
+bizIdentity=12&originalCommentId=0&parentId=10&content=%401111111%3A%E5%B1%95%E6%98%AD%E6%8B%89%E5%8D%95%E6%8B%89%E5%80%BA%E6%8A%93%E5%BC%80A%E5%A4%A7%E6%8B%89%E5%BC%80%E7%9C%9F%E6%8A%93%EF%BC%9B%E9%A3%9E%E6%98%AF%EF%BC%9B%E5%8A%A8
+
+
+
+
+select a.appid,a.uid, e.id as hostapp_id,b.code,e.hostAppName,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,c.name as appTypeName from bim_free_newtype_day as b left join bim_app as a on a.uid=b.uid left join bim_apptype_info as c on b.code=c.code left join bim_app_host as e on e.id=a.hostapp_id where a.appid='70' order by e.id asc,c.name desc,b.order_num asc
+
+
+
 select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status='0' or a.hostapp_id='undefined' or d.id in ('undefined')

@@ -1,0 +1,56 @@
+<div style="background:#fff;">
+    <p class="app-notice">
+        该列表中的应用为在售中的应用，您可以对应用进行升级和基本信息修改，若有疑问请联系客服，谢谢！
+    </p>
+    <ul class="detail-container clear">
+        <li class="detail-img">
+
+            <img src="<%=app.icon_addr%>" width="81" height="80" onerror="im_(this,'/developer')">
+
+        </li>
+        <li class="detail-con">
+            <h2><%=app.appname%></h2>
+            <table class="detail-class" width="100%">
+                <tbody><tr>
+                    <td width="60%">应用名称：<%=app.appname%></td>
+                    <td id="appStateShow">当前状态：<%=app.app_status%></td>
+                </tr>
+                <tr>
+                    <td>类别：<%=app.appTypeName%></td>
+                    <td>版本：<%=app.app_version%></td>
+                </tr>
+                <tr>
+                    <td>大小：<%=app.app_size%>M</td>
+                    <td id="priceshow">价格：<%=app.app_size%></td>
+                </tr>
+                <tr>
+                    <td>作者：ceshi</td>
+                    <td>上传时间：<%=app.app_publishdate%></td>
+                </tr>
+                <tr>
+                    <td>宿主名称：<%=app.hostAppName%></td>
+                    <td>版本名称：<%=app.support_version%></td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+            <br/>
+
+            <table class="detail-class" width="100%">
+                <tbody><tr>
+                    <td> <h2>简介：</h2></td>
+                </tr>
+                <tr>
+
+                    <td> <%=app.abr%></td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+
+
+    </ul>
+</div>

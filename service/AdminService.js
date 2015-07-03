@@ -498,12 +498,8 @@ AdminService.prototype.chooseListType=function(req, res){
         if (result) {
             var map={};
             result.forEach(function(app){
-                //调整日期
                 app.app_publishdate=utils.convertDate(app.app_publishdate);
 
-            });
-
-            result.forEach(function(app){
                 var hostapp_id=app.hostapp_id;
                 var hostAppName= app.hostAppName;
 
