@@ -35,14 +35,14 @@
 
     "list_app_Select":"select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_version as app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_app_user d on d.user_id=a.developer_id  where a.app_status='{0}'",
 
-    "list_app_other_Select":"select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,b.name as appTypeName,c.hostAppName,d.name from bim_app as a left join  bim_apptype_info  b on a.apptype_id=b.id left join bim_app_host c on a.hostapp_id=c.id left join bim_app_user d on d.user_id=a.developer_id  where a.app_status='{0}' and a.uid not in (select uid from bim_list where type='{1}')",
+    "list_app_other_Select":"select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,b.name as appTypeName,c.hostAppName,d.name from bim_app as a left join  bim_apptype_info  b on a.apptype_id=b.id left join bim_app_host c on a.hostapp_id=c.id left join bim_app_user d on d.user_id=a.developer_id  where a.app_status>='{0}' and a.uid not in (select uid from bim_list where type='{1}')",
 
     "list_choose_Select":"select b.id,a.appid,a.uid,a.appname,a.upgrade_code,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_version as app_versioncode,c.hostAppName from bim_list as b left join bim_app as a on a.uid=b.uid left join bim_app_host c on a.hostapp_id=c.id where b.type='{0}' order by b.order_num asc ",
     "list_choose_Update":"update bim_list set  order_num='{0}' where uid='{1}'",
     "type_choose_Update":"update bim_free_newtype_day set  order_num='{0}' where uid='{1}' and code='{2}'",
 
     "flowerSubmit_Update":"update {0} set {1}='{2}' where {3}='{4}'",
-    "flower_query_app_Select":"select a.appid,a.uid,a.appname,a.upgrade_code,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_version as app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status>='{0}' or a.hostapp_id='{1}' or d.id in ({2})",
+    "flower_query_app_Select":"select a.appid,a.uid,a.appname,a.upgrade_code,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_version as app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status='{0}' or a.hostapp_id='{1}' or d.id in ({2})",
 
     "list_app_Insert":"insert into bim_list(uid,type,available,order_num) values('{0}','{1}','{2}','{3}') ",
     "free_newtype_day_Insert":"insert into bim_free_newtype_day(uid,code,order_num,avabilable) values('{0}','{1}','{2}','{3}')",
