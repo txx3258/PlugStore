@@ -6,10 +6,10 @@
     <th class="end_date" style="width: 50px">序号</th>
     <th class="name">图标</th>
     <th class="name" >ProductId</th>
-    <th class="start_date">包名</th>
+    <th class="start_date">插件名称</th>
     <th class="end_date">宿主软件</th>
     <th class="end_date">支持的版本</th>
-    <th class="name" >UID</th>
+    <th class="name" >upgrade_code</th>
     <th class="name" >价格</th>
     <th class="name" >大小</th>
     <th class="actions">发布时间</th>
@@ -30,8 +30,8 @@
     <td>
         <img width="45px" height="45px" src="<%= app.icon_addr %> "/>
     </td>
-    <td><%= app.appname %></td>
     <td><%= app.uid %></td>
+    <td><%= app.appname %></td>
     <td><%= app.hostAppName %></td>
     <td><%= app.support_version %></td>
     <td><%= app.upgrade_code %> <input type="hidden" name="uid" value="<%= app.uid %>"/> </td>

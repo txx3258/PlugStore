@@ -23,7 +23,7 @@
     "bimAppInfo_Select":"select a.appid,a.uid, a.app_abstract, e.id as hostapp_id,b.code,e.hostAppName,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,c.name as appTypeName from bim_free_newtype_day as b left join bim_app as a on a.uid=b.uid left join bim_apptype_info as c on b.code=c.code left join bim_app_host as e on e.id=a.hostapp_id where a.appid='{0}' order by e.id asc,c.name desc,b.order_num asc",
 
     "bimApp_Select":"select * from bim_app",
-    "bimApp_Insert":"insert into bim_app(appname,uid,app_info,app_abstract,app_size,is_pay,app_price,app_publishdate,app_version,support_version,app_status,available,developer_id,hostapp_id,apptype_id,productId,upgrade_code) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}')",
+    "bimApp_Insert":"insert into bim_app(appname,uid,app_info,app_abstract,app_size,is_pay,app_price,app_publishdate,app_version,support_version,app_status,available,developer_id,hostapp_id,apptype_id,upgrade_code) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}')",
     "bimApp_Delete":"update bim_app set available='0' where id='{0}'",
 
     "develop_applist_select":"select a.appid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.app_version as app_versioncode,a.icon_addr,a.app_status,c.hostAppName from bim_app as a right join bim_app_host c on a.hostapp_id=c.id where a.app_status='{0}'",

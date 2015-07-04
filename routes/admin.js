@@ -129,7 +129,6 @@ router.get('/edit_host_app', function(req, res, next) {
     adminService.editHostApp(req,res);
 });
 
-
 router.get('/choose_list_app', function(req, res, next) {
 
     adminService.fetchChooseListApp(req,res);
