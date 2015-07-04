@@ -697,11 +697,10 @@ AdminService.prototype.uploadBimAd=function(req, res) {
             return;
         }
 
-        var times=new Date().getTime();
-
         async.each(adsPath, function(adPath, callback) {
             var pos=adPath.name.lastIndexOf('.');
             var fileType=adPath.name.substring(pos);
+            var times=new Date().getTime()+'_'+Math.random(47)*10000;
             var filePath=times+encodeURIComponent(adPath.name);
 
             fs.rename(adPath.path, constants.ads_form.uploadDir+filePath,function(err) {

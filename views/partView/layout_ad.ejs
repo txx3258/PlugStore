@@ -8,7 +8,21 @@
         <th class="actions" style="width:120px">操作</th>
     </tr>
     </thead>
+
+
     <tbody style="font-size:14px">
+    <tr >
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="small_buttons">
+            <div>
+                <button divID="add_bim_ad" title="添加广告" class="list_add">添加</button>
+
+            </div>
+        </td>
+    </tr>
+
     <%var i=1 ;ads.forEach(function(ad){ %>
     <tr id="<%= ad.appimg_id %>" table="bim_appimg_resource" col_id="appimg_id">
         <td><%= i++%></td>
@@ -28,16 +42,6 @@
         <td></td>
         <td></td>
     </tr>
-    <tr >
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="small_buttons">
-            <div>
-                <button divID="add_bim_ad" title="添加广告" class="list_add">添加</button>
 
-            </div>
-        </td>
-    </tr>
     </tbody>
 </table>
