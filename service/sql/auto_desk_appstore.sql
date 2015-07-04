@@ -185,4 +185,12 @@ select a.appid,a.uid, e.id as hostapp_id,b.code,e.hostAppName,a.appname,a.appEnN
 
 
 
+select a.appid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.app_version as app_versioncode,a.icon_addr,a.app_status,c.hostAppName from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_app_user as d on a.developer_id=d.user_id where a.app_status='9' and a.developer_id='1'
+
+
+
+
+",
+
+
 select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status='0' or a.hostapp_id='undefined' or d.id in ('undefined')

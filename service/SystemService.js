@@ -16,14 +16,15 @@ function SystemService() {
 }
 
 SystemService.prototype.fetchAppListForDev = function (req, res) {
-    var status=req.query.status;
+    var status=req.query.status,
+        devID=req.session.userId;
     var reg=/^[0-9]$/;
     if (!reg.test(status)){
         res.send('');
         return;
     }
 
-    var _sql = utils.format(sql.develop_applist_select,status);
+    var _sql = utils.format(sql.develop_applist_select,status,devID);
     var handlers = {
         sql: _sql,
         callback: res,
