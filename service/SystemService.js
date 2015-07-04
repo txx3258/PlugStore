@@ -161,13 +161,14 @@ SystemService.prototype.fetchAppType=function(req,res){
 }
 
 SystemService.prototype.queryAppListForDev = function (req, res) {
-    var appname=req.query.appname;
+    var appname=req.query.appname,
+        devID=req.sessionID.userId;
     if (appname.length==0){
         res.send('暂无数据!');
         return;
     }
 
-    var _sql = utils.format(sql.query_dev_applist_select,appname);
+    var _sql = utils.format(sql.query_dev_applist_select,appname,devID);
     var handlers = {
         sql: _sql,
         callback: res,

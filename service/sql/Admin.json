@@ -27,7 +27,7 @@
     "bimApp_Delete":"update bim_app set available='0' where id='{0}'",
 
     "develop_applist_select":"select a.appid,a.appname,a.upgrade_code,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.app_version as app_versioncode,a.icon_addr,a.app_status,c.hostAppName from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join  bim_app_user as d on a.developer_id=d.user_id where a.app_status='{0}' and a.developer_id='{1}'",
-    "query_dev_applist_select":"select a.appname,a.upgrade_code,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,b.name as appTypeName,c.hostAppName from bim_app as a right join  bim_apptype_info  b on a.apptype_id=b.id right join bim_app_host c on a.hostapp_id=c.id where a.appname like '%{0}%'",
+    "query_dev_applist_select":"select a.appname,a.upgrade_code,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,b.name as appTypeName,c.hostAppName from bim_app as a left join  bim_apptype_info  b on a.apptype_id=b.id left join bim_app_host c on a.hostapp_id=c.id where a.appname like '%{0}%' and a.developer_id='{1}'",
 
     "developer_register_Insert":"insert into bim_app_user(registerName,password,name,email,qq,wechat,phone,certificate_type,certificate_no,remark,nickname,registerDate,type,state) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}')",
 
