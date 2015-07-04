@@ -66,10 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminService.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdminService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/AdminService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84102565" vertical-offset="7112" max-vertical-offset="8880">
+            <state vertical-scroll-proportion="0.0" vertical-offset="7112" max-vertical-offset="8880">
               <caret line="702" column="45" selection-start-line="702" selection-start-column="45" selection-end-line="702" selection-end-column="45" />
               <folding>
                 <element signature="e#484#1458#0" expanded="false" />
@@ -93,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout_ad.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="layout_ad.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/partView/layout_ad.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.875" vertical-offset="135" max-vertical-offset="780">
-              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.91803277" vertical-offset="99" max-vertical-offset="780">
+              <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -1313,14 +1313,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/partView/layout_ad.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875" vertical-offset="135" max-vertical-offset="780">
-          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/sql/Admin.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.375" vertical-offset="468" max-vertical-offset="1020">
@@ -1367,7 +1359,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/AdminService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84102565" vertical-offset="7112" max-vertical-offset="8880">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7112" max-vertical-offset="8880">
           <caret line="702" column="45" selection-start-line="702" selection-start-column="45" selection-end-line="702" selection-end-column="45" />
           <folding>
             <element signature="e#484#1458#0" expanded="false" />
@@ -1377,6 +1369,14 @@
             <element signature="e#9004#10089#0" expanded="false" />
             <element signature="e#11085#12290#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partView/layout_ad.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.91803277" vertical-offset="99" max-vertical-offset="780">
+          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
