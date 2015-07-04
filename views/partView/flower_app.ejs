@@ -7,10 +7,10 @@
     <tr>
         <th>序号</th>
         <th>ProductId</th>
-        <th>英文名称</th>
+        <th>插件名称</th>
         <th>宿主软件</th>
         <th>支持的版本</th>
-        <th>所属类别</th>
+        <th>插件版本</th>
         <th>价格</th>
         <th>大小</th>
         <th>发布时间</th>
@@ -23,11 +23,12 @@
     <% var i=1;apps.forEach(function(app){ %>
     <tr id="<%= app.appid %>" table="bim_app" col_id="appid" up_col="app_status">
         <td><%= i++ %></td>
-        <td><%= app.appname %></td>
         <td><%= app.uid %></td>
+        <td><%= app.appname %></td>
+
         <td><%= app.hostAppName %></td>
         <td><%= app.support_version %></td>
-        <td><%= app.appTypeName %></td>
+        <td><%= app.app_versioncode %></td>
         <td><%= app.app_price %></td>
         <td><%= app.app_size %></td>
         <td><%= app.app_publishdate %></td>

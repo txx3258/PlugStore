@@ -163,8 +163,8 @@ SystemService.prototype.fetchAppType=function(req,res){
 SystemService.prototype.queryAppListForDev = function (req, res) {
     var appname=req.query.appname,
         devID=req.sessionID.userId;
-    if (appname.length==0){
-        res.send('暂无数据!');
+    if (appname==undefined||appname.length==0){
+        res.send('查询名称不正确!');
         return;
     }
 

@@ -244,7 +244,8 @@
                 $("#text_id").val($(this).attr("id"));
 
                 $("#max_type_root_id").attr("maxID",$(this).attr('id'));
-                fetchAppType();
+
+                fetchAppType($(this).attr("typeName"));
             }else if(data=="add_app_type_root"){
                 $("#text_code").val($(this).attr("code"));
                 $("#text_name").val($(this).attr("name"));
@@ -269,9 +270,22 @@
             }
         });
 
-        function fetchAppType(){
-            var url="/system/appType";
-            $.my_ajax_html(url,"#choose_hostApp_type");
+        function fetchAppType(typeName){
+            if (typeName==undefined){
+                var url="/system/appType";
+                $.my_ajax_html(url,"#choose_hostApp_type");
+            }else{
+                var url="/system/appType";
+                $.my_ajax_html(url,"#choose_hostApp_type",selectOption,typeName);
+
+                function selectOption(typeName){
+                    $("#choose_hostApp_type input").each(function () {
+                        if (typeName.indexOf($(this).attr("typeName"))!=-1){
+                            $(this).attr("checked",'true')
+                        }
+                    });
+                }
+            }
         }
 
         function addBannerBar(width,height,divTarget,topic,type){
@@ -296,41 +310,27 @@
             doCheck();
         })
 
-//        $("#panel-body").delegate("button","click",function(){
-//            var url=undefined;
-//            var type=$("#bannerBar").attr('type');
-//            if (type=='add'||type=='edit'){
-//                var data=$("#panel-body").attr("data"),
-//                        form=$("#"+data+"_form").serialize();
-//                if (data=='add_host_app'){
-//                    if (type=='add'){
-//                        var maxID=parseInt($("#max_type_root_id").attr("maxID"))+1;
-//                    }else{
-//                        var maxID=parseInt($("#max_type_root_id").attr("maxID"));
-//                    }
-//
-//                    url='/admin/'+type+'_host_app?maxID='+maxID+'&'+form;
-//                    $.my_ajax_alert(url,"/admin/layout_hostapp",'#list_select');
-//                }else if(data=='add_app_type_root'){
-//                    url='/admin/'+type+'_app_type_root?'+form;
-//                    $.my_ajax_alert(url,"/admin/app_type_root",'#list_select');
-//                }else if(data=='add_bim_ad'){
-//                    if (type=='add'){
-//                        var url=$("#replace_add_bim_ad_form").attr("action")+'?appimg_name='+$("#appimg_name").val();
-//                        $("#replace_add_bim_ad_form").attr("action",url);
-//
-//                        document.forms["replace_add_bim_ad_form"].submit();
-//                        //$("#replace_add_bim_ad_form").submit();
-//                        doCheck();
-//                    }else{
-//                        url='/admin/edit_bim_ad?'+form;
-//                        $.my_ajax_alert(url,"/admin/app_type_root",'#list_select');
-//                    }
-//                }
-//
-//
-//            }
-//        });
+        $("#panel-body").delegate("button","click",function(){
+            var url=undefined;
+            var type=$("#bannerBar").attr('type');
+            if (type=='add'||type=='edit'){
+                var data=$("#panel-body").attr("data"),
+                        form=$("#"+data+"_form").serialize();
+                if (data=='add_host_app'){
+                    if (type=='add'){
+                        var maxID=parseInt($("#max_type_root_id").attr("maxID"))+1;
+                    }else{
+                        var maxID=parseInt($("#max_type_root_id").attr("maxID"));
+                    }
+
+                    url='/admin/'+type+'_host_app?maxID='+maxID+'&'+form;
+                    $.my_ajax_alert(url,"/admin/layout_hostapp",'#list_select');
+                }else if(data=='add_app_type_root'){
+                    url='/admin/'+type+'_app_type_root?'+form;
+                    $.my_ajax_alert(url,"/admin/app_type_root",'#list_select');
+                }
+            }
+        });
 
         $("#list_tab li a").click(function(){
                 var href=$(this).attr('href');
