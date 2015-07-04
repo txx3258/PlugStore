@@ -110,9 +110,8 @@ DeveloperService.prototype.uploadPlugFile = function (req, res) {
         var uid = req.query.uid;
         var upload = files["uploadFile"];
         var icon = files["uploadIcon"];
-        var filePath = handleFilePath(upload, "_file_", fileName);
-        var iconPath = handleFilePath(icon, "_icon_", fileName);
-
+        var filePath = handleFilePath(upload, "_file_", uid+"_"+fileName);
+        var iconPath = handleFilePath(icon, "_icon_", uid+"_"+fileName);
 
         fs.rename(icon.path, constants.icon_form.uploadDir + iconPath, function (err) {
             if (err) {

@@ -88,7 +88,7 @@ AdminService.prototype.fetchListApp = function (req, res) {
 
 
     if (other!=undefined){
-        var _sql = utils.format(sql.list_app_other_Select, '1',type);
+        var _sql = utils.format(sql.list_app_other_Select, '5',type);
     }else{
         var _sql = utils.format(sql.list_app_Select, type);
     }
