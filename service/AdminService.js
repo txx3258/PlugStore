@@ -700,8 +700,7 @@ AdminService.prototype.uploadBimAd=function(req, res) {
         async.each(adsPath, function(adPath, callback) {
             var pos=adPath.name.lastIndexOf('.');
             var fileType=adPath.name.substring(pos);
-            var times=new Date().getTime()+'_'+Math.random(47)*10000;
-            var filePath=times+encodeURIComponent(adPath.name);
+            var filePath=new Date().getTime()+'_'+Math.floor(Math.random(47)*10000)+'.'+fileType;
 
             fs.rename(adPath.path, constants.ads_form.uploadDir+filePath,function(err) {
                 if (err){
