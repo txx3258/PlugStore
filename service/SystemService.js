@@ -6,6 +6,7 @@ var sql = require('./sql/Admin');
 var utils = require('./common/utils');
 var render = require('./render/system');
 var constants=require('./common/constants');
+var logger=require('./common/log4js');
 var ejs=require("ejs");
 var fs=require("fs");
 var security=require('./SecurityService').SecurityService;
@@ -321,9 +322,13 @@ SystemService.prototype.registerUser=function(req,res){
         json: true
     }
 
+    logger.logger('registerUser').info(params.url);
+
     HTTP.request(params, handleRegister, res);
 
     function handleRegister(res,result){
+        logger.logRemoteHttp().info('handleRegister:'+result);
+
         if (result&&result.success==true){
             res.send('账号注册成功！开始尝试一下客户端软件吧');
         }else{
@@ -334,41 +339,97 @@ SystemService.prototype.registerUser=function(req,res){
 
 SystemService.prototype.addreview=function(req,res){
     var token=req.session.token,
-        query=req.query
+        query=req.query;
+    if (!token){
+        res.send('请登录后在评论！');
+        return;
+    }
+
+    var tokens='&token='+req.session.token;
+    var param=utils.builderParams(query);
+
+    var params = {
+        url: constants.COMMENT_API+"api/addreview?"+param+tokens,
+        method: 'GET'
+    }
+    logger.logger('addreview').info(params.url);
+
+
+    HTTP.request(params, handleReview, res);
+
+    function handleReview(res,result){
+        logger.logRemoteHttp().info('handleReview:'+result);
+
+        if (!result){
+            res.send('请重新登录，登录时间过期！');
+            return;
+        }
+
+        try{
+            var json=JSON.parse(result);
+            if(json.success==true){
+                fs.readFile(constants.PART_VIEW+"commentReply.ejs",'utf8',function(err,data){
+                    if (err){
+                        res.send('系统繁忙，回复失败！');
+                    }else{
+                        res.send(ejs.render(data.toString(),{reply:json.data.model,count:Math.floor(Math.random(47)*10000)}));
+                    }
+                })
+            }else{
+                res.send('请重新登录，登录时间可能过期！');
+            }
+        }catch (e){
+            res.send('系统繁忙，回复失败！');
+        }
+    }
+}
+
+
+SystemService.prototype.addcomment=function(req,res){
+    var token=req.session.token,
+        query=req.query;
+
     if (!token){
         res.send('请登录后在评论！');
         return
     }
 
     var tokens='&token='+req.session.token;
-
-    var param=builderParams(query);
-
+    var param=utils.builderParams(query);
     var params = {
-        url: constants.COMMENT_API+"api/addreview?"+param+tokens,
+        url: constants.COMMENT_API+"api/addcomment?"+param+tokens,
         method: 'GET'
     }
 
-    HTTP.request(params, handleRegister, res);
+    logger.logger('addcomment').info(params.url);
 
-    function handleRegister(res,result){
-        if (result&&result.success==true){
-            res.send('回复成功！')
-        }else{
+    HTTP.request(params, handleComment, res);
+
+    function handleComment(res,result){
+        logger.logRemoteHttp().info('handleComment:'+result);
+
+        if (!result){
+            res.send('请重新登录，登录时间过期！');
+            return;
+        }
+
+        try{
+            var json=JSON.parse(result);
+            if(json.success==true){
+                fs.readFile(constants.PART_VIEW+"commentComment.ejs",'utf8',function(err,data){
+                    if (err){
+                        res.send('系统繁忙，添加评论失败！');
+                    }else{
+                        res.send(ejs.render(data.toString(),{comment:json.data.model,count:Math.floor(Math.random(47)*10000)}));
+                    }
+                })
+            }else{
+                res.send('请重新登录，登录时间可能过期！');
+            }
+        }catch (e){
             res.send('系统繁忙，回复失败！');
         }
     }
-
-    function builderParams(query){
-        var params=[];
-
-        for(var key in query){
-            params.push(key+"="+encodeURIComponent(query[key]));
-        }
-
-        return params.join('&');
-    }
 }
-
 
 module.exports.SystemService = new SystemService;

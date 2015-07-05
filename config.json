@@ -33,7 +33,7 @@
     },
     "session":{
         "secret":"qwqwqw",
-        "cookie":{"maxAge":600000},
+        "cookie":{"maxAge":1200000},
         "resave":false,
         "saveUninitialized":true
     },

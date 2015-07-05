@@ -1,0 +1,33 @@
+<li class=" oh fl  ">
+    <div class="avatar border1 fl">
+        <img src="http://snspic.lenovomm.com/snsimg/pic/get/-1" class="icons bcenter">
+
+    </div>
+    <div class="commentRight fl">
+        <div class="clear">
+
+            <span class="fl fgrey5"><%= reply.userName%></span>
+        </div>
+        <p class="description cl fgrey5"><%= reply.content%></p>
+
+        <p class="fgrey4 commentBtm">
+            <a href="#" class="my_review_callback fblue simpleBtn tcenter fr" domId="<%= count%>">
+                回复
+            </a>
+            <span>来自:<var><%= reply.from%></var></span>
+            <span>发表时间:<var><%= reply.createDate%></var></span>
+        </p>
+    </div>
+
+    <div class="replyForm fl mt10 w-100" style="display: none" id="replyForm_<%=count%>">
+        <div class="divTextarea">
+            <span class="errorMsg pa w-100 tcenter"></span>
+            <textarea id="textarea_reply_<%= count%>" class="mb10 fgrey4 w-100" name="reply" maxlength="140">@<%= reply.userName%>:</textarea>
+        </div>
+        <p class="replyHandler">
+            <span class="fl tipMsg f12">您可以输入<span class="fred">140</span>个字</span>
+            <a href="#" domId="<%= count%>" class="mit_review_callback fblue simpleBtn tcenter fr"  bizIdentity="<%= reply.bizIdentity%>" originalCommentId="<%=reply.originalCommentId%>" parentId="<%= reply.parentId%> " textareaId="#textarea_reply_<%= count%>" >回复</a>
+            <a href="#" domId="<%= count%>" class="can_review_callback fblue simpleBtn tcenter fr borderno mr10 cancelBtn">取消</a>
+        </p>
+    </div>
+</li>

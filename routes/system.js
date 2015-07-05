@@ -46,4 +46,9 @@ router.get('/addreview',function(req,res,next){
     systemService.addreview(req,res);
 });
 
+router.get('/addcomment',function(req,res,next){
+    systemService.addcomment(req,res);
+});
+
+
 module.exports = router;

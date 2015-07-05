@@ -116,6 +116,32 @@ String.prototype.format= function(){
 
 }
 
+function builderParams(query){
+    var params=[];
+
+    for(var key in query){
+        params.push(key+"="+encodeURIComponent(query[key]));
+    }
+
+    return params.join('&');
+}
+
+function convertState(state){
+    var status=parseInt(state);
+
+    switch(status){
+        case 0: return "申请中";
+        case 1: return "已下架";
+        case 2: return "未通过";
+        case 3: return "测试中";
+        case 4: return "冻结中";
+        case 5: return "已通过";
+        case 9: return "上架中";
+
+        default :return "处理中";
+    }
+}
+
 module.exports.NotEmpty=NotEmpty;
 module.exports.Min=Min;
 module.exports.Max=Max;
@@ -123,3 +149,5 @@ module.exports.format=format;
 module.exports.convertDate=convertDate;
 module.exports.pager=pager;
 module.exports.MD5=MD5;
+module.exports.builderParams=builderParams;
+module.exports.convertState=convertState;

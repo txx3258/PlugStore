@@ -271,35 +271,52 @@
             var type=$(this).attr("type");
 
             if (type=="comment"){
-                var url="/developer/comment?appid="+ appid+"&si=1";
+                var url="/developer/comment?appid="+ appid+"&si=1&pager=0";
+                $("#commentContent").show();
+                $("#appContent").hide();
+                $.my_ajax_html(url, '#commentContent');
             }else{
-                var url = "/developer/plugInfo?type=tab&appid=" + appid;
+                $("#commentContent").hide();
+                $("#appContent").show();
             }
 
-            $.my_ajax_html(url, '#commentContent');
-
-
             return false;
-//            var appid = $(this).attr("appid");
-//            var url = "/developer/plugInfo?appid=" + appid;
-//            $.my_ajax_html(url, '#my-app-con');
         });
 
         $("#my-app-con").delegate(".my_review_callback","click", function(){
            $("#replyForm_"+$(this).attr("domId")).show();
+
+           return false;
         });
 
         $("#my-app-con").delegate(".can_review_callback","click", function(){
             $("#replyForm_"+$(this).attr("domId")).hide();
+
+            return false;
         });
 
         $("#my-app-con").delegate(".mit_review_callback","click", function(){
             $("#replyForm_"+$(this).attr("domId")).hide();
+
+            var bizId=$(this).attr("bizIdentity"),
+                orgId=$(this).attr("originalCommentId"),
+                parentId=$(this).attr("parentId"),
+                replyDom=$(this).attr("replyDom"),
+                textareaId=$(this).attr("textareaId");
+            var con=$(textareaId).val();
+
+            var url="/system/addreview?";
+            var content="bizIdentity="+bizId+"&originalCommentId="+orgId+"&parentId="+parentId+"&content="+con;
+
+            $.my_ajax_xhtml(url+content,replyDom);
+
+            return false;
         });
 
         $("#my-app-con").delegate(".grade_callback","click", function(){
             var index=parseInt($(this).attr("id").split("_")[1]);
 
+            $("#starBBox2").val(index);
             for(var i=0;i<=index;i++){
                 $("#index_"+i).removeClass('starHollow');
             }
@@ -307,8 +324,20 @@
             for(var i=5;i>index;i--){
                 $("#index_"+i).addClass('starHollow');
             }
-
         });
+
+        $("#my-app-con").delegate("#commentHandler_button","click", function(){
+            var bizId=$("#commentContent").attr("appid"),
+                    grade=$("#starBBox2").val(),
+                    content=$("#textareaComment").val();
+
+            var url="/system/addcomment?vi=2&bizIdentity="+bizId+"&grade="+grade+"&content="+content;
+
+            $.my_ajax_xhtml(url,"#commentsBox");
+        });
+
+
+
 
 
 

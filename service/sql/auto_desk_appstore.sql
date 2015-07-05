@@ -194,3 +194,14 @@ select a.appid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.
 
 
 select a.appid,a.uid,a.appname,a.appEnName,a.app_price,a.app_size,a.app_publishdate,a.support_version,a.icon_addr,a.app_status,a.app_versioncode,c.hostAppName,d.name from bim_app as a left join bim_app_host c on a.hostapp_id=c.id left join bim_free_newtype_day as e on e.uid=a.uid left join bim_apptype_info as d on d.code=e.code where a.app_status='0' or a.hostapp_id='undefined' or d.id in ('undefined')
+
+
+
+
+
+
+
+
+
+
+{"success":true,"errorCode":null,"message":null,"data":{"model":{"id":83,"from":"PC_CLIENT","bizCode":"APP","bizIdentity":"12","content":"@测试名称:我的测试07050946：回复的回复","userName":"测试名称","userId":1,"model":"PC","parentId":82,"originalCommentId":0,"createDate":"2015-07-05 09:47","grade":0},"replyCounter":0}}

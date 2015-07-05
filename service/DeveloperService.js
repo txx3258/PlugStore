@@ -219,13 +219,13 @@ DeveloperService.prototype.fetchCommentList = function (req, res) {
 
 DeveloperService.prototype.fetchComment=function(req,res){
     var appid=req.query.appid,
-        si=req.query.si;
-
+        pager=req.query.pager,
+        si=parseInt(pager)*10+1;
 
     async.parallel([
             function(callback){
                 var params = {
-                    url: constants.COMMENT_API+"api/commentlist?c=10&bizIdentity="+appid+"&si="+si,
+                    url: constants.COMMENT_API+"api/commentlist?c=30&bizIdentity="+appid+"&si="+si,
                     method: 'GET'
                 }
 
@@ -237,13 +237,14 @@ DeveloperService.prototype.fetchComment=function(req,res){
                     }
                     var json=JSON.parse(result);
                     if (json.success==true){
-                        call(null,json);
+                        var pager=utils.pager(pager+1,10,json.data.totalCount,4)+"</div></div>";
+
+                       call(null,json.data.datalist ,pager);
                     }else{
                         call(true);
                     }
                 }
-            },
-            function(callback){
+            }, function(callback){
                 var _sql = utils.format(sql.bimAppInfo_Select, appid);
 
                 var handlers = {
@@ -255,25 +256,63 @@ DeveloperService.prototype.fetchComment=function(req,res){
                 mysql.query(handlers);
 
                 function plugInfo(result,call){
-                    if (result){
+                    if (result&&result instanceof Array){
+                        var app=result[0]
+                        app.icon_addr=constants.ICON_URL+app.icon_addr;
                         call(null,result);
                     }else{
                         call(true);
                     }
+                }
+            }, function(callback){
+                var params = {
+                    url: constants.COMMENT_API+"api/appgrade?bizIdentity="+appid,
+                    method: 'GET'
+                }
 
+                HTTP.request(params, commentPercent, callback);
+
+                function commentPercent(call,result){
+                    if (!result){
+                        handle(call);
+                        return;
+                    }
+                    try{
+                        var json=JSON.parse(result);
+                        call(null,json);
+                    }catch (e){
+                        handle(call);
+                    }
+
+                    function handle(call){
+                        var errRtn={
+                            "numberOfThreeStars":"0%",
+                            "numberOfFourStars":"0%",
+                            "totalComment":0,
+                            "numberOfOneStar":"0%",
+                            "numberOfTwoStars":"0%",
+                            "averageStar":3.0,
+                            "numberOfFiveStars":"0%"
+                        }
+                        call(null,errRtn);
+                    }
                 }
             }
+
         ],
         function(err, results){
-            console.log(results);
+            if (err){
+                res.send("系统繁忙中……，请联系管理员。")
+                return;
+            }
 
-            fs.readFile(constants.PART_VIEW + "commentTest.ejs", 'utf8', function (err, data) {
+            fs.readFile(constants.PART_VIEW + "commentPlug.ejs", 'utf8', function (err, data) {
                 if (err) {
-                    res.send('');
+                    res.send('系统繁忙中……，请联系管理员。');
                 } else {
-                    //  var html = ejs.render(data.toString(), {datalist: dataList}) + pager;
+                     var html = ejs.render(data.toString(), {comments: results[0][0],app:results[1][0],commentPercent:results[2]});
 
-                    res.send(data.toString());
+                    res.send(html);
 
                 }
             })
@@ -282,8 +321,7 @@ DeveloperService.prototype.fetchComment=function(req,res){
 
 
 DeveloperService.prototype.fetchPlugInfo=function(req,res) {
-    var appid = req.query.appid,
-        tab=req.query.type;
+    var appid = req.query.appid;
 
     var _sql = utils.format(sql.bimAppInfo_Select, appid);
 
@@ -305,19 +343,14 @@ DeveloperService.prototype.fetchPlugInfo=function(req,res) {
                 if (obj==undefined){
                     map[key]=app
                     app.app_publishdate=utils.convertDate(app.app_publishdate);
+                    app.app_status=utils.convertState(app.app_status);
                     app.icon_addr=constants.ICON_URL+app.icon_addr;
                 }else{
                     obj.appTypeName+=","+app.appTypeName;
                 }
             });
 
-            if (tab=="tab"){
-                var view="appCommentTab.ejs";
-            }else{
-                var view="appComment.ejs";
-            }
-
-            fs.readFile(constants.PART_VIEW+view,'utf8',function(err,data){
+            fs.readFile(constants.PART_VIEW+'appComment.ejs','utf8',function(err,data){
                 if (err){
                     res.send('');
                 }else{

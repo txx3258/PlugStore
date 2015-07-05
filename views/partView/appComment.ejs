@@ -1,12 +1,13 @@
-<div class="frame-content">
+<div class="frame-content" >
     <h1><a href="javascript: returnByPost()" class="go-back">返回</a></h1>
     <div class="myaccount" style="margin-bottom:20px; width:auto;">
         <h2 class="tabsh2">
             <a appid="<%=app.appid%>" type="plug" href="#" class="active">应用详情</a>
             <a appid="<%=app.appid%>" type="comment" href="#" class="">用户评论</a>
+
         </h2>
     </div>
-    <div id="commentContent" align="justify">
+    <div id="appContent" align="justify">
         <div style="background:#fff;">
             <p class="app-notice">
                 该列表中的应用为在售中的应用，您可以对应用进行升级和基本信息修改，若有疑问请联系客服，谢谢！
@@ -39,31 +40,24 @@
                         <tr>
                             <td>宿主名称：<%=app.hostAppName%></td>
                             <td>版本名称：<%=app.support_version%></td>
-
                         </tr>
-
                         </tbody>
-
-                        </table>
-
+                    </table>
                     <br/>
-
                     <table class="detail-class" width="100%">
                         <tbody><tr>
                             <td> <h2>简介：</h2></td>
                         </tr>
                         <tr>
-
-                            <td> <%=app.abr%></td>
+                            <td> <%=app.app_abstract%></td>
                         </tr>
                         </tbody>
                         </table>
                 </li>
-
-
             </ul>
         </div>
-
     </div>
 
+    <div id="commentContent" align="justify" appid="<%=app.appid%>">
+     </div>
 </div>
