@@ -63,10 +63,3 @@ exports.warnDbMql=function(warn){
 
     logger.warn(warn);
 }
-
-
-for(var i=0;i<10000;i++){
-    var logger = log4js.getLogger("db-mysql");
-
-    logger.info("my log4j");
-}
