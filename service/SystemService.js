@@ -322,12 +322,12 @@ SystemService.prototype.registerUser=function(req,res){
         json: true
     }
 
-    logger.logger('registerUser').info(params.url);
+    logger.info('registerUser',params.url);
 
     HTTP.request(params, handleRegister, res);
 
     function handleRegister(res,result){
-        logger.logRemoteHttp().info('handleRegister:'+result);
+        logger.infoRemoteHttp('handleRegister:'+result);
 
         if (result&&result.success==true){
             res.send('账号注册成功！开始尝试一下客户端软件吧');
@@ -352,13 +352,12 @@ SystemService.prototype.addreview=function(req,res){
         url: constants.COMMENT_API+"api/addreview?"+param+tokens,
         method: 'GET'
     }
-    logger.logger('addreview').info(params.url);
-
+    logger.info('addreview',params.url);
 
     HTTP.request(params, handleReview, res);
 
     function handleReview(res,result){
-        logger.logRemoteHttp().info('handleReview:'+result);
+        logger.infoRemoteHttp('handleReview:'+result);
 
         if (!result){
             res.send('请重新登录，登录时间过期！');
@@ -401,12 +400,12 @@ SystemService.prototype.addcomment=function(req,res){
         method: 'GET'
     }
 
-    logger.logger('addcomment').info(params.url);
+    logger.info('addcomment',params.url);
 
     HTTP.request(params, handleComment, res);
 
     function handleComment(res,result){
-        logger.logRemoteHttp().info('handleComment:'+result);
+        logger.infoRemoteHttp('handleComment:'+result);
 
         if (!result){
             res.send('请重新登录，登录时间过期！');

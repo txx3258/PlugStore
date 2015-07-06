@@ -35,10 +35,10 @@ log4js.configure({
 });
 
 
-exports.logger=function(name){
+exports.info=function(name,info){
     var logger = log4js.getLogger(name);
 
-    return logger;
+    logger.info(info);
 }
 
 exports.infoRemoteHttp=function(info){
