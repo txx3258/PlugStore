@@ -306,7 +306,7 @@
             var con=$(textareaId).val();
 
             var url="/system/addreview?";
-            var content="bizIdentity="+bizId+"&originalCommentId="+orgId+"&parentId="+parentId+"&content="+decodeURIComponent(con);
+            var content="bizIdentity="+bizId+"&originalCommentId="+orgId+"&parentId="+parentId+"&content="+encodeURIComponent(con);
 
             $.my_ajax_xhtml(url+content,replyDom);
 
@@ -331,7 +331,7 @@
                     grade=$("#starBBox2").val(),
                     content=$("#textareaComment").val();
 
-            var url="/system/addcomment?vi=2&bizIdentity="+bizId+"&grade="+grade+"&content="+decodeURIComponent(content);
+            var url="/system/addcomment?vi=2&bizIdentity="+bizId+"&grade="+grade+"&content="+encodeURIComponent(content);
 
             $.my_ajax_xhtml(url,"#commentsBox");
         });
