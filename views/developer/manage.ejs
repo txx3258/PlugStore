@@ -264,6 +264,11 @@
             $.my_ajax_html(url, '#my-app-con');
         });
 
+//        var commentHandler=function(){
+//            var bizId=$("#commentContent").attr("appid");
+//            var url="/developer/comment?appid="+ appid+"&si=1&pager=0";
+//        }
+
         $("#my-app-con").delegate(".frame-content .myaccount .tabsh2 a", "click", function () {
             $(this).parent().children().removeClass('active');
             $(this).addClass('active');
@@ -330,7 +335,7 @@
         $("#my-app-con").delegate("#commentHandler_button","click", function(){
             var bizId=$("#commentContent").attr("appid"),
                     grade=$("#starBBox2").val(),
-                    cnt=$(this).attr("cnt"),
+                    cnt=Math.floor(Math.random(47)*10000),
                     content=$("#textareaComment").val();
 
             var url="/system/addcomment?vi=2&cnt="+cnt+"&bizIdentity="+bizId+"&grade="+grade+"&content="+encodeURIComponent(content);
