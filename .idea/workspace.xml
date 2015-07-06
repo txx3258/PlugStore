@@ -39,8 +39,18 @@
           <file leaf-file-name="manage.ejs" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/developer/manage.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="4440" max-vertical-offset="5490">
-                  <caret line="307" column="41" selection-start-line="307" selection-start-column="41" selection-end-line="307" selection-end-column="41" />
+                <state vertical-scroll-proportion="-11.25" vertical-offset="4845" max-vertical-offset="5490">
+                  <caret line="341" column="0" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_footer.ejs" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/views/developer/_footer.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.70234114" vertical-offset="0" max-vertical-offset="705">
+                  <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -49,8 +59,8 @@
           <file leaf-file-name="log4js.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/service/common/log4js.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-5.6923075" vertical-offset="422" max-vertical-offset="1035">
-                  <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+                <state vertical-scroll-proportion="-8.0" vertical-offset="512" max-vertical-offset="1035">
+                  <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#50#0" expanded="false" />
                   </folding>
@@ -78,11 +88,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SystemService.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="SystemService.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/service/SystemService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5552239" vertical-offset="5889" max-vertical-offset="6555">
-                  <caret line="407" column="44" selection-start-line="407" selection-start-column="31" selection-end-line="407" selection-end-column="44" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="5889" max-vertical-offset="6555">
+                  <caret line="407" column="23" selection-start-line="407" selection-start-column="23" selection-end-line="407" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#51#0" expanded="false" />
                   </folding>
@@ -110,16 +120,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="commentComment.ejs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/partView/commentComment.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="261" max-vertical-offset="570">
-                  <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="system.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/routes/system.js">
               <provider selected="true" editor-type-id="text-editor">
@@ -139,7 +139,7 @@
           <file leaf-file-name="utils.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/service/common/utils.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.4507463" vertical-offset="1779" max-vertical-offset="2370">
+                <state vertical-scroll-proportion="1.5046439" vertical-offset="1779" max-vertical-offset="2370">
                   <caret line="151" column="24" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="24" />
                   <folding />
                 </state>
@@ -443,14 +443,14 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34228188" sideWeight="0.49960285" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32718122" sideWeight="0.49960285" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41262135" sideWeight="0.66481334" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41107383" sideWeight="0.66481334" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20095314" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50838923" sideWeight="0.86179507" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3942953" sideWeight="0.60047656" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41262135" sideWeight="0.33518666" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41107383" sideWeight="0.33518666" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -906,13 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/developer/_footer.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="690">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partView/appTableView.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.7083335" vertical-offset="262" max-vertical-offset="570">
@@ -967,6 +960,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="35.625" vertical-offset="3030" max-vertical-offset="3810">
           <caret line="145" column="35" selection-start-line="145" selection-start-column="35" selection-end-line="145" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,7 +1150,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/common/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4507463" vertical-offset="1779" max-vertical-offset="2370">
+        <state vertical-scroll-proportion="1.5046439" vertical-offset="1779" max-vertical-offset="2370">
           <caret line="151" column="24" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="24" />
           <folding />
         </state>
@@ -1197,14 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="10121" max-vertical-offset="12675">
           <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/developer/manage.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4440" max-vertical-offset="5490">
-          <caret line="307" column="41" selection-start-line="307" selection-start-column="41" selection-end-line="307" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1251,23 +1237,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/service/SystemService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5889" max-vertical-offset="6555">
+          <caret line="407" column="23" selection-start-line="407" selection-start-column="23" selection-end-line="407" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#51#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/service/common/log4js.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6923075" vertical-offset="422" max-vertical-offset="1035">
-          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        <state vertical-scroll-proportion="-8.0" vertical-offset="512" max-vertical-offset="1035">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
             <element signature="e#0#50#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/SystemService.js">
+    <entry file="file://$PROJECT_DIR$/views/developer/manage.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5552239" vertical-offset="5889" max-vertical-offset="6555">
-          <caret line="407" column="44" selection-start-line="407" selection-start-column="31" selection-end-line="407" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-11.25" vertical-offset="4845" max-vertical-offset="5490">
+          <caret line="341" column="0" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/developer/_footer.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70234114" vertical-offset="0" max-vertical-offset="705">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
