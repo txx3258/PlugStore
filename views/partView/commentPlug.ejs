@@ -127,7 +127,7 @@
             </div>
             <p class="replyHandler">
                 <span class="fl tipMsg f12">您可以输入<span class="fred">140</span>个字</span>
-                <a domId="<%= count%>" href="#" class="mit_review_callback fblue simpleBtn tcenter fr" bizIdentity="<%= comment.bizIdentity%>" originalCommentId="<%= comment.originalCommentId%>" parentId="<%= comment.id%>" replyDom="#commentForReplyID_<%=count%>" textareaId="#textarea_reply_<%= count%>">回复</a>
+                <a domId="<%= count%>" href="#" class="mit_review_callback fblue simpleBtn tcenter fr" bizIdentity="<%= comment.bizIdentity%>" originalCommentId="<%= comment.originalCommentId%>" parentId="<%= comment.id%>" replyDom="#commentForReplyID_<%=count%>" textareaId="#textarea_reply_<%= count%>" cnt="<%= count%>">回复</a>
                 <a domId="<%= count%>" href="#" class="can_review_callback fblue simpleBtn tcenter fr borderno mr10 cancelBtn">取消</a>
             </p>
         </div>
@@ -164,7 +164,7 @@
                         </div>
                         <p class="replyHandler">
                             <span class="fl tipMsg f12">您可以输入<span class="fred">140</span>个字</span>
-                            <a href="#" domId="<%= count%>" class="mit_review_callback fblue simpleBtn tcenter fr"  bizIdentity="<%= reply.bizIdentity%>" originalCommentId="<%= reply.id%>" parentId="<%= comment.id%>" replyDom="#commentForReplyID_<%=pCount%>" textareaId="#textarea_reply_<%= count%>" >回复</a>
+                            <a href="#" domId="<%= count%>" class="mit_review_callback fblue simpleBtn tcenter fr"  bizIdentity="<%= reply.bizIdentity%>" originalCommentId="<%= reply.id%>" parentId="<%= comment.id%>" replyDom="#commentForReplyID_<%=pCount%>" textareaId="#textarea_reply_<%= count%>" cnt="<%=count%>">回复</a>
                             <a href="#" domId="<%= count%>" class="can_review_callback fblue simpleBtn tcenter fr borderno mr10 cancelBtn">取消</a>
                         </p>
                     </div>

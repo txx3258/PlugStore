@@ -27,21 +27,23 @@
       <split-first>
         <leaf>
           <file leaf-file-name="manage.ejs" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/views/admin/manage.ejs">
+            <entry file="file://$PROJECT_DIR$/views/developer/manage.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="10121" max-vertical-offset="12675">
-                  <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+                <state vertical-scroll-proportion="-11.25" vertical-offset="4755" max-vertical-offset="5520">
+                  <caret line="335" column="48" selection-start-line="335" selection-start-column="45" selection-end-line="335" selection-end-column="48" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="manage.ejs" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/views/developer/manage.ejs">
+          <file leaf-file-name="commentPlug.ejs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/partView/commentPlug.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.70234114" vertical-offset="4410" max-vertical-offset="5490">
-                  <caret line="308" column="125" selection-start-line="308" selection-start-column="125" selection-end-line="308" selection-end-column="125" />
-                  <folding />
+                <state vertical-scroll-proportion="-8.75" vertical-offset="1830" max-vertical-offset="3090">
+                  <caret line="136" column="69" selection-start-line="134" selection-start-column="8" selection-end-line="136" selection-end-column="69" />
+                  <folding>
+                    <element signature="n#style#0;n#input#0;n#p#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -78,24 +80,34 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="developer.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/routes/developer.js">
+          <file leaf-file-name="SystemService.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/service/SystemService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="633" max-vertical-offset="1770">
-                  <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.47204968" vertical-offset="6133" max-vertical-offset="6585">
+                  <caret line="421" column="49" selection-start-line="421" selection-start-column="49" selection-end-line="421" selection-end-column="49" />
+                  <folding>
+                    <element signature="e#0#51#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="commentReply.ejs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/partView/commentReply.ejs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-4.2916665" vertical-offset="77" max-vertical-offset="570">
+                  <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SystemService.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/service/SystemService.js">
+          <file leaf-file-name="commentComment.ejs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/partView/commentComment.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="5889" max-vertical-offset="6555">
-                  <caret line="407" column="23" selection-start-line="407" selection-start-column="23" selection-end-line="407" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#0#51#0" expanded="false" />
-                  </folding>
+                <state vertical-scroll-proportion="-13.291667" vertical-offset="146" max-vertical-offset="660">
+                  <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -113,21 +125,9 @@
           <file leaf-file-name="remote-http.log" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/logs/remote-http.log">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
                   <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="system.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/routes/system.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="472" max-vertical-offset="855">
-                  <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-                  <folding>
-                    <element signature="e#0#42#0" expanded="false" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -139,7 +139,7 @@
           <file leaf-file-name="utils.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/service/common/utils.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.5046439" vertical-offset="1779" max-vertical-offset="2370">
+                <state vertical-scroll-proportion="1.5093168" vertical-offset="1779" max-vertical-offset="2370">
                   <caret line="151" column="24" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="24" />
                   <folding />
                 </state>
@@ -248,6 +248,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="PlugStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlugStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlugStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlugStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlugStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partView" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -443,14 +475,14 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34228188" sideWeight="0.49960285" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32718122" sideWeight="0.49960285" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41107383" sideWeight="0.66481334" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4107744" sideWeight="0.66481334" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20095314" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50838923" sideWeight="0.86179507" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3942953" sideWeight="0.60047656" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12289562" sideWeight="0.76568705" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41107383" sideWeight="0.33518666" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4107744" sideWeight="0.33518666" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -841,27 +873,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/SystemService.js</url>
-          <line>361</line>
+          <line>362</line>
           <option name="timeStamp" value="252" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/SystemService.js</url>
-          <line>370</line>
+          <line>371</line>
           <option name="timeStamp" value="284" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/SystemService.js</url>
-          <line>356</line>
+          <line>357</line>
           <option name="timeStamp" value="286" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/SystemService.js</url>
-          <line>387</line>
+          <line>388</line>
           <option name="timeStamp" value="287" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/service/SystemService.js</url>
-          <line>404</line>
+          <line>406</line>
           <option name="timeStamp" value="289" />
         </line-breakpoint>
       </breakpoints>
@@ -1101,6 +1133,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="277" max-vertical-offset="1575">
           <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1116,20 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2709" max-vertical-offset="3180">
           <caret line="206" column="156" selection-start-line="206" selection-start-column="144" selection-end-line="206" selection-end-column="156" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partView/commentReply.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="570">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partView/commentPlug.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7" vertical-offset="990" max-vertical-offset="2505">
-          <caret line="75" column="90" selection-start-line="75" selection-start-column="90" selection-end-line="75" selection-end-column="90" />
         </state>
       </provider>
     </entry>
@@ -1150,7 +1169,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/common/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5046439" vertical-offset="1779" max-vertical-offset="2370">
+        <state vertical-scroll-proportion="1.5093168" vertical-offset="1779" max-vertical-offset="2370">
           <caret line="151" column="24" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="24" />
           <folding />
         </state>
@@ -1176,14 +1195,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="405">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partView/commentComment.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="261" max-vertical-offset="570">
-          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1237,16 +1248,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/SystemService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5889" max-vertical-offset="6555">
-          <caret line="407" column="23" selection-start-line="407" selection-start-column="23" selection-end-line="407" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/common/log4js.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.0" vertical-offset="512" max-vertical-offset="1035">
@@ -1267,9 +1268,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/developer/manage.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70234114" vertical-offset="4410" max-vertical-offset="5490">
-          <caret line="308" column="125" selection-start-line="308" selection-start-column="125" selection-end-line="308" selection-end-column="125" />
+        <state vertical-scroll-proportion="-11.25" vertical-offset="4755" max-vertical-offset="5520">
+          <caret line="335" column="48" selection-start-line="335" selection-start-column="45" selection-end-line="335" selection-end-column="48" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partView/commentPlug.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75" vertical-offset="1830" max-vertical-offset="3090">
+          <caret line="136" column="69" selection-start-line="134" selection-start-column="8" selection-end-line="136" selection-end-column="69" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#p#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partView/commentReply.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.2916665" vertical-offset="77" max-vertical-offset="570">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partView/commentComment.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.291667" vertical-offset="146" max-vertical-offset="660">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/SystemService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47204968" vertical-offset="6133" max-vertical-offset="6585">
+          <caret line="421" column="49" selection-start-line="421" selection-start-column="49" selection-end-line="421" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#51#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

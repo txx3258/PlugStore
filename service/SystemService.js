@@ -339,7 +339,8 @@ SystemService.prototype.registerUser=function(req,res){
 
 SystemService.prototype.addreview=function(req,res){
     var token=req.session.token,
-        query=req.query;
+        query=req.query,
+        cnt=req.query.cnt;
     if (!token){
         res.send('请登录后在评论！');
         return;
@@ -371,7 +372,7 @@ SystemService.prototype.addreview=function(req,res){
                     if (err){
                         res.send('系统繁忙，回复失败！');
                     }else{
-                        res.send(ejs.render(data.toString(),{reply:json.data.model,count:Math.floor(Math.random(47)*10000)}));
+                        res.send(ejs.render(data.toString(),{reply:json.data.model,count:cnt}));
                     }
                 })
             }else{
@@ -386,7 +387,8 @@ SystemService.prototype.addreview=function(req,res){
 
 SystemService.prototype.addcomment=function(req,res){
     var token=req.session.token,
-        query=req.query;
+        query=req.query,
+        cnt=req.query.cnt;
 
     if (!token){
         res.send('请登录后在评论！');
@@ -419,9 +421,9 @@ SystemService.prototype.addcomment=function(req,res){
                     if (err){
                         res.send('系统繁忙，添加评论失败！');
                     }else{
-                        res.send(ejs.render(data.toString(),{comment:json.data.model,count:Math.floor(Math.random(47)*10000)}));
+                        res.send(ejs.render(data.toString(),{comment:json.data.model,count:cnt}));
                     }
-                })
+                });
             }else{
                 res.send('请重新登录，登录时间可能过期！');
             }

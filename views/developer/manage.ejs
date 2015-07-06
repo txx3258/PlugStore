@@ -302,11 +302,12 @@
                 orgId=$(this).attr("originalCommentId"),
                 parentId=$(this).attr("parentId"),
                 replyDom=$(this).attr("replyDom"),
+                cnt=$(this).attr("cnt"),
                 textareaId=$(this).attr("textareaId");
             var con=$(textareaId).val();
 
-            var url="/system/addreview?";
-            var content="bizIdentity="+bizId+"&originalCommentId="+orgId+"&parentId="+parentId+"&content="+encodeURIComponent(con);
+            var url="/system/addreview?cnt="+cnt;
+            var content="&bizIdentity="+bizId+"&originalCommentId="+orgId+"&parentId="+parentId+"&content="+encodeURIComponent(con);
 
             $.my_ajax_xhtml(url+content,replyDom);
 
@@ -329,9 +330,10 @@
         $("#my-app-con").delegate("#commentHandler_button","click", function(){
             var bizId=$("#commentContent").attr("appid"),
                     grade=$("#starBBox2").val(),
+                    cnt=$(this).attr("cnt"),
                     content=$("#textareaComment").val();
 
-            var url="/system/addcomment?vi=2&bizIdentity="+bizId+"&grade="+grade+"&content="+encodeURIComponent(content);
+            var url="/system/addcomment?vi=2&cnt="+cnt+"&bizIdentity="+bizId+"&grade="+grade+"&content="+encodeURIComponent(content);
 
             $.my_ajax_xhtml(url,"#commentsBox");
         });
