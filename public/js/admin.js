@@ -3,16 +3,16 @@
  */
 (function($,window){
 
-    var mgsBoxInterval=setInterval(function(){
-       var msgBoxHt=parseInt($('#msgBox').css('bottom'));
-        if(msgBoxHt<0){
-            msgBoxHt+=20;
-            $('#msgBox').css('bottom',msgBoxHt);
-        }else{
-            clearInterval(mgsBoxInterval)
-        }
-        //console.log(msgBoxHt)
-    },200);
+    //var mgsBoxInterval=setInterval(function(){
+    //   var msgBoxHt=parseInt($('#msgBox').css('bottom'));
+    //    if(msgBoxHt<0){
+    //        msgBoxHt+=20;
+    //        $('#msgBox').css('bottom',msgBoxHt);
+    //    }else{
+    //        clearInterval(mgsBoxInterval)
+    //    }
+    //    //console.log(msgBoxHt)
+    //},200);
 
     $('#msgBoxClose').click(function(){
         $('#msgBox').hide();
