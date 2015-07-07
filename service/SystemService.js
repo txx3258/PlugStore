@@ -36,6 +36,8 @@ SystemService.prototype.fetchAppListForDev = function (req, res) {
 
     function appListForDev(result, res) {
         if (result && result.length > 0) {
+            logger.debugDbMql(JSON.stringify(result));
+
             result.forEach(function(app){
                 //调整日期
                 app.app_publishdate=utils.convertDate(app.app_publishdate);
@@ -68,6 +70,7 @@ SystemService.prototype.fetchAppHost = function (req, res) {
     mysql.query(handlers);
 
     function appHost(result, res) {
+
         if (result && result.length > 0) {
             fs.readFile(constants.PART_VIEW+"hostApp.ejs",'utf8',function(err,data){
                 if (err){

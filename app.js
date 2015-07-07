@@ -4,7 +4,7 @@ console.log(ROOT_PATH.getInstance(__dirname).getPath());
 
 var path = require('path');
 //var favicon = require('serve-favicon');
-var logger = require('morgan');
+var logger = require('./service/common/log4js').logger();
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session=require("express-session");
@@ -30,7 +30,7 @@ app.set('view engine', 'ejs');
 //处理图标Favicon
 app.use(middleware.handleFavicon);
 
-app.use(logger('dev'));
+app.use(logger);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());

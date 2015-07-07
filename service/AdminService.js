@@ -10,6 +10,7 @@ var fs=require('fs');
 var ejs=require("ejs");
 var formidable=require('formidable');
 var async=require('async');
+var logger=require('./common/log4js');
 
 function AdminService() {
     this.form=undefined;
@@ -86,14 +87,11 @@ AdminService.prototype.fetchListApp = function (req, res) {
         other=query.other,
         ejsView=query.ejsView;
 
-
     if (other!=undefined){
         var _sql = utils.format(sql.list_app_other_Select, '5',type);
     }else{
         var _sql = utils.format(sql.list_app_Select, type);
     }
-
-
 
     var handlers = {
         sql: _sql,
@@ -104,6 +102,8 @@ AdminService.prototype.fetchListApp = function (req, res) {
     mysql.query(handlers);
 
     function listApp(result, res) {
+        logger.debugDbMql(JSON.stringify(result));
+
         if (result && result.length > 0) {
 
             result.forEach(function(app){

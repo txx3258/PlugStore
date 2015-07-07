@@ -15,7 +15,7 @@ log4js.configure({
             filename: 'logs/access.log',
             maxLogSize: 1024,
             backups:4,
-            category: 'normal'
+            category: 'access-url'
         },{
             type: 'dateFile',
             filename: 'logs/remote-http.log',
@@ -30,15 +30,14 @@ log4js.configure({
             category: 'db-mysql'
         }
     ],
-    "levels":{ "logInfo": "INFO"},
+    "levels":{ "logInfo": "DEBUG"},  //INFO  debug
     replaceConsole: true
 });
 
+exports.logger=function(){
+    var log = log4js.getLogger("access-url");
 
-exports.info=function(name,info){
-    var logger = log4js.getLogger(name);
-
-    logger.info(info);
+    return log4js.connectLogger(log, {level:'info', format:':method :url'});
 }
 
 exports.infoRemoteHttp=function(info){
@@ -46,10 +45,22 @@ exports.infoRemoteHttp=function(info){
     logger.info(info);
 }
 
+exports.debugRemoteHttp=function(info){
+    var logger = log4js.getLogger("remote-http");
+
+    logger.debug(info);
+}
+
 exports.warnRemoteHttp=function(warn){
     var logger = log4js.getLogger("remote-http");
 
     logger.warn(warn);
+}
+
+exports.debugDbMql=function(info){
+    var logger = log4js.getLogger("db-mysql");
+
+    logger.debug(info);
 }
 
 exports.infoDbMql=function(info){

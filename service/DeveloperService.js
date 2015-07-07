@@ -11,6 +11,7 @@ var fs = require('fs');
 var HTTP = require('./common/singleton').HTTP;
 var ejs = require("ejs");
 var async=require("async");
+var logger=require('./common/log4js');
 
 function DeveloperService() {
 
@@ -73,6 +74,8 @@ DeveloperService.prototype.uploadPlugInfo = function (req, res) {
     mysql.queryArrays(handlers);
 
     function plugInfo(result, res) {
+        logger.debugDbMql(JSON.stringify(result));
+
         if (result) {
             res.send('success');
         } else {
@@ -158,6 +161,8 @@ DeveloperService.prototype.uploadPlugFile = function (req, res) {
             mysql.query(handlers);
 
             function fileAndIcon(result, res) {
+                logger.debugDbMql(JSON.stringify(result));
+
             }
         }
     });
@@ -232,6 +237,7 @@ DeveloperService.prototype.fetchComment=function(req,res){
                 HTTP.request(params, comment, callback);
 
                 function comment(call,result){
+                    logger.debugRemoteHttp(result);
                     if (!result){
                         call(true);
                     }
@@ -256,6 +262,10 @@ DeveloperService.prototype.fetchComment=function(req,res){
                 mysql.query(handlers);
 
                 function plugInfo(result,call){
+                    logger.debugRemoteHttp(result);
+
+                    logger.debugDbMql(JSON.stringify(result));
+
                     if (result&&result instanceof Array){
                         var app=result[0]
                         app.icon_addr=constants.ICON_URL+app.icon_addr;
@@ -335,6 +345,8 @@ DeveloperService.prototype.fetchPlugInfo=function(req,res) {
 
     function plugInfo(result, res) {
         if (result && result.length > 0) {
+            logger.debugDbMql(result);
+
             var map={}, key=undefined;
             result.forEach(function(app){
                 key= app.appid;
