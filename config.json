@@ -33,7 +33,7 @@
     },
     "session":{
         "secret":"qwqwqw",
-        "cookie":{"maxAge":1200000},
+        "cookie":{"maxAge":3000000},
         "resave":false,
         "saveUninitialized":true
     },
@@ -43,7 +43,7 @@
         "arg2":"hex",
         "arg3":"utf8"
     },
-    "INDEX":"http://119.29.16.116/assets/index.html",
+    "INDEX":"http://119.29.16.116:3000/plugStore/index.html",
     "COMMENT_API":"http://119.29.16.116/EmpowerADS/",
     "ACCOUNT_API":"http://119.29.16.116/EmpowerADS/",
     "ICON_URL":"http://119.29.16.116/EmpowerADS/",

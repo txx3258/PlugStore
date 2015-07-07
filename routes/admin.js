@@ -24,7 +24,6 @@ router.get('/login', function(req, res, next) {
     }
 
     render.login(res,message);
-  //  res.send('hello');
 });
 
 

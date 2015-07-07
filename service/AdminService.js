@@ -214,7 +214,7 @@ AdminService.prototype.fetchHostApp = function (req, res) {
     mysql.query(handlers);
 
     function hostApp(result, res) {
-        if (result && result.length > 0) {
+        if (result) {
 
             result.forEach(function(app){
                 //调整日期

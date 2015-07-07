@@ -34,9 +34,9 @@
         <label for="inputEmail" class="sr-only">用户名</label>
 
         <% if(message.length>5) { %>  <span class="badge" style="color: yellow"><%= message%></span> <%}%>
-        <input name="registerName" type="text" id="inputEmail" value="admin@163.com" class="form-control" placeholder="用户名">
+        <input name="registerName" type="text" id="inputEmail" value="2538291@qq.com" class="form-control" placeholder="用户名">
         <label for="inputPassword" class="sr-only">密码</label>
-        <input name="password" type="password" id="inputPassword" value="admin" class="form-control" placeholder="密码">
+        <input name="password" type="password" id="inputPassword" value="admin" class="form-control" placeholder="密码" value="123456">
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> 记住我
@@ -44,7 +44,7 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
 
-        <input type="hidden" name="redirect" value="/admin/manage">
+        <input type="hidden" name="redirect" value="/admin/flower">
         <input type="hidden" name="backup" value="/admin/login?code=NOT_PASS">
     </form>
 </div> <!-- /container -->
