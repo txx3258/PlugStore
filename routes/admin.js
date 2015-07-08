@@ -47,7 +47,7 @@ router.get('/comment', function(req, res, next) {
 
 /***********************************流程管理***********************************************/
 
-router.get('/flower', function(req, res, next) {
+router.get('/flow', function(req, res, next) {
     res.render('admin/flower', { title: '流程审批',
         staticResourceUrl: constants.staticResourceHost,
         mClass:"flower"
