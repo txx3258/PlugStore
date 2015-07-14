@@ -50,10 +50,6 @@ router.get('/comment', function(req, res, next) {
 
 });
 
-router.get('/commentList', function(req, res, next) {
-    developerService.fetchCommentList(req,res);
-});
-
 router.get('/register', function(req, res, next) {
     var registerName=req.session?req.session.registerName:'';
 

@@ -50,5 +50,9 @@ router.get('/addcomment',function(req,res,next){
     systemService.addcomment(req,res);
 });
 
+router.get('/commentList', function(req, res, next) {
+    systemService.fetchCommentList(req,res);
+});
+
 
 module.exports = router;

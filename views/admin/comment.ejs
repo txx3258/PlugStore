@@ -1,24 +1,20 @@
 <%- include _header %>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">统计管理 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#Stat_Nar">统计导航</a></li>
-                <li><a href="#User_Vistor">用户访问量</a></li>
+<style type="text/css">
+    #row{width: 960px;clear: both;margin: auto}
 
+</style>
+<div id="row" class="row" >
 
-                <li><a href="#Plug_Down">插件下载数</a></li>
-                <li><a href="#New_Plug">新增插件数</a></li>
+</div>
 
-                <li><a href="#Develop_Num">开发者数量</a></li>
-                <li><a href="#Update_Item">插件更新项</a></li>
-                <li><a href="#Drop_Item">插件卸载项</a></li>
-            </ul>
+<%- include _footer %>
 
-        </div>
-评论
-</div></div>
+<script type="text/javascript">
 
-<%- include _header %>
+    (function($){
+        var url_apptype="/system/commentList";
+        $.my_ajax_html(url_apptype,'#row');
+    })($);
+
+</script>

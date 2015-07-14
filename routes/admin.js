@@ -89,10 +89,10 @@ router.get('/list', function(req, res, next) {
 
 /***********************************布局管理***********************************************/
 
-router.get('/layout', function(req, res, next) {
+router.get('/systemParams', function(req, res, next) {
     res.render('admin/layout', { title: '布局管理',
         staticResourceUrl: constants.staticResourceHost,
-        mClass:"layout"
+        mClass:"systemParams"
     });
 });
 

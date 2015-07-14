@@ -785,7 +785,9 @@ AdminService.prototype.flowerQuery=function(req,res){
             }
         });
     }
-}
+};
+
+
 
 
 module.exports.AdminService = new AdminService;

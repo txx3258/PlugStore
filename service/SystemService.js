@@ -436,4 +436,44 @@ SystemService.prototype.addcomment=function(req,res){
     }
 }
 
+SystemService.prototype.fetchCommentList = function (req, res) {
+    var appInfo=req.query.appInfo,
+        pager=req.query.pager,
+        si=parseInt(pager)*10+1
+
+    var params = {
+        url: constants.COMMENT_API+"api/commentlist?bizIdentity=12&c=10&si="+si,
+        method: 'GET'
+    }
+
+    HTTP.request(params, handleComment, res);
+
+    function handleComment(res, result) {
+        try{
+            var json = JSON.parse(result);
+        }catch (e){
+            res.send('暂无评论');
+            return;
+        }
+
+        if (json.success==true) {
+            var dataList = json.data.datalist;
+            var pager=utils.pager(pager+1,10,json.data.totalCount,4);
+            fs.readFile(constants.PART_VIEW + "admin_comment.ejs", 'utf8', function (err, data) {
+                if (err) {
+                    res.send('');
+                } else {
+                    var html=ejs.render(data.toString(), {datalist: dataList})+pager;
+
+                    res.send(html);
+
+                }
+            })
+        } else {
+            res.send('暂无评论');
+        }
+    }
+};
+
+
 module.exports.SystemService = new SystemService;
